@@ -1,0 +1,29 @@
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+
+  max-width: var(--container-width);
+  &__image {
+    &-wrapper {
+      margin-block: 0 24px;
+    }
+  }
+  &__title {
+    margin-block: 0 11px;
+
+    @include fluid-text(36, 20);
+  }
+  &__text {
+    @include fluid-text(32, 16);
+
+    &:not(:last-child) {
+      margin-block: 0 26px;
+    }
+    color: var(--color-gray);
+  }
+  &__button {
+  }
+}

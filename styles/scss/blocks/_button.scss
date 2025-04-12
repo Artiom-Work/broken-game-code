@@ -1,0 +1,48 @@
+.button {
+  @include flex-center(true);
+
+  height: var(--button-height);
+  padding-inline: 25.5px;
+  font-size: 20px;
+  background-color: var(--color-green);
+  border-radius: var(--border-radius-small);
+  border: none;
+  color: var(--color-light);
+  text-shadow: var(--text-shadow);
+  box-shadow: var(--button-box-shadow);
+  white-space: nowrap;
+
+  @include hover {
+    filter: brightness(90%);
+    color: var(--color-dark);
+  }
+  @include active {
+    filter: brightness(70%);
+    scale: 0.95;
+  }
+  &--color {
+    &-orange {
+      background-color: var(--color-orange);
+    }
+    &-red {
+      background-color: var(--color-red);
+    }
+  }
+  &--big-padding {
+    padding-inline: 67px;
+  }
+
+  // &--transparent {
+  //   color: var(--color-dark);
+  //   background-color: transparent;
+  // }
+  // &--accent {
+  //   background-color: var(--color-accent);
+  //   color: var(--color-dark);
+
+  //   @include hover {
+  //     background-color: var(--color-dark);
+  //     color: var(--color-accent);
+  //   }
+  // }
+}

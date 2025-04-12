@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  min-height: 46px;
+  margin-block: 37px clamp(188px, 23vw, 292px);
+
+  &__logo {
+    min-height: inherit;
+  }
+  &__menu {
+  }
+}

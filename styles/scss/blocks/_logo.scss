@@ -1,0 +1,16 @@
+.logo {
+  @include fluid-text(48, 24);
+
+  &__link {
+    text-shadow: var(--text-shadow);
+
+    @include hover {
+      filter: brightness(80%);
+      color: var(--color-green);
+    }
+    @include active {
+      filter: brightness(60%);
+      scale: 0.95;
+    }
+  }
+}
