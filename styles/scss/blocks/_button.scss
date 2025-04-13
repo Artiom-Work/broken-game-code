@@ -2,8 +2,8 @@
   @include flex-center(true);
 
   height: var(--button-height);
-  padding-inline: 25.5px;
-  font-size: 20px;
+  padding-inline: clamp(10px, 2vw, 25.5px);
+  font-size: clamp(14px, 1.56vw, 20px);
   background-color: var(--color-green);
   border-radius: var(--border-radius-small);
   border: none;
@@ -20,16 +20,10 @@
     filter: brightness(70%);
     scale: 0.95;
   }
-  &--color {
-    &-orange {
-      background-color: var(--color-orange);
-    }
-    &-red {
-      background-color: var(--color-red);
-    }
-  }
-  &--big-padding {
-    padding-inline: 67px;
+  @include mobile-media {
+    background-color: var(--color-blue);
+    padding-inline: 28px;
+    font-size: 20px;
   }
 
   // &--transparent {

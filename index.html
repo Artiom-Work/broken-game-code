@@ -12,7 +12,6 @@
 	<!-- <meta name="description"
 		content="Add your page description ..."> -->
 	<!-- <link rel="stylesheet" href="libs/iziModal/iziModal.min.css"> -->
-	<!-- <link rel="stylesheet" href="libs/bootstrap/bootstrap.min.css"> -->
 	<title>ohShitMyCodeBroken | Аренда</title>
 	<link rel="stylesheet" href="styles/css/style.css">
 </head>
@@ -24,24 +23,48 @@
 			<a class="logo__link" href="index.html" aria-label="Логотип" title="Логотип">OhShitMyCodeBroken</a>
 		</div>
 
-		<nav class="header__menu menu">
+		<nav class="menu hidden-mobile">
 			<ul class="menu__list">
-				<li class="menu__item">
+				<li>
 					<button class="menu__button button" type="button" title="Активировать аренду">Новая аренда</button>
 				</li>
-				<li class="menu__item">
-					<a class="menu__button button button--color-orange" href="!#" aria-label="Частые вопросы">Частые
+				<li>
+					<a class="menu__button button menu__button--color-orange" href="!#" aria-label="Частые вопросы">Частые
 						вопросы</a>
 				</li>
-				<li class="menu__item">
-					<a class="menu__button button button--color-red button--big-padding" href="#!"
+				<li>
+					<a class="menu__button button menu__button--color-red menu__button--big-padding" href="#!"
 						aria-label="Проблема">Проблема</a>
 				</li>
 			</ul>
 		</nav>
+
+		<div class="mobile-menu visible-mobile">
+			<input id="menu-switch" type="checkbox">
+			<label class="mobile-menu__burger" for="menu-switch">
+				<span></span>
+			</label>
+			<div class="mobile-menu__wrapper">
+				<nav class="mobile-menu__box">
+					<ul class="menu__list">
+						<li>
+							<button class="menu__button button" type="button" title="Активировать аренду">Новая аренда</button>
+						</li>
+						<li>
+							<a class="menu__button button menu__button--color-orange" href="!#" aria-label="Частые вопросы">Частые
+								вопросы</a>
+						</li>
+						<li>
+							<a class="menu__button button menu__button--color-red menu__button--big-padding" href="#!"
+								aria-label="Проблема">Проблема</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
 	</header>
 
-	<main class="content">
+	<main>
 		<h1 class="visually-hidden">OhShitMyCodeBroken</h1>
 
 		<section class="empty container">
@@ -60,16 +83,12 @@
 			</div>
 
 			<button class="empty__button button" type="button" title="Создать новую аренда">Новая аренда</button>
-
 		</section>
 
 	</main>
 
 	<footer class="footer">
 	</footer>
-
-
-
 
 	<!-- <script src="libs/jquery/jquery-3.7.1.min.js"></script>  for accordion and modal-->
 	<!-- <script src="/libs/jquery/jquery-ui.1.14.0.min.js"></script> for accordion-->

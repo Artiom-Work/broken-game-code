@@ -1,0 +1,83 @@
+#menu-switch[type="checkbox"] {
+  display: none;
+  &:checked ~ .mobile-menu__burger {
+    background-color: transparent;
+    width: 21px;
+    height: 21px;
+  }
+  &:checked ~ .mobile-menu__burger span {
+    background-color: transparent;
+    top: 8px;
+    left: -3px;
+    height: 2px;
+  }
+  &:checked ~ .mobile-menu__burger span::after,
+  &:checked ~ .mobile-menu__burger span::before {
+    transform: rotate(-45deg);
+    width: 29px;
+    border-radius: 15px;
+    top: 0;
+  }
+  &:checked ~ .mobile-menu__burger span::before {
+    transform: rotate(45deg);
+  }
+
+  &:checked ~ .mobile-menu__wrapper {
+    visibility: visible;
+    transform: translateY(0%);
+  }
+}
+
+.mobile-menu {
+  &__burger {
+    display: block;
+    position: relative;
+    z-index: 10;
+    width: 22px;
+    height: 18px;
+    color: var(--color-drark);
+
+    @include hover {
+      color: var(--color-blue);
+    }
+    @include active {
+      filter: brightness(70%);
+    }
+
+    & span {
+      display: block;
+      position: relative;
+      top: 6px;
+      left: 0px;
+      width: 100%;
+      height: 4px;
+      background-color: currentColor;
+    }
+    & span::after,
+    & span::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: -5.5px;
+      width: 100%;
+      height: inherit;
+      background-color: currentColor;
+      transition-duration: var(--transition-duration-long);
+    }
+    & span::after {
+      top: 5.5px;
+    }
+  }
+  &__wrapper {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: url(../../images/page-background.png) no-repeat center / cover;
+    z-index: 2;
+    visibility: hidden;
+    transition-duration: var(--transition-duration-long);
+    transform: translateY(-100%);
+  }
+}

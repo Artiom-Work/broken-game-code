@@ -6,7 +6,12 @@
   text-align: center;
 
   max-width: var(--container-width);
+  padding-block: clamp(188px, 23vw, 292px) 50px;
   &__image {
+    @include mobile-media {
+      width: 91px;
+      height: 82px;
+    }
     &-wrapper {
       margin-block: 0 24px;
     }
@@ -23,6 +28,10 @@
       margin-block: 0 26px;
     }
     color: var(--color-gray);
+
+    @include mobile-media {
+      padding-inline: 10px;
+    }
   }
   &__button {
   }
