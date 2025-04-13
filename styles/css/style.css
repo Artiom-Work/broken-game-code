@@ -472,7 +472,7 @@ a {
   top: 0;
   width: 100%;
   height: 100vh;
-  background: url(../../images/page-background.png) no-repeat center/cover;
+  background: var(--color-opacity-bg);
   z-index: 2;
   visibility: hidden;
   -webkit-transition-duration: var(--transition-duration-long);
