@@ -21,7 +21,6 @@
     scale: 0.95;
   }
   @include mobile-media {
-    background-color: var(--color-blue);
     padding-inline: 28px;
     font-size: 20px;
   }

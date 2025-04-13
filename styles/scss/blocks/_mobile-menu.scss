@@ -38,7 +38,8 @@
     color: var(--color-drark);
 
     @include hover {
-      color: var(--color-blue);
+      filter: brightness(90%);
+      color: var(--color-green);
     }
     @include active {
       filter: brightness(70%);
@@ -74,8 +75,9 @@
     top: 0;
     width: 100%;
     height: 100vh;
-    // background: url(../../images/page-background.png) no-repeat center / cover;
-    background: var(--color-opacity-bg);
+    background: url(../../images/page-background.png) no-repeat center / cover;
+    filter: brightness(80%);
+    // background: var(--color-opacity-bg);
     z-index: 2;
     visibility: hidden;
     transition-duration: var(--transition-duration-long);

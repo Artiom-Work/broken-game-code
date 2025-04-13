@@ -129,7 +129,6 @@ svg * {
   --color-green: #18d200;
   --color-red: #a75052;
   --color-orange: #ff9500;
-  --color-blue: #3474ea;
   --color-gray: #616161;
   --color-opacity-bg: rgba(49, 47, 47, 0.5);
   --text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -254,7 +253,6 @@ a {
 }
 @media (max-width: 767px) {
   .button {
-    background-color: var(--color-blue);
     padding-inline: 28px;
     font-size: 20px;
   }
@@ -289,21 +287,11 @@ a {
     color: var(--color-green);
   }
 }
-@media (hover: hover) and (max-width: 767px) {
-  .logo__link:hover {
-    color: var(--color-blue);
-  }
-}
 @media (hover: none) {
   .logo__link:active {
     -webkit-filter: brightness(80%);
             filter: brightness(80%);
     color: var(--color-green);
-  }
-}
-@media (hover: none) and (max-width: 767px) {
-  .logo__link:active {
-    color: var(--color-blue);
   }
 }
 .logo__link:active {
@@ -431,12 +419,16 @@ a {
 }
 @media (hover: hover) {
   .mobile-menu__burger:hover {
-    color: var(--color-blue);
+    -webkit-filter: brightness(90%);
+            filter: brightness(90%);
+    color: var(--color-green);
   }
 }
 @media (hover: none) {
   .mobile-menu__burger:active {
-    color: var(--color-blue);
+    -webkit-filter: brightness(90%);
+            filter: brightness(90%);
+    color: var(--color-green);
   }
 }
 .mobile-menu__burger:active {
@@ -472,7 +464,9 @@ a {
   top: 0;
   width: 100%;
   height: 100vh;
-  background: var(--color-opacity-bg);
+  background: url(../../images/page-background.png) no-repeat center/cover;
+  -webkit-filter: brightness(80%);
+          filter: brightness(80%);
   z-index: 2;
   visibility: hidden;
   -webkit-transition-duration: var(--transition-duration-long);
