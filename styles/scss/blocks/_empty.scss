@@ -9,10 +9,7 @@
   padding-block: clamp(188px, 23vw, 292px) 50px;
   &__image {
     animation: moveRobot 1s infinite alternate ease-in-out;
-    @include hover {
-      animation: flipRobot 0.6s ease-in-out;
-      cursor: none;
-    }
+
     @include mobile-media {
       width: 91px;
       height: 82px;
