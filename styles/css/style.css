@@ -210,6 +210,55 @@ a {
   color: inherit;
 }
 
+@-webkit-keyframes moveRobot {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-4px);
+            transform: translateY(-4px);
+  }
+}
+
+@keyframes moveRobot {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-4px);
+            transform: translateY(-4px);
+  }
+}
+@-webkit-keyframes flipRobot {
+  0% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+  55% {
+    -webkit-transform: rotate(340deg);
+            transform: rotate(340deg);
+    scale: 1.05;
+  }
+  100% {
+    scale: 1;
+  }
+}
+@keyframes flipRobot {
+  0% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+  55% {
+    -webkit-transform: rotate(340deg);
+            transform: rotate(340deg);
+    scale: 1.05;
+  }
+  100% {
+    scale: 1;
+  }
+}
 .button {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -465,8 +514,6 @@ a {
   width: 100%;
   height: 100vh;
   background: url(../../images/page-background.png) no-repeat center/cover;
-  -webkit-filter: brightness(80%);
-          filter: brightness(80%);
   z-index: 2;
   visibility: hidden;
   -webkit-transition-duration: var(--transition-duration-long);
@@ -492,6 +539,24 @@ a {
   text-align: center;
   max-width: var(--container-width);
   padding-block: clamp(188px, 23vw, 292px) 50px;
+}
+.empty__image {
+  -webkit-animation: moveRobot 1s infinite alternate ease-in-out;
+          animation: moveRobot 1s infinite alternate ease-in-out;
+}
+@media (hover: hover) {
+  .empty__image:hover {
+    -webkit-animation: flipRobot 0.6s ease-in-out;
+            animation: flipRobot 0.6s ease-in-out;
+    cursor: none;
+  }
+}
+@media (hover: none) {
+  .empty__image:active {
+    -webkit-animation: flipRobot 0.6s ease-in-out;
+            animation: flipRobot 0.6s ease-in-out;
+    cursor: none;
+  }
 }
 @media (max-width: 767px) {
   .empty__image {
