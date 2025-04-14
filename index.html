@@ -11,7 +11,7 @@
 	<link rel="apple-touch-icon" sizes="180x180" href="/images/icons/favicon.svg">
 	<!-- <meta name="description"
 		content="Add your page description ..."> -->
-	<!-- <link rel="stylesheet" href="libs/iziModal/iziModal.min.css"> -->
+	<link rel="stylesheet" href="libs/iziModal/iziModal.min.css">
 	<title>ohShitMyCodeBroken | Аренда</title>
 	<link rel="stylesheet" href="styles/css/style.css">
 </head>
@@ -82,52 +82,58 @@
 				</p>
 			</div>
 
-			<button class="empty__button button" type="button" title="Создать новую аренда">Новая аренда</button>
+			<button class="empty__button button" data-izimodal-open="#new-rent" type="button"
+				title="Создать новую аренда">Новая аренда</button>
 		</section>
 
 	</main>
 
-	<footer class="footer">
-	</footer>
+	<dialog class="new-rent" id="new-rent" aria-label="Активация аренды">
+		<h2 class="visually-hidden">Модальное окно для активации аренды</h2>
+		<svg class="new-rent__overlay-image new-rent__overlay-image--heart" viewBox="0 0 150 150" width="150" height="150">
+			<use xlink:href="/images/icons/sprite-icons.svg#heart"></use>
+		</svg>
 
+		<svg class="new-rent__overlay-image new-rent__overlay-image--potion" viewBox="0 0 768 1024" width="134"
+			height="179">
+			<use xlink:href="/images/icons/sprite-icons.svg#potion"></use>
+		</svg>
+		<header class="new-rent__header">
+			<h3 class="new-rent__title">Активация аренды</h3>
 
-	<!-- <dialog class="user-order" id="popup-user-order" aria-label="User's shopping order" open="">
-		<h2 class="user-order__title section-title">Активация аренды</h2>
+			<button class="new-rent__close-button close-button" data-izimodal-close="" title="Закрыть модальное окно">
+			</button>
+		</header>
 
-		<button class="user-order__button-close close-button close-button--color" data-izimodal-close=""
-			title="Close modal window">
-			<span class="close-button__element"></span>
-			<span class="close-button__element close-button__element--second"></span>
-		</button>
-
-		<form class="user-order__form user-order-form" id="user-order-form">
-			<label class="visually-hidden" for="user-name">User name</label>
-			<input class="user-order-form__input" type="text" name="name" id="user-name" placeholder="Enter full name..."
-				required>
-
-			<label class="visually-hidden" for="email">User email</label>
-			<input class="user-order-form__input" type="email" name="email" id="email" inputmode="email"
-				placeholder="Enter email..." required>
-
-			<label class="visually-hidden" for="cc-number">User card</label>
-			<input class="user-order-form__input" type="text" name="cc-number" id="cc-number" inputmode="numeric"
-				placeholder="Enter card.." maxlength="19" required>
+		<form class="new-rent__body" id="new-rent-form">
+			<label class="visually-hidden" for="rent-number">User card</label>
+			<input class="new-rent__input" type="number" name="rent-number" id="rent-number" inputmode="numeric"
+				placeholder="введите код полученный на сайте" maxlength="19" required>
 
 			<label class="visually-hidden" for="user-message">Comments</label>
-			<textarea class="user-order-form__input user-order-form__input--message" name="user-message" id="user-message"
-				spellcheck="true" placeholder="Enter comments..."></textarea>
+			<textarea class="new-rent__input new-rent__input--message" name="user-message" id="user-message" spellcheck="true"
+				placeholder="Тут текст простой "></textarea>
 
-			<button class="user-order-form__button button" type="submit" title="Submit data button">Submit</button>
+			<button class="new-rent__button button" type="submit" title="Активировать новую аренду">Новая аренда</button>
 		</form>
 
-		<img class="user-order__image" src="./images/popups/user-order-image.webp"
-			srcset="./images/popups/user-order-image@2x.webp 2x" alt="Woman with bananas" width="471" height="458">
+
+		<svg class="new-rent__overlay-image new-rent__overlay-image--sword" viewBox="0 0 170 316" width="237" height="237">
+			<use xlink:href="/images/icons/sprite-icons.svg#sword"></use>
+		</svg>
+
+		<svg class="new-rent__overlay-image new-rent__overlay-image--robot" viewBox="0 0 140 127" width="167" height="150">
+			<use xlink:href="/images/icons/sprite-icons.svg#robot"></use>
+		</svg>
+	</dialog>
 
 
-	</dialog> -->
-	<!-- <script src="libs/jquery/jquery-3.7.1.min.js"></script>  for accordion and modal-->
+
+
+
+	<script src="libs/jquery/jquery-3.7.1.min.js"></script>
 	<!-- <script src="/libs/jquery/jquery-ui.1.14.0.min.js"></script> for accordion-->
-	<!-- <script src="libs/iziModal/iziModal.min.js"></script> -->
+	<script src="libs/iziModal/iziModal.min.js"></script>
 	<script type="module" src="./js/main.js"></script>
 </body>
 

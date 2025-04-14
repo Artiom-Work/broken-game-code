@@ -1,0 +1,222 @@
+.new-rent {
+  // position: relative;
+  padding: 40px 60px 65px;
+  height: 619px !important;
+  border: none;
+  background-color: var(--color-light);
+  max-width: clamp(800px, 55.9vw, 1074px);
+  width: 100%;
+  box-shadow: var(--button-box-shadow);
+  border-radius: var(--border-radius-large) !important;
+
+  @include desktop-media {
+    max-width: clamp(300px, 78vw, 800px) !important;
+    height: 530px !important;
+  }
+  @include tablet-media {
+    padding: 20px 30px 35px;
+    height: 400px !important;
+  }
+  @include mobile-media {
+    padding: 20px;
+    height: 370px !important;
+  }
+  &__header {
+    @include flex-space-between;
+
+    margin-block: 0 50px;
+
+    @include desktop-media {
+      margin-block: 0 37px;
+    }
+    @include tablet-media {
+      margin-block: 0 20px;
+    }
+  }
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+  }
+  &__title {
+    @include fluid-text(32, 20);
+
+    font-weight: 400;
+  }
+
+  &__input {
+    @include fluid-text(32, 20);
+
+    padding: 20px;
+    max-width: 953px;
+    width: 100%;
+    height: var(--input-height);
+    border: none;
+    background-color: var(--color-gray-light);
+
+    @include mobile-s-media {
+      padding: 10px;
+    }
+    &[type="number"]::-webkit-outer-spin-button,
+    &[type="number"]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    &[type="number"] {
+      -moz-appearance: textfield;
+    }
+
+    &:not(textarea) {
+      margin-block: 0 63px;
+
+      @include desktop-media {
+        margin-block: 0 43px;
+      }
+      @include tablet-media {
+        margin-block: 0 20px;
+      }
+    }
+
+    &:focus,
+    &:focus-visible {
+      outline-color: var(--color-green);
+      transition-duration: 0 !important;
+    }
+
+    &:focus::placeholder {
+      color: transparent;
+    }
+
+    &:invalid {
+      outline-color: var(--color-red);
+    }
+
+    &::placeholder {
+      color: currentColor;
+
+      @include mobile-media {
+        font-size: 16px;
+      }
+
+      @include mobile-s-media {
+        font-size: 13px;
+      }
+    }
+
+    &--message {
+      @include fluid-text(24, 16);
+
+      height: 195px;
+      margin-block: 0 47px;
+      resize: none;
+
+      @include desktop-media {
+        margin-block: 0 37px;
+      }
+      @include tablet-media {
+        margin-block: 0 20px;
+        height: 150px;
+      }
+      &::spelling-error {
+        text-decoration: solid var(--color-red) underline;
+      }
+    }
+  }
+  &__button {
+    font-size: 32px;
+    padding-inline: 103px;
+    height: 62px;
+
+    @include desktop-media {
+      @include fluid-text(32, 20);
+
+      padding-inline: clamp(50px, 5.3vw, 103px);
+      height: clamp(var(--button-height), 3.14vw, 62px);
+    }
+  }
+
+  &__overlay-image {
+    position: absolute;
+    &--heart {
+      transform-origin: center;
+      animation: heartbeat 3s infinite ease-in-out;
+      max-width: clamp(65px, 7.3vw, 150px);
+      top: -50px;
+      left: -340px;
+      @media (max-width: 1750px) {
+        top: 0px;
+        left: -180px;
+      }
+      @include desktop-media {
+        top: -91px;
+        left: -140px;
+      }
+      @include tablet-media {
+        top: -131px;
+        left: -56px;
+      }
+    }
+    &--potion {
+      max-width: clamp(50px, 7vw, 134px);
+      top: -77px;
+      right: -340px;
+      @media (max-width: 1750px) {
+        top: -205px;
+        right: 0px;
+      }
+      @include desktop-media {
+        top: -205px;
+        right: 0px;
+      }
+      @include mobile-media {
+        top: -141px;
+      }
+    }
+    &--sword {
+      animation: moveSword 1s infinite alternate ease-in-out;
+      max-width: clamp(60px, 12.3vw, 237px);
+      height: clamp(120px, 12.3vw, 320px);
+      bottom: -51px;
+      left: -356px;
+      @media (max-width: 1750px) {
+        bottom: -221px;
+        left: -193px;
+      }
+      @include desktop-media {
+        bottom: -91px;
+        left: -163px;
+      }
+      @include tablet-media {
+        left: -115px;
+      }
+      @include mobile-media {
+        bottom: -144px;
+        left: -31px;
+      }
+    }
+
+    &--robot {
+      animation: moveRobotRotate 4s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+      max-width: clamp(70px, 8.7vw, 167px);
+      bottom: -89px;
+      right: -335px;
+      rotate: 30deg;
+      @media (max-width: 1750px) {
+        bottom: -149px;
+        right: -146px;
+      }
+      @include desktop-media {
+        bottom: -149px;
+        right: -146px;
+      }
+      @include tablet-media {
+        right: -78px;
+      }
+      @include mobile-media {
+        right: -24px;
+      }
+    }
+  }
+}
