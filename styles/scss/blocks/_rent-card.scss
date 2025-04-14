@@ -1,0 +1,148 @@
+.rent-card {
+  padding: 21px 30px 33px 23px;
+  max-width: 527px;
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
+  background-color: var(--color-light);
+
+  @include desktop-media {
+    max-width: clamp(340px, 41.2vw, 527px);
+  }
+  @include tablet-media {
+    max-width: 450px;
+    width: 100%;
+  }
+  @include mobile-media {
+    padding: 13px 19px 21px 14px;
+  }
+  &__heading {
+    @include flex-space-between;
+
+    padding-block: 0 15px;
+    margin-block: 0 19px;
+    border-bottom: var(--border);
+
+    @include mobile-media {
+      margin-block: 0 11px;
+    }
+  }
+  &__name {
+    font-size: 24px;
+
+    @include mobile-media {
+      font-size: 18px;
+    }
+
+    @include mobile-s-media {
+      font-size: 13px;
+    }
+  }
+  &__remain-time {
+    @include flex-center(true);
+
+    min-height: 36px;
+    padding-inline: 8px;
+    font-size: 16px;
+    border-radius: var(--border-radius);
+    background-color: var(--color-green-light);
+    color: var(--color-green);
+
+    @include mobile-s-media {
+      font-size: 10px;
+      min-height: 23px;
+    }
+  }
+  &__body {
+    margin-block: 0 33px;
+
+    @include mobile-media {
+      margin-block: 0 18px;
+    }
+  }
+  &__parameter {
+    @include flex-space-between;
+    gap: 8px;
+
+    &:not(:last-child) {
+      margin-block: 0 11px;
+      @include mobile-s-media {
+        margin-block: 0 5px;
+      }
+    }
+    &-name {
+      @include fluid-text(17, 11);
+
+      @include mobile-media {
+        font-size: 15px;
+      }
+      @include mobile-s-media {
+        font-size: 11px;
+      }
+    }
+    &-value {
+      @include flex-center(true);
+
+      border-radius: var(--border-radius);
+      background-color: var(--color-gray-light);
+      min-height: 26px;
+      font-size: 15px;
+      min-width: 167px;
+
+      @include mobile-s-media {
+        min-width: 116px;
+        font-size: 11px;
+        min-height: 20px;
+      }
+      &--button {
+        border: none;
+
+        @include hover {
+          filter: brightness(80%);
+          box-shadow: var(--box-shadow);
+        }
+        @include active {
+          filter: brightness(70%);
+          scale: 0.95;
+        }
+      }
+    }
+  }
+
+  &__button-group {
+    @include flex-space-between;
+    gap: 46px;
+
+    @include desktop-media {
+      gap: clamp(10px, 2.3vw, 30px);
+    }
+  }
+  &__button {
+    --rentCardButtonHeight: clamp(29.5px, 3.6vw, var(--button-height));
+
+    height: var(--rentCardButtonHeight);
+    font-size: 20px;
+    min-width: 210px;
+
+    @include desktop-media {
+      min-width: 170px;
+      font-size: 17px;
+    }
+
+    @include mobile-media {
+      font-size: 16px;
+      min-width: 150px;
+    }
+
+    @include mobile-s-media {
+      font-size: 12px;
+      min-width: 134px;
+    }
+    &--small-padding {
+      padding-inline: 11px;
+
+      @include mobile-media {
+        padding-inline: 8px;
+      }
+    }
+  }
+}

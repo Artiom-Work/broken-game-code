@@ -126,13 +126,14 @@ svg * {
   --color-dark: #000000;
   --color-light: #ffffff;
   --color-green: #18d200;
+  --color-green-light: #d3edc7;
   --color-red: #a75052;
   --color-orange: #ff9500;
   --color-gray: #616161;
   --color-gray-light: #d9d9d9;
   --color-opacity-bg: rgba(49, 47, 47, 0.5);
   --text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  --button-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  --box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   --border: 1px solid var(--color-dark);
   --border-radius: 10px;
   --border-radius-small: 6px;
@@ -213,6 +214,20 @@ svg * {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.section {
+  padding-block: 50px;
+}
+@media (max-width: 767px) {
+  .section {
+    padding-block: 31px;
+  }
+}
+.section__title {
+  font-size: clamp(16pxpx, 2.5pxvw, 32pxpx);
+  text-align: center;
+  color: var(--color-gray);
 }
 
 @-webkit-keyframes moveRobot {
@@ -402,8 +417,8 @@ a {
   border: none;
   color: var(--color-light);
   text-shadow: var(--text-shadow);
-  -webkit-box-shadow: var(--button-box-shadow);
-          box-shadow: var(--button-box-shadow);
+  -webkit-box-shadow: var(--box-shadow);
+          box-shadow: var(--box-shadow);
   white-space: nowrap;
 }
 @media (hover: hover) {
@@ -430,6 +445,12 @@ a {
     padding-inline: 28px;
     font-size: 20px;
   }
+}
+.button--color-orange {
+  background-color: var(--color-orange);
+}
+.button--color-red {
+  background-color: var(--color-red);
 }
 
 .close-button {
@@ -597,12 +618,6 @@ a {
     padding-inline: 25.5px;
   }
 }
-.menu__button--color-orange {
-  background-color: var(--color-orange);
-}
-.menu__button--color-red {
-  background-color: var(--color-red);
-}
 .menu__button--big-padding {
   padding-inline: clamp(10px, 5.2vw, 67px);
 }
@@ -754,6 +769,11 @@ a {
     padding-inline: 10px;
   }
 }
+.empty__button {
+  padding-inline: 27px;
+  font-size: clamp(20px, 1.875vw, 24px);
+}
+
 .new-rent {
   padding: 40px 60px 65px;
   height: 619px !important;
@@ -761,8 +781,8 @@ a {
   background-color: var(--color-light);
   max-width: clamp(800px, 55.9vw, 1074px);
   width: 100%;
-  -webkit-box-shadow: var(--button-box-shadow);
-          box-shadow: var(--button-box-shadow);
+  -webkit-box-shadow: var(--box-shadow);
+          box-shadow: var(--box-shadow);
   border-radius: var(--border-radius-large) !important;
 }
 @media (max-width: 1280px) {
@@ -1075,5 +1095,244 @@ a {
 @media (max-width: 767px) {
   .new-rent__overlay-image--robot {
     right: -24px;
+  }
+}
+
+.user-rents__title:not(:last-child) {
+  margin-block: 0 46px;
+}
+@media (max-width: 767px) {
+  .user-rents__title:not(:last-child) {
+    margin-block: 0 31px;
+  }
+}
+.user-rents__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: clamp(15px, 5.3vw, 69px);
+}
+.rent-card {
+  padding: 21px 30px 33px 23px;
+  max-width: 527px;
+  -webkit-box-shadow: var(--box-shadow);
+          box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
+  background-color: var(--color-light);
+}
+@media (max-width: 1280px) {
+  .rent-card {
+    max-width: clamp(340px, 41.2vw, 527px);
+  }
+}
+@media (max-width: 1023px) {
+  .rent-card {
+    max-width: 450px;
+    width: 100%;
+  }
+}
+@media (max-width: 767px) {
+  .rent-card {
+    padding: 13px 19px 21px 14px;
+  }
+}
+.rent-card__heading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-block: 0 15px;
+  margin-block: 0 19px;
+  border-bottom: var(--border);
+}
+@media (max-width: 767px) {
+  .rent-card__heading {
+    margin-block: 0 11px;
+  }
+}
+.rent-card__name {
+  font-size: 24px;
+}
+@media (max-width: 767px) {
+  .rent-card__name {
+    font-size: 18px;
+  }
+}
+@media (max-width: 480px) {
+  .rent-card__name {
+    font-size: 13px;
+  }
+}
+.rent-card__remain-time {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 36px;
+  padding-inline: 8px;
+  font-size: 16px;
+  border-radius: var(--border-radius);
+  background-color: var(--color-green-light);
+  color: var(--color-green);
+}
+@media (max-width: 480px) {
+  .rent-card__remain-time {
+    font-size: 10px;
+    min-height: 23px;
+  }
+}
+.rent-card__body {
+  margin-block: 0 33px;
+}
+@media (max-width: 767px) {
+  .rent-card__body {
+    margin-block: 0 18px;
+  }
+}
+.rent-card__parameter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+}
+.rent-card__parameter:not(:last-child) {
+  margin-block: 0 11px;
+}
+@media (max-width: 480px) {
+  .rent-card__parameter:not(:last-child) {
+    margin-block: 0 5px;
+  }
+}
+.rent-card__parameter-name {
+  font-size: clamp(11px, 1.328125vw, 17px);
+}
+@media (max-width: 767px) {
+  .rent-card__parameter-name {
+    font-size: 15px;
+  }
+}
+@media (max-width: 480px) {
+  .rent-card__parameter-name {
+    font-size: 11px;
+  }
+}
+.rent-card__parameter-value {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: var(--border-radius);
+  background-color: var(--color-gray-light);
+  min-height: 26px;
+  font-size: 15px;
+  min-width: 167px;
+}
+@media (max-width: 480px) {
+  .rent-card__parameter-value {
+    min-width: 116px;
+    font-size: 11px;
+    min-height: 20px;
+  }
+}
+.rent-card__parameter-value--button {
+  border: none;
+}
+@media (hover: hover) {
+  .rent-card__parameter-value--button:hover {
+    -webkit-filter: brightness(80%);
+            filter: brightness(80%);
+    -webkit-box-shadow: var(--box-shadow);
+            box-shadow: var(--box-shadow);
+  }
+}
+@media (hover: none) {
+  .rent-card__parameter-value--button:active {
+    -webkit-filter: brightness(80%);
+            filter: brightness(80%);
+    -webkit-box-shadow: var(--box-shadow);
+            box-shadow: var(--box-shadow);
+  }
+}
+.rent-card__parameter-value--button:active {
+  -webkit-filter: brightness(70%);
+          filter: brightness(70%);
+  scale: 0.95;
+}
+.rent-card__button-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 46px;
+}
+@media (max-width: 1280px) {
+  .rent-card__button-group {
+    gap: clamp(10px, 2.3vw, 30px);
+  }
+}
+.rent-card__button {
+  --rentCardButtonHeight: clamp(29.5px, 3.6vw, var(--button-height));
+  height: var(--rentCardButtonHeight);
+  font-size: 20px;
+  min-width: 210px;
+}
+@media (max-width: 1280px) {
+  .rent-card__button {
+    min-width: 170px;
+    font-size: 17px;
+  }
+}
+@media (max-width: 767px) {
+  .rent-card__button {
+    font-size: 16px;
+    min-width: 150px;
+  }
+}
+@media (max-width: 480px) {
+  .rent-card__button {
+    font-size: 12px;
+    min-width: 134px;
+  }
+}
+.rent-card__button--small-padding {
+  padding-inline: 11px;
+}
+@media (max-width: 767px) {
+  .rent-card__button--small-padding {
+    padding-inline: 8px;
   }
 }/*# sourceMappingURL=style.css.map */

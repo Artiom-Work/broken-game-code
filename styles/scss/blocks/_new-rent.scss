@@ -6,7 +6,7 @@
   background-color: var(--color-light);
   max-width: clamp(800px, 55.9vw, 1074px);
   width: 100%;
-  box-shadow: var(--button-box-shadow);
+  box-shadow: var(--box-shadow);
   border-radius: var(--border-radius-large) !important;
 
   @include desktop-media {

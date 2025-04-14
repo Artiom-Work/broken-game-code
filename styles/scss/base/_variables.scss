@@ -2,6 +2,7 @@
   --color-dark: #000000;
   --color-light: #ffffff;
   --color-green: #18d200;
+  --color-green-light: #d3edc7;
   --color-red: #a75052;
   --color-orange: #ff9500;
   --color-gray: #616161;
@@ -9,7 +10,7 @@
   --color-opacity-bg: rgba(49, 47, 47, 0.5);
 
   --text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  --button-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  --box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 
   --border: 1px solid var(--color-dark);
   --border-radius: 10px;
@@ -36,6 +37,7 @@
   // @include desktop-media {
   //   --container-padding-y: 50px;
   // }
+
   @include desktop-media {
     --input-height: 56px;
   }

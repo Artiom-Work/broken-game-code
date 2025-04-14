@@ -20,3 +20,18 @@ a {
   text-decoration: none;
   color: inherit;
 }
+//titles
+
+.section {
+  padding-block: 50px;
+
+  @include mobile-media {
+    padding-block: 31px;
+  }
+  &__title {
+    @include fluid-text(32px, 16px);
+
+    text-align: center;
+    color: var(--color-gray);
+  }
+}

@@ -9,7 +9,7 @@
   border: none;
   color: var(--color-light);
   text-shadow: var(--text-shadow);
-  box-shadow: var(--button-box-shadow);
+  box-shadow: var(--box-shadow);
   white-space: nowrap;
 
   @include hover {
@@ -23,6 +23,13 @@
   @include mobile-media {
     padding-inline: 28px;
     font-size: 20px;
+  }
+
+  &--color-orange {
+    background-color: var(--color-orange);
+  }
+  &--color-red {
+    background-color: var(--color-red);
   }
 }
 .close-button {

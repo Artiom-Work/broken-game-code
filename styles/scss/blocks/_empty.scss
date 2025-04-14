@@ -36,5 +36,7 @@
     }
   }
   &__button {
+    padding-inline: 27px;
+    @include fluid-text(24, 20);
   }
 }
