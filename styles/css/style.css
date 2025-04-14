@@ -967,13 +967,14 @@ a {
   position: absolute;
 }
 .new-rent__overlay-image--heart {
+  max-width: clamp(65px, 7.3vw, 150px);
+  top: -50px;
+  left: -340px;
   -webkit-transform-origin: center;
           transform-origin: center;
   -webkit-animation: heartbeat 3s infinite ease-in-out;
           animation: heartbeat 3s infinite ease-in-out;
-  max-width: clamp(65px, 7.3vw, 150px);
-  top: -50px;
-  left: -340px;
+  rotate: -23deg;
 }
 @media (max-width: 1750px) {
   .new-rent__overlay-image--heart {

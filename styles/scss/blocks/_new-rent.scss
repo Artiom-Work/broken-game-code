@@ -140,11 +140,13 @@
   &__overlay-image {
     position: absolute;
     &--heart {
-      transform-origin: center;
-      animation: heartbeat 3s infinite ease-in-out;
       max-width: clamp(65px, 7.3vw, 150px);
       top: -50px;
       left: -340px;
+
+      transform-origin: center;
+      animation: heartbeat 3s infinite ease-in-out;
+      rotate: -23deg;
       @media (max-width: 1750px) {
         top: 0px;
         left: -180px;
