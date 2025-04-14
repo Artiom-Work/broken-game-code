@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *,
 ::before,
 ::after {
@@ -193,6 +194,49 @@ svg * {
   overflow: hidden;
 }
 
+.copied-effect::before {
+  content: "Скопировано";
+  position: absolute;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 70%;
+  height: 100%;
+  background-color: var(--color-green-light);
+  color: var(--color-green);
+  left: -50%;
+  top: -120%;
+  border-radius: inherit;
+  z-index: 2;
+  opacity: 0;
+  -webkit-animation: showMessage 0.5s forwards;
+          animation: showMessage 0.5s forwards;
+}
+.copied-effect::after {
+  position: absolute;
+  content: "";
+  height: 50%;
+  aspect-ratio: 1;
+  background-color: var(--color-green-light);
+  z-index: 1;
+  left: 6%;
+  top: -50%;
+  rotate: 45deg;
+  opacity: 0;
+  -webkit-animation: showMessage 0.5s forwards;
+          animation: showMessage 0.5s forwards;
+}
+
+.delete-element {
+  display: none !important;
+}
+
 body {
   font-size: clamp(11px, 1.328125vw, 17px);
   font-family: var(--font-family-base);
@@ -225,12 +269,12 @@ a {
   }
 }
 .section__title {
-  font-size: clamp(16pxpx, 2.5pxvw, 32pxpx);
+  font-size: clamp(24px, 2.5vw, 32px);
   text-align: center;
   color: var(--color-gray);
 }
 
-@-webkit-keyframes moveRobot {
+@-webkit-keyframes moveTop {
   0% {
     -webkit-transform: translateY(0);
             transform: translateY(0);
@@ -241,7 +285,7 @@ a {
   }
 }
 
-@keyframes moveRobot {
+@keyframes moveTop {
   0% {
     -webkit-transform: translateY(0);
             transform: translateY(0);
@@ -397,6 +441,22 @@ a {
   100% {
     -webkit-transform: scale(1);
             transform: scale(1);
+  }
+}
+@-webkit-keyframes showMessage {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes showMessage {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 .button {
@@ -741,8 +801,8 @@ a {
   padding-block: clamp(188px, 23vw, 292px) 50px;
 }
 .empty__image {
-  -webkit-animation: moveRobot 1s infinite alternate ease-in-out;
-          animation: moveRobot 1s infinite alternate ease-in-out;
+  -webkit-animation: moveTop 1s infinite alternate ease-in-out;
+          animation: moveTop 1s infinite alternate ease-in-out;
 }
 @media (max-width: 767px) {
   .empty__image {
@@ -1015,6 +1075,8 @@ a {
   }
 }
 .new-rent__overlay-image--potion {
+  -webkit-animation: moveTop 2s infinite alternate ease-in-out;
+          animation: moveTop 2s infinite alternate ease-in-out;
   max-width: clamp(50px, 7vw, 134px);
   top: -77px;
   right: -340px;
@@ -1120,6 +1182,7 @@ a {
       flex-wrap: wrap;
   gap: clamp(15px, 5.3vw, 69px);
 }
+
 .rent-card {
   padding: 21px 30px 33px 23px;
   max-width: 527px;
@@ -1264,27 +1327,24 @@ a {
   }
 }
 .rent-card__parameter-value--button {
+  position: relative;
   border: none;
 }
 @media (hover: hover) {
   .rent-card__parameter-value--button:hover {
-    -webkit-filter: brightness(80%);
-            filter: brightness(80%);
+    background-color: var(--color-gray);
     -webkit-box-shadow: var(--box-shadow);
             box-shadow: var(--box-shadow);
   }
 }
 @media (hover: none) {
   .rent-card__parameter-value--button:active {
-    -webkit-filter: brightness(80%);
-            filter: brightness(80%);
+    background-color: var(--color-gray);
     -webkit-box-shadow: var(--box-shadow);
             box-shadow: var(--box-shadow);
   }
 }
 .rent-card__parameter-value--button:active {
-  -webkit-filter: brightness(70%);
-          filter: brightness(70%);
   scale: 0.95;
 }
 .rent-card__button-group {

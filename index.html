@@ -69,7 +69,7 @@
 	<main>
 		<h1 class="visually-hidden">OhShitMyCodeBroken</h1>
 
-		<!-- <section class="empty container">
+		<section class="empty container">
 			<div class="empty__image-wrapper">
 				<svg class="empty__image" viewBox="0 0 140 127" width="140" height="126">
 					<use xlink:href="./images/icons/sprite-icons.svg#robot"></use>
@@ -86,14 +86,14 @@
 
 			<button class="empty__button button" data-izimodal-open="#new-rent" type="button"
 				title="Создать новую аренда">Новая аренда</button>
-		</section> -->
+		</section>
 
 
-		<section class="user-rents container section">
+		<section class="user-rents container section delete-element">
 			<h2 class="user-rents__title section__title">Ваши аренды</h2>
 
 			<ul class="user-rents__list">
-				<li class="user-rents__item rent-card">
+				<!-- <li class="rent-card">
 					<article>
 						<h3 class="visually-hidden">Аренда пользователя</h3>
 						<div class="rent-card__heading">
@@ -124,7 +124,7 @@
 							<li class="rent-card__parameter">
 								<h4 class="rent-card__parameter-name">Для&nbsp;добавления в&nbsp;друзья:</h4>
 								<button class="rent-card__parameter-value rent-card__parameter-value--button" type="button"
-									title="Копировать">скопировать</button>
+									data-copy-add-to-friends="Данные из data-атрибута кнопки" title="Копировать">скопировать</button>
 							</li>
 						</ul>
 
@@ -134,9 +134,9 @@
 								aria-label="Проблема c аккаунтом">Проблема с&nbsp;акком</a>
 						</div>
 					</article>
-				</li>
+				</li> -->
 
-				<li class="user-rents__item rent-card">
+				<!-- <li class="rent-card">
 					<article>
 						<h3 class="visually-hidden">Аренда пользователя</h3>
 						<div class="rent-card__heading">
@@ -167,7 +167,7 @@
 							<li class="rent-card__parameter">
 								<h4 class="rent-card__parameter-name">Для&nbsp;добавления в&nbsp;друзья:</h4>
 								<button class="rent-card__parameter-value rent-card__parameter-value--button" type="button"
-									title="Копировать">скопировать</button>
+									data-copy-add-to-friends="Данные из data-атрибута кнопки" title="Копировать">скопировать</button>
 							</li>
 						</ul>
 
@@ -177,136 +177,7 @@
 								aria-label="Проблема c аккаунтом">Проблема с&nbsp;акком</a>
 						</div>
 					</article>
-				</li>
-
-				<li class="user-rents__item rent-card">
-					<article>
-						<h3 class="visually-hidden">Аренда пользователя</h3>
-						<div class="rent-card__heading">
-							<h4 class="rent-card__name">GAME_NAME</h4>
-
-							<div class="rent-card__remain-time">
-								<span>Активна ещё 2&nbsp;часа</span>
-							</div>
-						</div>
-
-						<ul class="rent-card__body">
-							<li class="rent-card__parameter">
-								<h4 class="rent-card__parameter-name">Время завершения</h4>
-								<span class="rent-card__parameter-value">12.12.2012 12:12:12</span>
-							</li>
-							<li class="rent-card__parameter">
-								<h4 class="rent-card__parameter-name">Логин:</h4>
-								<span class="rent-card__parameter-value">simple_login</span>
-							</li>
-							<li class="rent-card__parameter">
-								<h4 class="rent-card__parameter-name">Пароль:</h4>
-								<span class="rent-card__parameter-value">simple_passwd</span>
-							</li>
-							<li class="rent-card__parameter">
-								<h4 class="rent-card__parameter-name">Steam Guard Code:</h4>
-								<span class="rent-card__parameter-value">GDF34</span>
-							</li>
-							<li class="rent-card__parameter">
-								<h4 class="rent-card__parameter-name">Для&nbsp;добавления в&nbsp;друзья:</h4>
-								<button class="rent-card__parameter-value rent-card__parameter-value--button" type="button"
-									title="Копировать">скопировать</button>
-							</li>
-						</ul>
-
-						<div class="rent-card__button-group">
-							<button class="rent-card__button button" type="button">Продлить</button>
-							<a class="rent-card__button button button--color-red rent-card__button--small-padding" href="#!"
-								aria-label="Проблема c аккаунтом">Проблема с&nbsp;акком</a>
-						</div>
-					</article>
-				</li>
-
-				<li class="user-rents__item rent-card">
-					<article>
-						<h3 class="visually-hidden">Аренда пользователя</h3>
-						<div class="rent-card__heading">
-							<h4 class="rent-card__name">GAME_NAME</h4>
-
-							<div class="rent-card__remain-time">
-								<span>Активна ещё 2&nbsp;часа</span>
-							</div>
-						</div>
-
-						<ul class="rent-card__body">
-							<li class="rent-card__parameter">
-								<h4 class="rent-card__parameter-name">Время завершения</h4>
-								<span class="rent-card__parameter-value">12.12.2012 12:12:12</span>
-							</li>
-							<li class="rent-card__parameter">
-								<h4 class="rent-card__parameter-name">Логин:</h4>
-								<span class="rent-card__parameter-value">simple_login</span>
-							</li>
-							<li class="rent-card__parameter">
-								<h4 class="rent-card__parameter-name">Пароль:</h4>
-								<span class="rent-card__parameter-value">simple_passwd</span>
-							</li>
-							<li class="rent-card__parameter">
-								<h4 class="rent-card__parameter-name">Steam Guard Code:</h4>
-								<span class="rent-card__parameter-value">GDF34</span>
-							</li>
-							<li class="rent-card__parameter">
-								<h4 class="rent-card__parameter-name">Для&nbsp;добавления в&nbsp;друзья:</h4>
-								<button class="rent-card__parameter-value rent-card__parameter-value--button" type="button"
-									title="Копировать">скопировать</button>
-							</li>
-						</ul>
-
-						<div class="rent-card__button-group">
-							<button class="rent-card__button button" type="button">Продлить</button>
-							<a class="rent-card__button button button--color-red rent-card__button--small-padding" href="#!"
-								aria-label="Проблема c аккаунтом">Проблема с&nbsp;акком</a>
-						</div>
-					</article>
-				</li>
-
-				<li class="user-rents__item rent-card">
-					<article>
-						<h3 class="visually-hidden">Аренда пользователя</h3>
-						<div class="rent-card__heading">
-							<h4 class="rent-card__name">GAME_NAME</h4>
-
-							<div class="rent-card__remain-time">
-								<span>Активна ещё 2&nbsp;часа</span>
-							</div>
-						</div>
-
-						<ul class="rent-card__body">
-							<li class="rent-card__parameter">
-								<h4 class="rent-card__parameter-name">Время завершения</h4>
-								<span class="rent-card__parameter-value">12.12.2012 12:12:12</span>
-							</li>
-							<li class="rent-card__parameter">
-								<h4 class="rent-card__parameter-name">Логин:</h4>
-								<span class="rent-card__parameter-value">simple_login</span>
-							</li>
-							<li class="rent-card__parameter">
-								<h4 class="rent-card__parameter-name">Пароль:</h4>
-								<span class="rent-card__parameter-value">simple_passwd</span>
-							</li>
-							<li class="rent-card__parameter">
-								<h4 class="rent-card__parameter-name">Steam Guard Code:</h4>
-								<span class="rent-card__parameter-value">GDF34</span>
-							</li>
-							<li class="rent-card__parameter">
-								<h4 class="rent-card__parameter-name">Для&nbsp;добавления в&nbsp;друзья:</h4>
-								<button class="rent-card__parameter-value rent-card__parameter-value--button" type="button"
-									title="Копировать">скопировать</button>
-							</li>
-						</ul>
-
-						<div class="rent-card__button-group">
-							<button class="rent-card__button button" type="button">Продлить</button>
-							<a class="rent-card__button button button--color-red rent-card__button--small-padding" href="#!"
-								aria-label="Проблема c аккаунтом">Проблема с&nbsp;акком</a>
-						</div>
-					</article>
-				</li>
+				</li> -->
 			</ul>
 		</section>
 

@@ -94,14 +94,14 @@
         min-height: 20px;
       }
       &--button {
+        position: relative;
         border: none;
 
         @include hover {
-          filter: brightness(80%);
+          background-color: var(--color-gray);
           box-shadow: var(--box-shadow);
         }
         @include active {
-          filter: brightness(70%);
           scale: 0.95;
         }
       }

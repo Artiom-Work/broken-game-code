@@ -161,6 +161,7 @@
       }
     }
     &--potion {
+      animation: moveTop 2s infinite alternate ease-in-out;
       max-width: clamp(50px, 7vw, 134px);
       top: -77px;
       right: -340px;

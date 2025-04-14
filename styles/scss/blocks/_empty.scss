@@ -8,7 +8,7 @@
   max-width: var(--container-width);
   padding-block: clamp(188px, 23vw, 292px) 50px;
   &__image {
-    animation: moveRobot 1s infinite alternate ease-in-out;
+    animation: moveTop 1s infinite alternate ease-in-out;
 
     @include mobile-media {
       width: 91px;

@@ -17,14 +17,10 @@
   --border-radius-small: 6px;
   --border-radius-large: 15px;
 
-  // --shadow: 0 5px 0 0 var(--color-dark);
-
   --font-family-base: "Hardpixel", sans-serif;
 
   --container-width: 1280px;
   --container-padding-x: 30px;
-
-  // --container-padding-y: 70px;
 
   --input-height: 79px;
   --button-height: 46px;
@@ -34,9 +30,6 @@
 
   // paths
   // --image-path: "../../images";
-  // @include desktop-media {
-  //   --container-padding-y: 50px;
-  // }
 
   @include desktop-media {
     --input-height: 56px;

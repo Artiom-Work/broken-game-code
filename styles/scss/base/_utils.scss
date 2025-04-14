@@ -22,6 +22,41 @@
 .lock-body {
   overflow: hidden;
 }
+.copied-effect {
+  &::before {
+    content: "Скопировано";
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: 100%;
+    background-color: var(--color-green-light);
+    color: var(--color-green);
+    left: -50%;
+    top: -120%;
+    border-radius: inherit;
+    z-index: 2;
+    opacity: 0;
+    animation: showMessage 0.5s forwards;
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    height: 50%;
+    aspect-ratio: 1;
+    background-color: var(--color-green-light);
+    z-index: 1;
+    left: 6%;
+    top: -50%;
+    rotate: 45deg;
+    opacity: 0;
+    animation: showMessage 0.5s forwards;
+  }
+}
+.delete-element {
+  display: none !important;
+}
 // .hide-layer {
 //   position: relative;
 //   z-index: -1;
