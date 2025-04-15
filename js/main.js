@@ -2,6 +2,7 @@
 
 const menuSwitcher = document.getElementById('menu-switch');
 const mobileMenu = document.querySelector('.mobile-menu__wrapper');
+const decorBlodksOnPage = document.querySelectorAll('.decor-block--on-page');
 // Набор переменных для иммитации создания шаблона ( потом удалить )
 const gameName = 'GAME_NAME';
 const endTime = '2 часа';
@@ -36,7 +37,22 @@ function bodyUnlock() {
 	document.body.style.paddingRight = '0px';
 	document.body.classList.remove('lock-body');
 }
+// -----====== For decor blocks (SVG animated images) ========----
 
+function hiddenDecorImages() {
+	if (decorBlodksOnPage) {
+		decorBlodksOnPage.forEach(element => {
+			element.classList.add('delete-element');
+		});
+	}
+}
+function showDecorImages() {
+	if (decorBlodksOnPage) {
+		decorBlodksOnPage.forEach(element => {
+			element.classList.remove('delete-element');
+		});
+	}
+}
 // -----====== Code for modal window ========----
 
 $("#new-rent").iziModal({
@@ -45,6 +61,12 @@ $("#new-rent").iziModal({
 	focusInput: false,
 	overlayColor: 'rgba(49, 47, 47, 0.5)',
 	bodyOverflow: true,
+});
+$(document).on('opening', '#new-rent', function (e) {
+	hiddenDecorImages();
+});
+$(document).on('closing', '#new-rent', function (e) {
+	showDecorImages();
 });
 
 // ----==== Code for block user-rents (user's reant cards) =====-----
@@ -156,7 +178,7 @@ function addRentCard(gameName, endTime, completionTime, login, password, steamGu
 
 									<div class="rent-card__button-group">
 											<button class="rent-card__button button" type="button">Продлить</button>
-											<a class="rent-card__button button button--color-red rent-card__button--small-padding" href="#!"
+											<a class="rent-card__button button button--color-red rent-card__button--small-padding" href="problem.html"
 													aria-label="Проблема c аккаунтом">Проблема с&nbsp;акком</a>
 									</div>
 							</article>
@@ -169,3 +191,5 @@ function addRentCard(gameName, endTime, completionTime, login, password, steamGu
 		console.log('На этой странице нету блока с арендами.');
 	}
 }
+
+

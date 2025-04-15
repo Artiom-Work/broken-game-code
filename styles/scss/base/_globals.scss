@@ -20,17 +20,39 @@ a {
   color: inherit;
 }
 //titles
-
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-shadow: var(--text-shadow);
+}
 .section {
-  padding-block: 50px;
+  padding-block: 68px;
 
   @include mobile-media {
     padding-block: 31px;
   }
+
+  &--main-page {
+    padding-block: 50px;
+
+    @include mobile-media {
+      padding-block: 31px;
+    }
+  }
   &__title {
-    @include fluid-text(32, 24);
+    @include fluid-text(32, 18);
 
     text-align: center;
     color: var(--color-gray);
+    &:not(:last-child) {
+      margin-block: 0 50px;
+
+      @include mobile-media {
+        margin-block: 0 31px;
+      }
+    }
   }
 }

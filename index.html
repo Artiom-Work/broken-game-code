@@ -5,10 +5,10 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link rel="icon" type="image/svg+xml" sizes="16x16" href="/images/icons/favicon.svg">
-	<link rel="icon" type="image/svg+xml" sizes="32x32" href="/images/icons/favicon.svg">
-	<link rel="icon" type="image/svg+xml" sizes="48x48" href="/images/icons/favicon.svg">
-	<link rel="apple-touch-icon" sizes="180x180" href="/images/icons/favicon.svg">
+	<link rel="icon" type="image/svg+xml" sizes="16x16" href="./images/icons/favicon.svg">
+	<link rel="icon" type="image/svg+xml" sizes="32x32" href="./images/icons/favicon.svg">
+	<link rel="icon" type="image/svg+xml" sizes="48x48" href="./images/icons/favicon.svg">
+	<link rel="apple-touch-icon" sizes="180x180" href="./images/icons/favicon.svg">
 	<!-- <meta name="description"
 		content="Add your page description ..."> -->
 	<link rel="stylesheet" href="libs/iziModal/iziModal.min.css">
@@ -30,11 +30,11 @@
 						title="Активировать аренду">Новая аренда</button>
 				</li>
 				<li>
-					<a class="menu__button button button--color-orange" href="!#" aria-label="Частые вопросы">Частые
+					<a class="menu__button button button--color-orange" href="faq.html" aria-label="Частые вопросы">Частые
 						вопросы</a>
 				</li>
 				<li>
-					<a class="menu__button button button--color-red menu__button--big-padding" href="#!"
+					<a class="menu__button button button--color-red menu__button--big-padding" href="problem.html"
 						aria-label="Проблема">Проблема</a>
 				</li>
 			</ul>
@@ -53,11 +53,11 @@
 								title="Активировать аренду">Новая аренда</button>
 						</li>
 						<li>
-							<a class="menu__button button button--color-orange" href="!#" aria-label="Частые вопросы">Частые
+							<a class="menu__button button button--color-orange" href="faq.html" aria-label="Частые вопросы">Частые
 								вопросы</a>
 						</li>
 						<li>
-							<a class="menu__button button button--color-red menu__button--big-padding" href="#!"
+							<a class="menu__button button button--color-red menu__button--big-padding" href="problem.html"
 								aria-label="Проблема">Проблема</a>
 						</li>
 					</ul>
@@ -89,110 +89,27 @@
 		</section>
 
 
-		<section class="user-rents container section delete-element">
+		<section class="user-rents container section section--main-page delete-element">
 			<h2 class="user-rents__title section__title">Ваши аренды</h2>
 
-			<ul class="user-rents__list">
-				<!-- <li class="rent-card">
-					<article>
-						<h3 class="visually-hidden">Аренда пользователя</h3>
-						<div class="rent-card__heading">
-							<h4 class="rent-card__name">GAME_NAME</h4>
-
-							<div class="rent-card__remain-time">
-								<span>Активна ещё 2&nbsp;часа</span>
-							</div>
-						</div>
-
-						<ul class="rent-card__body">
-							<li class="rent-card__parameter">
-								<h4 class="rent-card__parameter-name">Время завершения</h4>
-								<span class="rent-card__parameter-value">12.12.2012 12:12:12</span>
-							</li>
-							<li class="rent-card__parameter">
-								<h4 class="rent-card__parameter-name">Логин:</h4>
-								<span class="rent-card__parameter-value">simple_login</span>
-							</li>
-							<li class="rent-card__parameter">
-								<h4 class="rent-card__parameter-name">Пароль:</h4>
-								<span class="rent-card__parameter-value">simple_passwd</span>
-							</li>
-							<li class="rent-card__parameter">
-								<h4 class="rent-card__parameter-name">Steam Guard Code:</h4>
-								<span class="rent-card__parameter-value">GDF34</span>
-							</li>
-							<li class="rent-card__parameter">
-								<h4 class="rent-card__parameter-name">Для&nbsp;добавления в&nbsp;друзья:</h4>
-								<button class="rent-card__parameter-value rent-card__parameter-value--button" type="button"
-									data-copy-add-to-friends="Данные из data-атрибута кнопки" title="Копировать">скопировать</button>
-							</li>
-						</ul>
-
-						<div class="rent-card__button-group">
-							<button class="rent-card__button button" type="button">Продлить</button>
-							<a class="rent-card__button button button--color-red rent-card__button--small-padding" href="#!"
-								aria-label="Проблема c аккаунтом">Проблема с&nbsp;акком</a>
-						</div>
-					</article>
-				</li> -->
-
-				<!-- <li class="rent-card">
-					<article>
-						<h3 class="visually-hidden">Аренда пользователя</h3>
-						<div class="rent-card__heading">
-							<h4 class="rent-card__name">GAME_NAME</h4>
-
-							<div class="rent-card__remain-time">
-								<span>Активна ещё 2&nbsp;часа</span>
-							</div>
-						</div>
-
-						<ul class="rent-card__body">
-							<li class="rent-card__parameter">
-								<h4 class="rent-card__parameter-name">Время завершения</h4>
-								<span class="rent-card__parameter-value">12.12.2012 12:12:12</span>
-							</li>
-							<li class="rent-card__parameter">
-								<h4 class="rent-card__parameter-name">Логин:</h4>
-								<span class="rent-card__parameter-value">simple_login</span>
-							</li>
-							<li class="rent-card__parameter">
-								<h4 class="rent-card__parameter-name">Пароль:</h4>
-								<span class="rent-card__parameter-value">simple_passwd</span>
-							</li>
-							<li class="rent-card__parameter">
-								<h4 class="rent-card__parameter-name">Steam Guard Code:</h4>
-								<span class="rent-card__parameter-value">GDF34</span>
-							</li>
-							<li class="rent-card__parameter">
-								<h4 class="rent-card__parameter-name">Для&nbsp;добавления в&nbsp;друзья:</h4>
-								<button class="rent-card__parameter-value rent-card__parameter-value--button" type="button"
-									data-copy-add-to-friends="Данные из data-атрибута кнопки" title="Копировать">скопировать</button>
-							</li>
-						</ul>
-
-						<div class="rent-card__button-group">
-							<button class="rent-card__button button" type="button">Продлить</button>
-							<a class="rent-card__button button button--color-red rent-card__button--small-padding" href="#!"
-								aria-label="Проблема c аккаунтом">Проблема с&nbsp;акком</a>
-						</div>
-					</article>
-				</li> -->
-			</ul>
+			<ul class="user-rents__list"></ul>
 		</section>
 
 	</main>
 
 	<dialog class="new-rent" id="new-rent" aria-label="Активация аренды">
 		<h2 class="visually-hidden">Модальное окно для активации аренды</h2>
-		<svg class="new-rent__overlay-image new-rent__overlay-image--heart" viewBox="0 0 960 960" width="150" height="150">
-			<use xlink:href="./images/icons/sprite-icons.svg#heart"></use>
-		</svg>
+		<div class="decor-block decor-block--top">
+			<svg class="decor-block__image decor-block__image--heart decor-block__image--heart-modal" viewBox="0 0 150 150"
+				width="150" height="150">
+				<use xlink:href="./images/icons/sprite-icons.svg#heart"></use>
+			</svg>
 
-		<svg class="new-rent__overlay-image new-rent__overlay-image--potion" viewBox="0 0 768 1024" width="134"
-			height="179">
-			<use xlink:href="./images/icons/sprite-icons.svg#potion"></use>
-		</svg>
+			<svg class="decor-block__image decor-block__image--potion decor-block__image--potion-modal" viewBox="0 0 768 1024"
+				width="134" height="179">
+				<use xlink:href="./images/icons/sprite-icons.svg#potion"></use>
+			</svg>
+		</div>
 		<header class="new-rent__header">
 			<h3 class="new-rent__title">Активация аренды</h3>
 
@@ -203,7 +120,7 @@
 		<form class="new-rent__body" id="new-rent-form">
 			<label class="visually-hidden" for="rent-number">User card</label>
 			<input class="new-rent__input" type="number" name="rent-number" id="rent-number" inputmode="numeric"
-				placeholder="введите код полученный на сайте" maxlength="19" required>
+				placeholder="введите код полученный на сайте" required>
 
 			<label class="visually-hidden" for="user-message">Comments</label>
 			<textarea class="new-rent__input new-rent__input--message" name="user-message" id="user-message" spellcheck="true"
@@ -212,22 +129,21 @@
 			<button class="new-rent__button button" type="submit" title="Активировать новую аренду">Новая аренда</button>
 		</form>
 
+		<div class="decor-block decor-block--bottom">
+			<svg class="decor-block__image decor-block__image--sword decor-block__image--sword-modal" viewBox="0 0 170 316"
+				width="237" height="237">
+				<use xlink:href="./images/icons/sprite-icons.svg#sword"></use>
+			</svg>
 
-		<svg class="new-rent__overlay-image new-rent__overlay-image--sword" viewBox="0 0 170 316" width="237" height="237">
-			<use xlink:href="./images/icons/sprite-icons.svg#sword"></use>
-		</svg>
+			<svg class="decor-block__image decor-block__image--robot decor-block__image--robot-modal" viewBox="0 0 140 127"
+				width="167" height="150">
+				<use xlink:href="./images/icons/sprite-icons.svg#robot"></use>
+			</svg>
+		</div>
 
-		<svg class="new-rent__overlay-image new-rent__overlay-image--robot" viewBox="0 0 140 127" width="167" height="150">
-			<use xlink:href="./images/icons/sprite-icons.svg#robot"></use>
-		</svg>
 	</dialog>
 
-
-
-
-
 	<script src="libs/jquery/jquery-3.7.1.min.js"></script>
-	<!-- <script src="/libs/jquery/jquery-ui.1.14.0.min.js"></script> for accordion-->
 	<script src="libs/iziModal/iziModal.min.js"></script>
 	<script type="module" src="./js/main.js"></script>
 </body>

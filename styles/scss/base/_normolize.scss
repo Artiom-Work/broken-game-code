@@ -36,7 +36,7 @@ body,
 }
 
 p {
-  --paragraphMarginBottom: 24px;
+  --paragraphMarginBottom: 12px;
 
   margin-block: 0;
 }
@@ -61,7 +61,6 @@ button {
 
 html {
   height: 100%;
-  // scrollbar-gutter: stable;
 }
 
 html,

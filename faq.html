@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="icon" type="image/svg+xml" sizes="16x16" href="./images/icons/favicon.svg">
+	<link rel="icon" type="image/svg+xml" sizes="32x32" href="./images/icons/favicon.svg">
+	<link rel="icon" type="image/svg+xml" sizes="48x48" href="./images/icons/favicon.svg">
+	<link rel="apple-touch-icon" sizes="180x180" href="./images/icons/favicon.svg">
+	<!-- <meta name="description"
+		content="Add your page description ..."> -->
+	<link rel="stylesheet" href="libs/iziModal/iziModal.min.css">
+	<title>ohShitMyCodeBroken | Частые вопросы </title>
+	<link rel="stylesheet" href="styles/css/faq-problem.css">
+</head>
+
+<body>
+
+	<header class="header container">
+		<div class="header__logo logo">
+			<a class="logo__link" href="index.html" aria-label="Логотип" title="Логотип">OhShitMyCodeBroken</a>
+		</div>
+
+		<nav class="menu hidden-mobile">
+			<ul class="menu__list">
+				<li>
+					<button class="menu__button button" data-izimodal-open="#new-rent" type="button"
+						title="Активировать аренду">Новая аренда</button>
+				</li>
+				<li>
+					<a class="menu__button button button--color-orange" href="faq.html" aria-label="Частые вопросы">Частые
+						вопросы</a>
+				</li>
+				<li>
+					<a class="menu__button button button--color-red menu__button--big-padding" href="problem.html"
+						aria-label="Проблема">Проблема</a>
+				</li>
+			</ul>
+		</nav>
+
+		<div class="mobile-menu visible-mobile">
+			<input id="menu-switch" type="checkbox">
+			<label class="mobile-menu__burger" for="menu-switch">
+				<span></span>
+			</label>
+			<div class="mobile-menu__wrapper">
+				<nav class="mobile-menu__box">
+					<ul class="menu__list">
+						<li>
+							<button class="menu__button button" data-izimodal-open="#new-rent" type="button"
+								title="Активировать аренду">Новая аренда</button>
+						</li>
+						<li>
+							<a class="menu__button button button--color-orange" href="faq.html" aria-label="Частые вопросы">Частые
+								вопросы</a>
+						</li>
+						<li>
+							<a class="menu__button button button--color-red menu__button--big-padding" href="problem.html"
+								aria-label="Проблема">Проблема</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<h1 class="visually-hidden">OhShitMyCodeBroken , частые вопросы</h1>
+		<div class="decor-block decor-block--on-page decor-block--top">
+			<svg class="decor-block__image decor-block__image--heart" viewBox="0 0 150 150" width="150" height="150">
+				<use xlink:href="./images/icons/sprite-icons.svg#heart"></use>
+			</svg>
+
+			<svg class="decor-block__image decor-block__image--potion" viewBox="0 0 768 1024" width="134" height="179">
+				<use xlink:href="./images/icons/sprite-icons.svg#potion"></use>
+			</svg>
+		</div>
+
+		<section class="section container">
+			<h2 class="section__title" id="faq-title">Ответы на частые вопросы</h2>
+
+			<dl class="accordion" id="accordion" aria-labelledby="faq-title">
+				<div>
+					<dt class="accordion__question">
+						<button class="accordion__question-button" aria-expanded="false" aria-controls="answer1">
+							Вопрос Вопрос Вопрос
+							<svg class="accordion__question-opener" width="52" height="52" viewBox="0 0 52 52" role="img"
+								aria-label="Открыть или закрыть">
+								<use xlink:href="./images/icons/sprite-icons.svg#accordion-icon"></use>
+							</svg>
+						</button>
+					</dt>
+					<dd class="accordion__answer" id="answer1">
+						<article class="accordion__answer-text">
+							<h3 class="visually-hidden">Ответ на часто задаваемый вопрос</h3>
+							<p>
+								Тут расписан текст, должно быть <u>подчеркивание</u>..
+							</p>
+							<p>
+								Вот такая зеленая вставка <span class="accordion__answer-text--green-bg">например</span>
+							</p>
+							<p>
+								И <a class="accordion__answer-text accordion__answer-text--link" href="!#"
+									aria-label="Ссылка по данному вопросу">прикольные ссылки</a>
+							</p>
+							<p>А при клике на плюсик сворачивание/разворачивание</p>
+						</article>
+					</dd>
+				</div>
+
+				<div>
+					<dt class="accordion__question">
+						<button class="accordion__question-button" aria-expanded="false" aria-controls="answer2">
+							Вопрос Вопрос Вопрос
+							<svg class="accordion__question-opener" width="52" height="52" viewBox="0 0 52 52" role="img"
+								aria-label="Открыть или закрыть">
+								<use xlink:href="./images/icons/sprite-icons.svg#accordion-icon"></use>
+							</svg>
+						</button>
+					</dt>
+					<dd class="accordion__answer" id="answer2">
+						<article class="accordion__answer-text">
+							<h3 class="visually-hidden">Ответ на часто задаваемый вопрос</h3>
+							<p>
+								Тут расписан текст, должно быть <u>подчеркивание</u>..
+							</p>
+							<p>
+								Вот такая зеленая вставка <span class="accordion__answer-text--green-bg">например</span>
+							</p>
+							<p>
+								И <a class="accordion__answer-text accordion__answer-text--link" href="!#"
+									aria-label="Ссылка по данному вопросу">прикольные ссылки</a>
+							</p>
+							<p>А при клике на плюсик сворачивание/разворачивание</p>
+						</article>
+					</dd>
+				</div>
+
+				<div>
+					<dt class="accordion__question">
+						<button class="accordion__question-button" aria-expanded="false" aria-controls="answer3">
+							Вопрос Вопрос Вопрос
+							<svg class="accordion__question-opener" width="52" height="52" viewBox="0 0 52 52" role="img"
+								aria-label="Открыть или закрыть">
+								<use xlink:href="./images/icons/sprite-icons.svg#accordion-icon"></use>
+							</svg>
+						</button>
+					</dt>
+					<dd class="accordion__answer" id="answer3">
+						<article class="accordion__answer-text">
+							<h3 class="visually-hidden">Ответ на часто задаваемый вопрос</h3>
+							<p>
+								Тут расписан текст, должно быть <u>подчеркивание</u>..
+							</p>
+							<p>
+								Вот такая зеленая вставка <span class="accordion__answer-text--green-bg">например</span>
+							</p>
+							<p>
+								И <a class="accordion__answer-text accordion__answer-text--link" href="!#"
+									aria-label="Ссылка по данному вопросу">прикольные ссылки</a>
+							</p>
+							<p>А при клике на плюсик сворачивание/разворачивание</p>
+						</article>
+					</dd>
+				</div>
+
+				<div>
+					<dt class="accordion__question">
+						<button class="accordion__question-button" aria-expanded="false" aria-controls="answer4">
+							Вопрос Вопрос Вопрос
+							<svg class="accordion__question-opener" width="52" height="52" viewBox="0 0 52 52" role="img"
+								aria-label="Открыть или закрыть">
+								<use xlink:href="./images/icons/sprite-icons.svg#accordion-icon"></use>
+							</svg>
+						</button>
+					</dt>
+					<dd class="accordion__answer" id="answer4">
+						<article class="accordion__answer-text">
+							<h3 class="visually-hidden">Ответ на часто задаваемый вопрос</h3>
+							<p>
+								Тут расписан текст, должно быть <u>подчеркивание</u>..
+							</p>
+							<p>
+								Вот такая зеленая вставка <span class="accordion__answer-text--green-bg">например</span>
+							</p>
+							<p>
+								И <a class="accordion__answer-text accordion__answer-text--link" href="!#"
+									aria-label="Ссылка по данному вопросу">прикольные ссылки</a>
+							</p>
+							<p>А при клике на плюсик сворачивание/разворачивание</p>
+						</article>
+					</dd>
+				</div>
+
+				<div>
+					<dt class="accordion__question">
+						<button class="accordion__question-button" aria-expanded="false" aria-controls="answer5">
+							Вопрос Вопрос Вопрос
+							<svg class="accordion__question-opener" width="52" height="52" viewBox="0 0 52 52" role="img"
+								aria-label="Открыть или закрыть">
+								<use xlink:href="./images/icons/sprite-icons.svg#accordion-icon"></use>
+							</svg>
+						</button>
+					</dt>
+					<dd class="accordion__answer" id="answer5">
+						<article class="accordion__answer-text">
+							<h3 class="visually-hidden">Ответ на часто задаваемый вопрос</h3>
+							<p>
+								Тут расписан текст, должно быть <u>подчеркивание</u>..
+							</p>
+							<p>
+								Вот такая зеленая вставка <span class="accordion__answer-text--green-bg">например</span>
+							</p>
+							<p>
+								И <a class="accordion__answer-text accordion__answer-text--link" href="!#"
+									aria-label="Ссылка по данному вопросу">прикольные ссылки</a>
+							</p>
+							<p>А при клике на плюсик сворачивание/разворачивание</p>
+						</article>
+					</dd>
+				</div>
+			</dl>
+
+			<div class="decor-block decor-block--on-page decor-block--bottom">
+				<svg class="decor-block__image decor-block__image--sword" viewBox="0 0 170 316" width="237" height="237">
+					<use xlink:href="./images/icons/sprite-icons.svg#sword"></use>
+				</svg>
+
+				<svg class="decor-block__image decor-block__image--robot" viewBox="0 0 140 127" width="167" height="150">
+					<use xlink:href="./images/icons/sprite-icons.svg#robot"></use>
+				</svg>
+			</div>
+
+		</section>
+	</main>
+
+	<dialog class="new-rent" id="new-rent" aria-label="Активация аренды">
+		<h2 class="visually-hidden">Модальное окно для активации аренды</h2>
+		<div class="decor-block decor-block--top">
+			<svg class="decor-block__image decor-block__image--heart decor-block__image--heart-modal" viewBox="0 0 150 150"
+				width="150" height="150">
+				<use xlink:href="./images/icons/sprite-icons.svg#heart"></use>
+			</svg>
+
+			<svg class="decor-block__image decor-block__image--potion decor-block__image--potion-modal" viewBox="0 0 768 1024"
+				width="134" height="179">
+				<use xlink:href="./images/icons/sprite-icons.svg#potion"></use>
+			</svg>
+		</div>
+		<header class="new-rent__header">
+			<h3 class="new-rent__title">Активация аренды</h3>
+
+			<button class="new-rent__close-button close-button" data-izimodal-close="" title="Закрыть модальное окно">
+			</button>
+		</header>
+
+		<form class="new-rent__body" id="new-rent-form">
+			<label class="visually-hidden" for="rent-number">User card</label>
+			<input class="new-rent__input" type="number" name="rent-number" id="rent-number" inputmode="numeric"
+				placeholder="введите код полученный на сайте" required>
+
+			<label class="visually-hidden" for="user-message">Comments</label>
+			<textarea class="new-rent__input new-rent__input--message" name="user-message" id="user-message" spellcheck="true"
+				placeholder="Тут текст простой "></textarea>
+
+			<button class="new-rent__button button" type="submit" title="Активировать новую аренду">Новая аренда</button>
+		</form>
+
+		<div class="decor-block decor-block--bottom">
+			<svg class="decor-block__image decor-block__image--sword decor-block__image--sword-modal" viewBox="0 0 170 316"
+				width="237" height="237">
+				<use xlink:href="./images/icons/sprite-icons.svg#sword"></use>
+			</svg>
+
+			<svg class="decor-block__image decor-block__image--robot decor-block__image--robot-modal" viewBox="0 0 140 127"
+				width="167" height="150">
+				<use xlink:href="./images/icons/sprite-icons.svg#robot"></use>
+			</svg>
+		</div>
+
+	</dialog>
+
+	<script src="libs/jquery/jquery-3.7.1.min.js"></script>
+	<script src="/libs/jquery/jquery-ui.1.14.0.min.js"></script>
+	<script src="libs/iziModal/iziModal.min.js"></script>
+	<script type="module" src="./js/faq-problem.js"></script>
+</body>
+
+</html>
