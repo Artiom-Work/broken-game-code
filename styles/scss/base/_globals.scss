@@ -42,6 +42,9 @@ h6 {
       padding-block: 31px;
     }
   }
+  &--position {
+    position: relative;
+  }
   &__title {
     @include fluid-text(32, 18);
 

@@ -69,6 +69,71 @@ $(document).on('closing', '#new-rent', function (e) {
 	showDecorImages();
 });
 
+// -----====== Functions for form ========----
+// ==Form submit function==
+function handleFormSubmit(event) {
+	event.preventDefault();
+	const rentInput = document.getElementById('rent-number');
+	const userMessage = document.getElementById('user-message');
+
+	validateUuidV4(rentInput);
+
+	if (!rentInput.checkValidity()) {
+		rentInput.reportValidity();
+		return;
+	}
+
+	document.activeElement.blur();
+	$('#new-rent').iziModal('close');
+
+	rentInput.value = '';
+	if (userMessage) userMessage.value = '';
+	rentInput.setCustomValidity('');
+}
+//___________ Validation input functions ________
+// Handling the input field. ( Setting up validation )
+function setupUuidValidation(input) {
+	applyUuidV4Mask(input);
+
+	input.addEventListener('input', () => validateUuidV4(input));
+	input.addEventListener('invalid', (e) => {
+		validateUuidV4(input);
+		input.reportValidity();
+	});
+}
+// Function of create UUID v4 mask
+function applyUuidV4Mask(input) {
+	input.addEventListener('input', () => {
+		let value = input.value.toLowerCase();
+		value = value.replace(/[^0-9a-f]/g, '');
+
+		if (value.length > 8) value = value.slice(0, 8) + '-' + value.slice(8);
+		if (value.length > 13) value = value.slice(0, 13) + '-' + value.slice(13);
+		if (value.length > 18) value = value.slice(0, 18) + '-' + value.slice(18);
+		if (value.length > 23) value = value.slice(0, 23) + '-' + value.slice(23);
+
+
+		if (value.length > 36) value = value.slice(0, 36);
+
+		input.value = value;
+	});
+}
+// Function of validate input ( UUID v4 ) 
+function validateUuidV4(input) {
+	const uuidV4Regex = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+	let errorMessage = '';
+
+	if (input.validity.valueMissing) {
+		errorMessage = 'Пожалуйста, заполните это поле.';
+	} else if (!uuidV4Regex.test(input.value)) {
+		errorMessage = 'Введите корректный UUID v4';
+	}
+
+	input.setCustomValidity(errorMessage);
+}
+
+
+
 // -----====== For accordions. Pages faq and problem ========----
 $(function () {
 	$("#accordion").accordion({
@@ -77,10 +142,3 @@ $(function () {
 		header: "dt"
 	});
 });
-
-// form submit function
-function handleFormSubmit(event) {
-	event.preventDefault();
-	document.activeElement.blur();
-	$('#new-rent').iziModal('close');
-}

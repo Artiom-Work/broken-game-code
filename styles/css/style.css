@@ -294,6 +294,9 @@ h6 {
     padding-block: 31px;
   }
 }
+.section--position {
+  position: relative;
+}
 .section__title {
   font-size: clamp(18px, 2.5vw, 32px);
   text-align: center;
@@ -1204,13 +1207,6 @@ h6 {
   .new-rent__input {
     padding: 10px;
   }
-}
-.new-rent__input[type=number]::-webkit-outer-spin-button, .new-rent__input[type=number]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-.new-rent__input[type=number] {
-  -moz-appearance: textfield;
 }
 .new-rent__input:not(textarea) {
   margin-block: 0 63px;

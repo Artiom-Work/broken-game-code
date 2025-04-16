@@ -58,15 +58,6 @@
     @include mobile-s-media {
       padding: 10px;
     }
-    &[type="number"]::-webkit-outer-spin-button,
-    &[type="number"]::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-
-    &[type="number"] {
-      -moz-appearance: textfield;
-    }
 
     &:not(textarea) {
       margin-block: 0 63px;

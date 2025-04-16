@@ -78,7 +78,7 @@
 			</svg>
 		</div>
 
-		<section class="section container">
+		<section class="section container section--position">
 			<h2 class="section__title" id="faq-title">Ответы на частые вопросы</h2>
 
 			<dl class="accordion" id="accordion" aria-labelledby="faq-title">
@@ -257,11 +257,11 @@
 		</header>
 
 		<form class="new-rent__body" id="new-rent-form">
-			<label class="visually-hidden" for="rent-number">User card</label>
-			<input class="new-rent__input" type="number" name="rent-number" id="rent-number" inputmode="numeric"
+			<label class="visually-hidden" for="rent-number">Код пользователя</label>
+			<input class="new-rent__input" type="text" name="rent-number" id="rent-number" maxlength="40"
 				placeholder="введите код полученный на сайте" required>
 
-			<label class="visually-hidden" for="user-message">Comments</label>
+			<label class="visually-hidden" for="user-message">Коментарий пользователя</label>
 			<textarea class="new-rent__input new-rent__input--message" name="user-message" id="user-message" spellcheck="true"
 				placeholder="Тут текст простой "></textarea>
 
