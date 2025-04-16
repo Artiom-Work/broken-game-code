@@ -9,7 +9,7 @@
   padding-block: clamp(188px, 23vw, 292px) 50px;
   &__image {
     animation: moveTop 1s infinite alternate ease-in-out;
-
+    fill: var(--color-current);
     @include mobile-media {
       width: 91px;
       height: 82px;

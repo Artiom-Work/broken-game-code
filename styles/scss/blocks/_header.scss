@@ -4,10 +4,10 @@
   align-items: center;
   gap: 10px;
   min-height: 46px;
-  margin-block: 37px 0;
+  padding-block: 37px 0;
 
   @include mobile-media {
-    margin-block: 24px 0;
+    padding-block: 24px 0;
     min-height: 30px;
     align-items: end;
   }

@@ -11,10 +11,20 @@
   --color-gray-light: #d9d9d9;
   --color-opacity-bg: rgba(49, 47, 47, 0.5);
   --color-link-accent: #3700ff;
+  --color-page-mode: #000420bd;
 
   --text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  --text-shadow-dark: 0 4px 4px rgba(0, 0, 0, 0.25);
+  --text-shadow-black: 0 4px 4px rgba(0, 0, 0, 0.25);
+  --text-shadow-light: 0 3px 10px rgba(255, 255, 255, 0.75);
+
   --box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  --box-shadow-accent: 0px 0px 6px rgba(0, 0, 0, 0.75);
+  --box-shadow-dark: 0 4px 4px rgba(0, 0, 0, 0.25);
+  --box-shadow-light: 0 3px 15px rgba(255, 255, 255, 0.55);
+
+  --inner-box-shadow: inset 0px 0px 8px 2px rgba(0, 0, 0, 1);
+  --inner-box-shadow-light: inset 0px 0px 8px 2px rgba(255, 255, 255, 1);
+
   --border: 1px solid var(--color-dark);
   --border-radius: 10px;
   --border-radius-small: 6px;
@@ -31,8 +41,17 @@
   --transition-duration: 0.3s;
   --transition-duration-long: 0.6s;
 
+
+	--rent-card-bg:var(var(--color-light);)
   // paths
   // --image-path: "../../images";
+
+  //===========light-mode==========
+  --color-current: var(--color-dark);
+  --color-main-bg: var(--color-light);
+  --button-color: var(--color-light);
+  --section-title-color: var(var(--color-gray));
+  //===============================
 
   @include desktop-media {
     --input-height: 56px;
@@ -40,4 +59,14 @@
   @include mobile-media {
     --input-height: 46px;
   }
+}
+.dark {
+  --text-shadow: var(--text-shadow-light);
+  --box-shadow: var(--box-shadow-light);
+  --button-color: var(--color-dark);
+  --color-current: var(--color-light);
+  --color-main-bg: var(--color-dark);
+  --section-title-color: var(--color-gray-light);
+  --color-page-mode: var(--color-gray);
+	--rent-card-bg:var(--color-gray);
 }

@@ -7,7 +7,7 @@
   background-color: var(--color-green);
   border-radius: var(--border-radius-small);
   border: none;
-  color: var(--color-light);
+  color: var(--button-color);
   text-shadow: var(--text-shadow);
   box-shadow: var(--box-shadow);
   white-space: nowrap;
@@ -77,5 +77,97 @@
 
   &::after {
     rotate: -45deg;
+  }
+}
+
+.night-mode-button {
+  @include flex-space-between;
+
+  position: relative;
+  z-index: 10;
+  flex-shrink: 0;
+  width: clamp(70px, 7.8vw, 92px);
+  height: clamp(30px, 3.59vw, var(--button-height));
+  border: none;
+  border-radius: var(--border-radius-large);
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-page-mode);
+  padding: 5px 10px;
+  transition-duration: var(--transition-duration);
+  box-shadow: var(--box-shadow);
+
+  @include hover {
+    filter: brightness(90%);
+  }
+  @include active {
+    filter: brightness(70%);
+    scale: 0.95;
+  }
+
+  @include tablet-media {
+    border-radius: var(--border-radius);
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    box-shadow: var(--box-shadow-accent);
+    left: 3%;
+    top: 3px;
+    height: calc(100% - 6px);
+    aspect-ratio: 1;
+    border-radius: 30%;
+    background-color: var(--color-light);
+    transition-duration: var(--transition-duration);
+
+    @include tablet-media {
+      left: 4%;
+    }
+  }
+  .night-mode-button__image--moon {
+    fill: var(--color-light);
+  }
+  &--active::before {
+    left: 52%;
+
+    @include mobile-media {
+      left: 55%;
+    }
+    & .night-mode-button__image--sunny {
+      fill: var(--color-light);
+    }
+  }
+  &--active {
+    .night-mode-button__image--sunny {
+      fill: var(--color-dark);
+    }
+    & .night-mode-button__image--moon {
+      fill: var(--color-dark);
+    }
+  }
+  &__image {
+    position: relative;
+    z-index: 3;
+    width: clamp(22px, 1.95vw, 25px);
+    fill: currentColor;
+    &--sunny {
+      position: relative;
+      width: clamp(17px, 1.95vw, 25px);
+
+      @include tablet-media {
+        left: -4%;
+      }
+      @include mobile-media {
+        left: -7%;
+      }
+    }
+    &--moon {
+      position: relative;
+      left: 1px;
+
+      @include mobile-media {
+        width: 20px;
+      }
+    }
   }
 }

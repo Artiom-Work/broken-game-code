@@ -48,6 +48,7 @@
   &__input {
     @include fluid-text(32, 20);
 
+    box-shadow: var(--box-shadow-dark);
     padding: 20px;
     max-width: 953px;
     width: 100%;
@@ -119,6 +120,8 @@
     font-size: 32px;
     padding-inline: 103px;
     height: 62px;
+    box-shadow: var(--box-shadow-dark);
+    text-shadow: var(--box-shadow-dark);
 
     @include desktop-media {
       @include fluid-text(32, 20);

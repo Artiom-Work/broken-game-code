@@ -59,7 +59,7 @@ $("#new-rent").iziModal({
 	width: 1074,
 	padding: 0,
 	focusInput: false,
-	overlayColor: 'rgba(49, 47, 47, 0.5)',
+	overlayColor: 'rgba(49, 47, 47, 0.9)',
 	bodyOverflow: true,
 });
 $(document).on('opening', '#new-rent', function (e) {

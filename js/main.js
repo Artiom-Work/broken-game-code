@@ -2,6 +2,7 @@
 
 const menuSwitcher = document.getElementById('menu-switch');
 const mobileMenu = document.querySelector('.mobile-menu__wrapper');
+const darkModeBtn = document.querySelector('.night-mode-button');
 // Набор переменных для иммитации создания шаблона ( потом удалить )
 const gameName = 'GAME_NAME';
 const endTime = '2 часа';
@@ -42,7 +43,7 @@ $("#new-rent").iziModal({
 	width: 1074,
 	padding: 0,
 	focusInput: false,
-	overlayColor: 'rgba(49, 47, 47, 0.5)',
+	overlayColor: 'rgba(49, 47, 47, 0.9)',
 	bodyOverflow: true,
 });
 
@@ -231,4 +232,9 @@ function validateUuidV4(input) {
 	input.setCustomValidity(errorMessage);
 }
 
-
+// ----==== Code for night mode theme =====-----
+//Night theme toggle button behavior
+darkModeBtn.onclick = function () {
+	darkModeBtn.classList.toggle('night-mode-button--active');
+	document.body.classList.toggle('dark');
+}
