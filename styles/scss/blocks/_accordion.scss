@@ -7,6 +7,7 @@
   text-shadow: var(--text-shadow);
   &__question {
     box-shadow: var(--box-shadow);
+    background-color: var(--accordion-question-color-bg);
     &.ui-state-active {
       .accordion__question-opener {
         rotate: 410deg;
@@ -15,13 +16,14 @@
     &-button {
       @include flex-space-between;
 
+      background-color: transparent;
       gap: 15px;
       min-height: clamp(35px, 7.8vw, 100px);
       width: 100%;
       padding-inline: clamp(15px, 2.96vw, 38px) clamp(15px, 3.3vw, 42.5px);
       border-width: 2px;
-      background-color: var(--color-light);
       text-shadow: inherit;
+      color: var(--color-current);
     }
 
     &-opener {
@@ -30,6 +32,7 @@
       height: clamp(15px, 4.06vw, 52px);
       border-radius: 50%;
       box-shadow: var(--box-shadow-accent);
+      fill: var(--color-current);
 
       @include hover {
         fill: var(--color-green);
@@ -55,6 +58,7 @@
     &-text {
       &--green-bg {
         --paddingAccentText: 8px;
+        color: var(--color-dark);
         border-radius: var(--border-radius);
         background-color: var(--color-green-light);
         padding-inline: var(--paddingAccentText);

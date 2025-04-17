@@ -62,6 +62,7 @@ button {
 
 html {
   height: 100%;
+  scrollbar-gutter: stable;
 }
 
 html,
@@ -140,7 +141,9 @@ svg * {
   --text-shadow-dark: 0 4px 4px rgba(0, 0, 0, 0.25);
   --text-shadow-light: 0 4px 15px rgba(255, 255, 255, 0.25);
   --box-shadow-dark: 0 4px 4px rgba(0, 0, 0, 0.25);
+  --box-shadow-dark-accent: 0 0 15px rgba(0, 0, 0, 0.35);
   --box-shadow-light: 0 0px 20px rgba(255, 255, 255, 0.25);
+  --box-shadow-light-accent: 0 0 15px rgba(255, 255, 255, 0.25);
   --border: 1px solid var(--color-dark);
   --border-radius: 10px;
   --border-radius-small: 6px;
@@ -159,10 +162,12 @@ svg * {
   --rent-card-bg: var(--color-light);
   --text-shadow: var(--text-shadow-dark);
   --box-shadow: var(--box-shadow-dark);
+  --box-shadow-accent: var(--box-shadow-accent-dark);
   --color-page-mode-bg: var(--color-dark-light);
   --parametr-card-value-bg: var(--color-gray-light);
   --color-modal-bg: var(--color-light);
   --color-input-bg: var(--color-gray-light);
+  --accordion-question-color-bg: var(--color-light);
 }
 @media (max-width: 1280px) {
   :root {
@@ -178,6 +183,7 @@ svg * {
 .dark {
   --text-shadow: var(--text-shadow-light);
   --box-shadow: var(--box-shadow-light);
+  --box-shadow-accent: var(--box-shadow-light-accent);
   --color-current: var(--color-light);
   --button-text-color: var(--color-dark);
   --color-main-bg: var(--color-dark);
@@ -186,6 +192,7 @@ svg * {
   --parametr-card-value-bg: var(--color-dark);
   --color-modal-bg: var(--color-dark-light);
   --color-input-bg: var(--color-dark);
+  --accordion-question-color-bg: var(--color-dark-light);
 }
 
 .container {
@@ -218,10 +225,6 @@ svg * {
   .visible-mobile {
     display: none !important;
   }
-}
-
-.lock-body {
-  overflow: hidden;
 }
 
 .lock-body-y {
@@ -692,7 +695,7 @@ a {
   .night-mode-button {
     width: 60px;
     height: 30px;
-    padding: 5px px 5px 5px;
+    padding: 5px 6px 5px 5px;
   }
 }
 .night-mode-button::before {
@@ -1431,6 +1434,7 @@ a {
 .accordion__question {
   -webkit-box-shadow: var(--box-shadow);
           box-shadow: var(--box-shadow);
+  background-color: var(--accordion-question-color-bg);
 }
 .accordion__question.ui-state-active .accordion__question-opener {
   rotate: 410deg;
@@ -1445,13 +1449,14 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: transparent;
   gap: 15px;
   min-height: clamp(35px, 7.8vw, 100px);
   width: 100%;
   padding-inline: clamp(15px, 2.96vw, 38px) clamp(15px, 3.3vw, 42.5px);
   border-width: 2px;
-  background-color: var(--color-light);
   text-shadow: inherit;
+  color: var(--color-current);
 }
 .accordion__question-opener {
   -webkit-transition: all 0.6s ease 0s;
@@ -1461,6 +1466,7 @@ a {
   border-radius: 50%;
   -webkit-box-shadow: var(--box-shadow-accent);
           box-shadow: var(--box-shadow-accent);
+  fill: var(--color-current);
 }
 @media (hover: hover) {
   .accordion__question-opener:hover {
@@ -1496,6 +1502,7 @@ a {
 }
 .accordion__answer-text--green-bg {
   --paddingAccentText: 8px;
+  color: var(--color-dark);
   border-radius: var(--border-radius);
   background-color: var(--color-green-light);
   padding-inline: var(--paddingAccentText);

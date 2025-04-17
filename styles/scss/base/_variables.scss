@@ -17,7 +17,9 @@
   --text-shadow-light: 0 4px 15px rgba(255, 255, 255, 0.25);
 
   --box-shadow-dark: 0 4px 4px rgba(0, 0, 0, 0.25);
+  --box-shadow-dark-accent: 0 0 15px rgba(0, 0, 0, 0.35);
   --box-shadow-light: 0 0px 20px rgba(255, 255, 255, 0.25);
+  --box-shadow-light-accent: 0 0 15px rgba(255, 255, 255, 0.25);
 
   --border: 1px solid var(--color-dark);
   --border-radius: 10px;
@@ -43,10 +45,12 @@
   --rent-card-bg: var(--color-light);
   --text-shadow: var(--text-shadow-dark);
   --box-shadow: var(--box-shadow-dark);
+  --box-shadow-accent: var(--box-shadow-accent-dark);
   --color-page-mode-bg: var(--color-dark-light);
   --parametr-card-value-bg: var(--color-gray-light);
   --color-modal-bg: var(--color-light);
   --color-input-bg: var(--color-gray-light);
+  --accordion-question-color-bg: var(--color-light);
   //===============================
 
   @include desktop-media {
@@ -59,6 +63,7 @@
 .dark {
   --text-shadow: var(--text-shadow-light);
   --box-shadow: var(--box-shadow-light);
+  --box-shadow-accent: var(--box-shadow-light-accent);
   --color-current: var(--color-light);
   --button-text-color: var(--color-dark);
   --color-main-bg: var(--color-dark);
@@ -67,4 +72,5 @@
   --parametr-card-value-bg: var(--color-dark);
   --color-modal-bg: var(--color-dark-light);
   --color-input-bg: var(--color-dark);
+  --accordion-question-color-bg: var(--color-dark-light);
 }

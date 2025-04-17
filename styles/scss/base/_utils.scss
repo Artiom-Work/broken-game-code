@@ -19,9 +19,9 @@
     display: none !important;
   }
 }
-.lock-body {
-  overflow: hidden;
-}
+// .lock-body {
+//   overflow: hidden;
+// }
 .lock-body-y {
   overflow-y: hidden !important;
 }
@@ -64,5 +64,4 @@
 }
 .blurred {
   filter: blur(5px);
-  // transition: filter var(--transition-duration) ease;
 }

@@ -16,27 +16,27 @@ const friendData = 'Данные из data-атрибута кнопки';
 // -----====== For mobile menu ========----
 menuSwitcher.addEventListener('change', (e) => {
 	if (e.target.checked) {
-		bodyLock();
+		// bodyLock();
 		menuSwitcher.labels[0].title = 'close';
 	} else if (!e.target.checked) {
-		bodyUnlock();
+		// bodyUnlock();
 		menuSwitcher.labels[0].title = 'mobile menu';
 	}
 });
-mobileMenu.addEventListener('click', (e) => {
+mobileMenu.addEventListener('click', () => {
 	menuSwitcher.checked = false;
-	bodyUnlock();
+	// bodyUnlock();
 });
 
-function bodyLock() {
-	const lockPaddingValue = window.innerWidth - document.querySelector('body').offsetWidth + "px";
-	document.body.style.paddingRight = lockPaddingValue;
-	document.body.classList.add('lock-body');
-}
-function bodyUnlock() {
-	document.body.style.paddingRight = '0px';
-	document.body.classList.remove('lock-body');
-}
+// function bodyLock() {
+// 	const lockPaddingValue = window.innerWidth - document.querySelector('body').offsetWidth + "px";
+// 	document.body.style.paddingRight = lockPaddingValue;
+// 	document.body.classList.add('lock-body');
+// }
+// function bodyUnlock() {
+// 	document.body.style.paddingRight = '0px';
+// 	document.body.classList.remove('lock-body');
+// }
 // -----====== Code for modal window ========----
 
 $("#new-rent").iziModal({
@@ -54,8 +54,6 @@ $("#new-rent").iziModal({
 		document.querySelectorAll('body > :not(#new-rent)').forEach(el => el.classList.remove('blurred'));
 	}
 });
-// $(document).on('closed', '#new-rent', function (e) {
-// });
 // ----==== Code for block user-rents (user's reant cards) =====-----
 
 // copy data button function

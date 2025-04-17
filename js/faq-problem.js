@@ -3,6 +3,7 @@
 const menuSwitcher = document.getElementById('menu-switch');
 const mobileMenu = document.querySelector('.mobile-menu__wrapper');
 const decorBlodksOnPage = document.querySelectorAll('.decor-block--on-page');
+const darkModeBtn = document.querySelector('.night-mode-button');
 // -----====== GENERAL eventLitener ========----
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -16,27 +17,27 @@ document.addEventListener('DOMContentLoaded', function () {
 // -----====== For mobile menu ========----
 menuSwitcher.addEventListener('change', (e) => {
 	if (e.target.checked) {
-		bodyLock();
+		// bodyLock();
 		menuSwitcher.labels[0].title = 'close';
 	} else if (!e.target.checked) {
-		bodyUnlock();
+		// bodyUnlock();
 		menuSwitcher.labels[0].title = 'mobile menu';
 	}
 });
-mobileMenu.addEventListener('click', (e) => {
+mobileMenu.addEventListener('click', () => {
 	menuSwitcher.checked = false;
-	bodyUnlock();
+	// bodyUnlock();
 });
 
-function bodyLock() {
-	const lockPaddingValue = window.innerWidth - document.querySelector('body').offsetWidth + "px";
-	document.body.style.paddingRight = lockPaddingValue;
-	document.body.classList.add('lock-body');
-}
-function bodyUnlock() {
-	document.body.style.paddingRight = '0px';
-	document.body.classList.remove('lock-body');
-}
+// function bodyLock() {
+// 	const lockPaddingValue = window.innerWidth - document.querySelector('body').offsetWidth + "px";
+// 	document.body.style.paddingRight = lockPaddingValue;
+// 	document.body.classList.add('lock-body');
+// }
+// function bodyUnlock() {
+// 	document.body.style.paddingRight = '0px';
+// 	document.body.classList.remove('lock-body');
+// }
 // -----====== For decor blocks (SVG animated images) ========----
 
 function hiddenDecorImages() {
@@ -59,14 +60,20 @@ $("#new-rent").iziModal({
 	width: 1074,
 	padding: 0,
 	focusInput: false,
-	overlayColor: 'rgba(49, 47, 47, 0.9)',
+	overlayColor: 'rgba(49, 47, 47, 0.5)',
 	bodyOverflow: true,
-});
-$(document).on('opening', '#new-rent', function (e) {
-	hiddenDecorImages();
-});
-$(document).on('closing', '#new-rent', function (e) {
-	showDecorImages();
+	onOpening: function () {
+		document.querySelectorAll('body > :not(#new-rent)').forEach(el => el.classList.add('blurred'));
+		document.body.classList.add('lock-body-y');
+		hiddenDecorImages();
+
+
+	},
+	onClosed: function () {
+		showDecorImages();
+		document.body.classList.remove('lock-body-y');
+		document.querySelectorAll('body > :not(#new-rent)').forEach(el => el.classList.remove('blurred'));
+	}
 });
 
 // -----====== Functions for form ========----
@@ -142,3 +149,10 @@ $(function () {
 		header: "dt"
 	});
 });
+
+// ----==== Code for night mode theme =====-----
+//Night theme toggle button behavior
+darkModeBtn.onclick = function () {
+	darkModeBtn.classList.toggle('night-mode-button--active');
+	document.body.classList.toggle('dark');
+}
