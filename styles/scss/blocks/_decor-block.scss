@@ -39,7 +39,7 @@
         left: -40px;
       }
       &-modal {
-        fill: var(--color-dark);
+        fill: var(--color-current);
         top: -50px;
         left: -680px;
 
@@ -81,7 +81,7 @@
         right: -20px;
       }
       &-modal {
-        fill: var(--color-dark);
+        fill: var(--color-current);
         top: -67px;
         right: -650px;
         rotate: -6deg;
@@ -126,7 +126,8 @@
         left: 0px;
       }
       &-modal {
-        fill: var(--color-dark);
+        fill: var(--color-current);
+
         bottom: -40px;
         left: -686px;
         @media (max-width: 1750px) {
@@ -172,7 +173,8 @@
         right: 0;
       }
       &-modal {
-        fill: var(--color-dark);
+        fill: var(--color-current);
+
         bottom: -93px;
         right: -656px;
         @media (max-width: 1750px) {

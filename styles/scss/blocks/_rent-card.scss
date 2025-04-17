@@ -4,8 +4,8 @@
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius);
   background-color: var(--rent-card-bg);
-  color: var(--color-dark);
-  text-shadow: var(--text-shadow-dark);
+  color: var(--color-current);
+  text-shadow: var(--text-shadow);
 
   @include desktop-media {
     max-width: clamp(340px, 41.2vw, 527px);
@@ -48,7 +48,8 @@
     border-radius: var(--border-radius);
     background-color: var(--color-green-light);
     color: var(--color-green);
-    text-shadow: var(--text-shadow-black);
+    text-shadow: var(--text-shadow-dark);
+    box-shadow: var(--box-shadow);
     @include mobile-s-media {
       font-size: 10px;
       min-height: 23px;
@@ -85,7 +86,7 @@
       @include flex-center(true);
 
       border-radius: var(--border-radius);
-      background-color: var(--color-gray-light);
+      background-color: var(--parametr-card-value-bg);
       min-height: 26px;
       font-size: 15px;
       min-width: 167px;
@@ -98,6 +99,7 @@
       &--button {
         position: relative;
         border: none;
+        color: var(--color-current);
 
         @include hover {
           background-color: var(--color-gray);
@@ -125,7 +127,7 @@
     height: var(--rentCardButtonHeight);
     font-size: 20px;
     min-width: 210px;
-    box-shadow: var(--box-shadow-dark);
+    box-shadow: var(--box-shadow);
     @include desktop-media {
       min-width: 170px;
       font-size: 17px;

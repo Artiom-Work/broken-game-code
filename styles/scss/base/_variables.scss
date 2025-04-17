@@ -1,5 +1,6 @@
 :root {
   --color-dark: #000000;
+  --color-dark-light: #1f1f1f;
   --color-light: #ffffff;
   --color-green: #18d200;
   --color-green-light: #d3edc7;
@@ -9,21 +10,14 @@
   --color-gold: #948f00;
   --color-gray: #616161;
   --color-gray-light: #d9d9d9;
-  --color-opacity-bg: rgba(49, 47, 47, 0.5);
+  --color-opacity-bg: #312f2f80;
   --color-link-accent: #3700ff;
-  --color-page-mode: #000420bd;
 
-  --text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   --text-shadow-dark: 0 4px 4px rgba(0, 0, 0, 0.25);
-  --text-shadow-black: 0 4px 4px rgba(0, 0, 0, 0.25);
-  --text-shadow-light: 0 3px 10px rgba(255, 255, 255, 0.75);
+  --text-shadow-light: 0 4px 15px rgba(255, 255, 255, 0.25);
 
-  --box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   --box-shadow-dark: 0 4px 4px rgba(0, 0, 0, 0.25);
-  --box-shadow-light: 0 3px 15px rgba(255, 255, 255, 0.55);
-
-  --inner-box-shadow: inset 0px 0px 8px 2px rgba(0, 0, 0, 1);
-  --inner-box-shadow-light: inset 0px 0px 8px 2px rgba(255, 255, 255, 1);
+  --box-shadow-light: 0 0px 20px rgba(255, 255, 255, 0.25);
 
   --border: 1px solid var(--color-dark);
   --border-radius: 10px;
@@ -41,16 +35,18 @@
   --transition-duration: 0.3s;
   --transition-duration-long: 0.6s;
 
-
-	--rent-card-bg:var(var(--color-light);)
-  // paths
-  // --image-path: "../../images";
-
-  //===========light-mode==========
+  //--==changeable variables while klick the day/night button==--
   --color-current: var(--color-dark);
   --color-main-bg: var(--color-light);
-  --button-color: var(--color-light);
-  --section-title-color: var(var(--color-gray));
+  --button-text-color: var(--color-light);
+  --section-title-color: var(--color-gray);
+  --rent-card-bg: var(--color-light);
+  --text-shadow: var(--text-shadow-dark);
+  --box-shadow: var(--box-shadow-dark);
+  --color-page-mode-bg: var(--color-dark-light);
+  --parametr-card-value-bg: var(--color-gray-light);
+  --color-modal-bg: var(--color-light);
+  --color-input-bg: var(--color-gray-light);
   //===============================
 
   @include desktop-media {
@@ -63,10 +59,12 @@
 .dark {
   --text-shadow: var(--text-shadow-light);
   --box-shadow: var(--box-shadow-light);
-  --button-color: var(--color-dark);
   --color-current: var(--color-light);
+  --button-text-color: var(--color-dark);
   --color-main-bg: var(--color-dark);
-  --section-title-color: var(--color-gray-light);
-  --color-page-mode: var(--color-gray);
-	--rent-card-bg:var(--color-gray);
+  --rent-card-bg: var(--color-dark-light);
+  --color-page-mode-bg: var(--color-gray);
+  --parametr-card-value-bg: var(--color-dark);
+  --color-modal-bg: var(--color-dark-light);
+  --color-input-bg: var(--color-dark);
 }

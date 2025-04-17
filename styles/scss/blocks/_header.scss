@@ -1,7 +1,6 @@
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flex-space-between;
+
   gap: 10px;
   min-height: 46px;
   padding-block: 37px 0;
@@ -9,9 +8,12 @@
   @include mobile-media {
     padding-block: 24px 0;
     min-height: 30px;
-    align-items: end;
   }
+
   &__logo {
     min-height: inherit;
+  }
+  &__night-mode-button {
+    margin-inline: 0 auto;
   }
 }

@@ -125,6 +125,7 @@ svg * {
 }
 :root {
   --color-dark: #000000;
+  --color-dark-light: #1f1f1f;
   --color-light: #ffffff;
   --color-green: #18d200;
   --color-green-light: #d3edc7;
@@ -134,18 +135,12 @@ svg * {
   --color-gold: #948f00;
   --color-gray: #616161;
   --color-gray-light: #d9d9d9;
-  --color-opacity-bg: rgba(49, 47, 47, 0.5);
+  --color-opacity-bg: #312f2f80;
   --color-link-accent: #3700ff;
-  --color-page-mode: #000420bd;
-  --text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   --text-shadow-dark: 0 4px 4px rgba(0, 0, 0, 0.25);
-  --text-shadow-black: 0 4px 4px rgba(0, 0, 0, 0.25);
-  --text-shadow-light: 0 3px 10px rgba(255, 255, 255, 0.75);
-  --box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  --text-shadow-light: 0 4px 15px rgba(255, 255, 255, 0.25);
   --box-shadow-dark: 0 4px 4px rgba(0, 0, 0, 0.25);
-  --box-shadow-light: 0 3px 15px rgba(255, 255, 255, 0.55);
-  --inner-box-shadow: inset 0px 0px 8px 2px rgba(0, 0, 0, 1);
-  --inner-box-shadow-light: inset 0px 0px 8px 2px rgba(255, 255, 255, 1);
+  --box-shadow-light: 0 0px 20px rgba(255, 255, 255, 0.25);
   --border: 1px solid var(--color-dark);
   --border-radius: 10px;
   --border-radius-small: 6px;
@@ -157,13 +152,17 @@ svg * {
   --button-height: 46px;
   --transition-duration: 0.3s;
   --transition-duration-long: 0.6s;
-  --rent-card-bg:var(var(--color-light);)
-   // paths
-   // --image-path: "../../images";
   --color-current: var(--color-dark);
   --color-main-bg: var(--color-light);
-  --button-color: var(--color-light);
-  --section-title-color: var(var(--color-gray));
+  --button-text-color: var(--color-light);
+  --section-title-color: var(--color-gray);
+  --rent-card-bg: var(--color-light);
+  --text-shadow: var(--text-shadow-dark);
+  --box-shadow: var(--box-shadow-dark);
+  --color-page-mode-bg: var(--color-dark-light);
+  --parametr-card-value-bg: var(--color-gray-light);
+  --color-modal-bg: var(--color-light);
+  --color-input-bg: var(--color-gray-light);
 }
 @media (max-width: 1280px) {
   :root {
@@ -179,12 +178,14 @@ svg * {
 .dark {
   --text-shadow: var(--text-shadow-light);
   --box-shadow: var(--box-shadow-light);
-  --button-color: var(--color-dark);
   --color-current: var(--color-light);
+  --button-text-color: var(--color-dark);
   --color-main-bg: var(--color-dark);
-  --section-title-color: var(--color-gray-light);
-  --color-page-mode: var(--color-gray);
-  --rent-card-bg:var(--color-gray);
+  --rent-card-bg: var(--color-dark-light);
+  --color-page-mode-bg: var(--color-gray);
+  --parametr-card-value-bg: var(--color-dark);
+  --color-modal-bg: var(--color-dark-light);
+  --color-input-bg: var(--color-dark);
 }
 
 .container {
@@ -223,6 +224,10 @@ svg * {
   overflow: hidden;
 }
 
+.lock-body-y {
+  overflow-y: hidden !important;
+}
+
 .copied-effect::before {
   content: "Скопировано";
   position: absolute;
@@ -238,6 +243,9 @@ svg * {
   width: 70%;
   height: 100%;
   background-color: var(--color-green-light);
+  text-shadow: var(--text-shadow-dark);
+  -webkit-box-shadow: var(--box-shadow);
+          box-shadow: var(--box-shadow);
   color: var(--color-green);
   left: -50%;
   top: -120%;
@@ -266,9 +274,9 @@ svg * {
   display: none !important;
 }
 
-.hide-layer {
-  position: relative;
-  z-index: -1;
+.blurred {
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
 }
 
 body {
@@ -529,8 +537,8 @@ a {
   background-color: var(--color-green);
   border-radius: var(--border-radius-small);
   border: none;
-  color: var(--button-color);
-  text-shadow: var(--text-shadow);
+  color: var(--button-text-color);
+  text-shadow: var(--text-shadow-dark);
   -webkit-box-shadow: var(--box-shadow);
           box-shadow: var(--box-shadow);
   white-space: nowrap;
@@ -610,7 +618,7 @@ a {
   left: 5px;
   width: 84%;
   height: 2.5px;
-  background-color: var(--color-dark);
+  background-color: var(--color-current);
   border-radius: var(--border-radius);
   -webkit-transition-duration: var(--transition-duration);
           transition-duration: var(--transition-duration);
@@ -632,17 +640,17 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: relative;
-  z-index: 10;
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  width: clamp(70px, 7.8vw, 92px);
-  height: clamp(30px, 3.59vw, var(--button-height));
+  position: relative;
+  z-index: 10;
+  width: 92px;
+  height: 46px;
   border: none;
   border-radius: var(--border-radius-large);
   -webkit-box-shadow: var(--box-shadow);
           box-shadow: var(--box-shadow);
-  background-color: var(--color-page-mode);
+  background-color: var(--color-page-mode-bg);
   padding: 5px 10px;
   -webkit-transition-duration: var(--transition-duration);
           transition-duration: var(--transition-duration);
@@ -665,17 +673,34 @@ a {
           filter: brightness(70%);
   scale: 0.95;
 }
+@media (max-width: 1280px) {
+  .night-mode-button {
+    width: 72px;
+    height: 37px;
+    padding: 5px 7.5px;
+    border-radius: var(--border-radius);
+  }
+}
 @media (max-width: 1023px) {
   .night-mode-button {
-    border-radius: var(--border-radius);
+    width: 60px;
+    height: 30px;
+    padding: 5px 7.5px 5px 6px;
+  }
+}
+@media (max-width: 767px) {
+  .night-mode-button {
+    width: 60px;
+    height: 30px;
+    padding: 5px px 5px 5px;
   }
 }
 .night-mode-button::before {
   content: "";
   position: absolute;
   display: block;
-  -webkit-box-shadow: var(--box-shadow-accent);
-          box-shadow: var(--box-shadow-accent);
+  -webkit-box-shadow: var(--box-shadow);
+          box-shadow: var(--box-shadow);
   left: 3%;
   top: 3px;
   height: calc(100% - 6px);
@@ -685,21 +710,11 @@ a {
   -webkit-transition-duration: var(--transition-duration);
           transition-duration: var(--transition-duration);
 }
-@media (max-width: 1023px) {
-  .night-mode-button::before {
-    left: 4%;
-  }
-}
 .night-mode-button .night-mode-button__image--moon {
   fill: var(--color-light);
 }
 .night-mode-button--active::before {
-  left: 52%;
-}
-@media (max-width: 767px) {
-  .night-mode-button--active::before {
-    left: 55%;
-  }
+  left: 53%;
 }
 .night-mode-button--active::before .night-mode-button__image--sunny {
   fill: var(--color-light);
@@ -713,26 +728,8 @@ a {
 .night-mode-button__image {
   position: relative;
   z-index: 3;
-  width: clamp(22px, 1.95vw, 25px);
-  fill: currentColor;
-}
-.night-mode-button__image--sunny {
-  position: relative;
   width: clamp(17px, 1.95vw, 25px);
-}
-@media (max-width: 1023px) {
-  .night-mode-button__image--sunny {
-    left: -4%;
-  }
-}
-@media (max-width: 767px) {
-  .night-mode-button__image--sunny {
-    left: -7%;
-  }
-}
-.night-mode-button__image--moon {
-  position: relative;
-  left: 1px;
+  fill: currentColor;
 }
 @media (max-width: 767px) {
   .night-mode-button__image--moon {
@@ -754,9 +751,9 @@ a {
   z-index: 10;
   font-size: 48px;
 }
-@media (max-width: 1280px) {
+@media (max-width: 1750px) {
   .logo {
-    font-size: clamp(24px, 3.125vw, 40px);
+    font-size: clamp(22px, 3.125vw, 40px);
   }
 }
 .logo__link {
@@ -828,7 +825,7 @@ a {
   }
 }
 .decor-block__image--heart-modal {
-  fill: var(--color-dark);
+  fill: var(--color-current);
   top: -50px;
   left: -680px;
 }
@@ -882,7 +879,7 @@ a {
   }
 }
 .decor-block__image--potion-modal {
-  fill: var(--color-dark);
+  fill: var(--color-current);
   top: -67px;
   right: -650px;
   rotate: -6deg;
@@ -940,7 +937,7 @@ a {
   }
 }
 .decor-block__image--sword-modal {
-  fill: var(--color-dark);
+  fill: var(--color-current);
   bottom: -40px;
   left: -686px;
 }
@@ -1003,7 +1000,7 @@ a {
   }
 }
 .decor-block__image--robot-modal {
-  fill: var(--color-dark);
+  fill: var(--color-current);
   bottom: -93px;
   right: -656px;
 }
@@ -1048,13 +1045,13 @@ a {
   .header {
     padding-block: 24px 0;
     min-height: 30px;
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: end;
   }
 }
 .header__logo {
   min-height: inherit;
+}
+.header__night-mode-button {
+  margin-inline: 0 auto;
 }
 
 .menu__list {
@@ -1264,7 +1261,7 @@ a {
   padding: 40px 60px 65px;
   height: 619px !important;
   border: none;
-  background-color: var(--color-light);
+  background-color: var(--color-modal-bg);
   max-width: clamp(800px, 55.9vw, 1074px);
   width: 100%;
   -webkit-box-shadow: var(--box-shadow);
@@ -1329,6 +1326,7 @@ a {
 .new-rent__title {
   font-size: clamp(20px, 2.5vw, 32px);
   font-weight: 400;
+  color: var(--color-current);
 }
 .new-rent__input {
   font-size: clamp(20px, 2.5vw, 32px);
@@ -1338,8 +1336,9 @@ a {
   max-width: 953px;
   width: 100%;
   height: var(--input-height);
-  border: none;
-  background-color: var(--color-gray-light);
+  border: none !important;
+  color: var(--color-current);
+  background-color: var(--color-input-bg);
 }
 @media (max-width: 480px) {
   .new-rent__input {
@@ -1360,9 +1359,8 @@ a {
   }
 }
 .new-rent__input:focus, .new-rent__input:focus-visible {
-  outline-color: var(--color-green);
-  -webkit-transition-duration: 0 !important;
-          transition-duration: 0 !important;
+  outline: 3px solid var(--color-green);
+  border: none;
 }
 .new-rent__input:focus::-webkit-input-placeholder {
   color: transparent;
@@ -1380,7 +1378,7 @@ a {
   color: transparent;
 }
 .new-rent__input:invalid {
-  outline-color: var(--color-red);
+  outline: 3px solid var(--color-red);
 }
 .new-rent__input::-webkit-input-placeholder {
   color: currentColor;
@@ -1431,6 +1429,14 @@ a {
     font-size: 13px;
   }
 }
+.new-rent__input:-webkit-autofill, .new-rent__input:-webkit-autofill:hover, .new-rent__input:-webkit-autofill:focus, .new-rent__input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px var(--color-input-bg) inset !important;
+  box-shadow: 0 0 0 1000px var(--color-input-bg) inset !important;
+  -webkit-text-fill-color: var(--color-current) !important;
+  caret-color: var(--color-current) !important;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+}
 .new-rent__input--message {
   font-size: clamp(16px, 1.875vw, 24px);
   height: 195px;
@@ -1456,8 +1462,8 @@ a {
   font-size: 32px;
   padding-inline: 103px;
   height: 62px;
-  -webkit-box-shadow: var(--box-shadow-dark);
-          box-shadow: var(--box-shadow-dark);
+  -webkit-box-shadow: var(--box-shadow);
+          box-shadow: var(--box-shadow);
   text-shadow: var(--box-shadow-dark);
 }
 @media (max-width: 1280px) {
@@ -1498,8 +1504,8 @@ a {
           box-shadow: var(--box-shadow);
   border-radius: var(--border-radius);
   background-color: var(--rent-card-bg);
-  color: var(--color-dark);
-  text-shadow: var(--text-shadow-dark);
+  color: var(--color-current);
+  text-shadow: var(--text-shadow);
 }
 @media (max-width: 1280px) {
   .rent-card {
@@ -1565,7 +1571,9 @@ a {
   border-radius: var(--border-radius);
   background-color: var(--color-green-light);
   color: var(--color-green);
-  text-shadow: var(--text-shadow-black);
+  text-shadow: var(--text-shadow-dark);
+  -webkit-box-shadow: var(--box-shadow);
+          box-shadow: var(--box-shadow);
 }
 @media (max-width: 480px) {
   .rent-card__remain-time {
@@ -1625,7 +1633,7 @@ a {
       -ms-flex-align: center;
           align-items: center;
   border-radius: var(--border-radius);
-  background-color: var(--color-gray-light);
+  background-color: var(--parametr-card-value-bg);
   min-height: 26px;
   font-size: 15px;
   min-width: 167px;
@@ -1640,6 +1648,7 @@ a {
 .rent-card__parameter-value--button {
   position: relative;
   border: none;
+  color: var(--color-current);
 }
 @media (hover: hover) {
   .rent-card__parameter-value--button:hover {
@@ -1682,8 +1691,8 @@ a {
   height: var(--rentCardButtonHeight);
   font-size: 20px;
   min-width: 210px;
-  -webkit-box-shadow: var(--box-shadow-dark);
-          box-shadow: var(--box-shadow-dark);
+  -webkit-box-shadow: var(--box-shadow);
+          box-shadow: var(--box-shadow);
 }
 @media (max-width: 1280px) {
   .rent-card__button {

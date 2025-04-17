@@ -43,10 +43,19 @@ $("#new-rent").iziModal({
 	width: 1074,
 	padding: 0,
 	focusInput: false,
-	overlayColor: 'rgba(49, 47, 47, 0.9)',
+	overlayColor: 'rgba(49, 47, 47, 0.5)',
 	bodyOverflow: true,
+	onOpening: function () {
+		document.querySelectorAll('body > :not(#new-rent)').forEach(el => el.classList.add('blurred'));
+		document.body.classList.add('lock-body-y');
+	},
+	onClosed: function () {
+		document.body.classList.remove('lock-body-y');
+		document.querySelectorAll('body > :not(#new-rent)').forEach(el => el.classList.remove('blurred'));
+	}
 });
-
+// $(document).on('closed', '#new-rent', function (e) {
+// });
 // ----==== Code for block user-rents (user's reant cards) =====-----
 
 // copy data button function

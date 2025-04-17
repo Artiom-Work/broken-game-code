@@ -22,6 +22,9 @@
 .lock-body {
   overflow: hidden;
 }
+.lock-body-y {
+  overflow-y: hidden !important;
+}
 .copied-effect {
   &::before {
     content: "Скопировано";
@@ -32,6 +35,8 @@
     width: 70%;
     height: 100%;
     background-color: var(--color-green-light);
+    text-shadow: var(--text-shadow-dark);
+    box-shadow: var(--box-shadow);
     color: var(--color-green);
     left: -50%;
     top: -120%;
@@ -57,7 +62,7 @@
 .delete-element {
   display: none !important;
 }
-.hide-layer {
-  position: relative;
-  z-index: -1;
+.blurred {
+  filter: blur(5px);
+  // transition: filter var(--transition-duration) ease;
 }
