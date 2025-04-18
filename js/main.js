@@ -280,7 +280,7 @@ window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e)
 	}
 });
 
-// //------===== For background space paralax animation =========--------
+//------===== For background space paralax animation =========--------
 const svg = document.querySelector('.space__layer');
 const starsCount = 400;
 

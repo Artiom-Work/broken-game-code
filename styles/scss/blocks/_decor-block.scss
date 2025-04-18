@@ -55,9 +55,13 @@
           top: -118px;
           left: -220px;
         }
-        @include tablet-media {
+        @include mobile-media {
           top: -105px;
           left: -80px;
+        }
+        @include mobile-s-media {
+          top: -145px;
+          left: -20px;
         }
       }
     }
@@ -145,6 +149,10 @@
           bottom: -144px;
           left: -31px;
         }
+        @include mobile-s-media {
+          bottom: -120px;
+          left: -25px;
+        }
       }
     }
 
@@ -190,6 +198,10 @@
         }
         @include mobile-media {
           right: -24px;
+        }
+        @include mobile-s-media {
+          right: 0;
+          bottom: -120px;
         }
       }
     }

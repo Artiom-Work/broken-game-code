@@ -540,6 +540,37 @@ a {
     opacity: 0.2;
   }
 }
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+.space {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+}
+.space__layer {
+  width: 100%;
+  height: 100%;
+  min-width: 100vw;
+  min-height: 100vh;
+  -webkit-transition: -webkit-transform 0.05s linear;
+  transition: -webkit-transform 0.05s linear;
+  transition: transform 0.05s linear;
+  transition: transform 0.05s linear, -webkit-transform 0.05s linear;
+}
+
+circle {
+  -webkit-animation-delay: calc(var(--delay) * 1s);
+          animation-delay: calc(var(--delay) * 1s);
+  will-change: transform, opacity;
+}
+
 .button {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -866,10 +897,16 @@ a {
     left: -220px;
   }
 }
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
   .decor-block__image--heart-modal {
     top: -105px;
     left: -80px;
+  }
+}
+@media (max-width: 480px) {
+  .decor-block__image--heart-modal {
+    top: -145px;
+    left: -20px;
   }
 }
 .decor-block__image--potion {
@@ -983,6 +1020,12 @@ a {
     left: -31px;
   }
 }
+@media (max-width: 480px) {
+  .decor-block__image--sword-modal {
+    bottom: -120px;
+    left: -25px;
+  }
+}
 .decor-block__image--robot {
   -webkit-animation: moveRobotRotate 3s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
           animation: moveRobotRotate 3s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
@@ -1043,6 +1086,12 @@ a {
 @media (max-width: 767px) {
   .decor-block__image--robot-modal {
     right: -24px;
+  }
+}
+@media (max-width: 480px) {
+  .decor-block__image--robot-modal {
+    right: 0;
+    bottom: -120px;
   }
 }
 

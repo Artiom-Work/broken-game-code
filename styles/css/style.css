@@ -897,10 +897,16 @@ circle {
     left: -220px;
   }
 }
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
   .decor-block__image--heart-modal {
     top: -105px;
     left: -80px;
+  }
+}
+@media (max-width: 480px) {
+  .decor-block__image--heart-modal {
+    top: -145px;
+    left: -20px;
   }
 }
 .decor-block__image--potion {
@@ -1014,6 +1020,12 @@ circle {
     left: -31px;
   }
 }
+@media (max-width: 480px) {
+  .decor-block__image--sword-modal {
+    bottom: -120px;
+    left: -25px;
+  }
+}
 .decor-block__image--robot {
   -webkit-animation: moveRobotRotate 3s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
           animation: moveRobotRotate 3s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
@@ -1074,6 +1086,12 @@ circle {
 @media (max-width: 767px) {
   .decor-block__image--robot-modal {
     right: -24px;
+  }
+}
+@media (max-width: 480px) {
+  .decor-block__image--robot-modal {
+    right: 0;
+    bottom: -120px;
   }
 }
 
