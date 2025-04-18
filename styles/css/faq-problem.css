@@ -540,11 +540,6 @@ a {
     opacity: 0.2;
   }
 }
-body {
-  margin: 0;
-  overflow: hidden;
-}
-
 .space {
   position: fixed;
   top: 0;

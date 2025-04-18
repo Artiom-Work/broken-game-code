@@ -284,7 +284,7 @@ window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e)
 const svg = document.querySelector('.space__layer');
 const starsCount = 400;
 
-const baseRadius = window.innerWidth <= 767 ? 2 : 2.2;
+const baseRadius = window.innerWidth <= 767 ? 2.5 : 2.2;
 const throttledUpdateAll = throttle(updateAll, 100);
 const { viewBoxWidth, viewBoxHeight } = updateViewBox();
 
