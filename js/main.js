@@ -280,64 +280,18 @@ window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e)
 	}
 });
 
-//------===== For background space paralax animation =========--------
-const spaceContainer = document.querySelector('.space');
-const starsCount = 600;
+// //------===== For background space paralax animation =========--------
+const svg = document.querySelector('.space__layer');
+const starsCount = 400;
 
-const baseRadius = window.innerWidth <= 767 ? 7 : 6;
+const baseRadius = window.innerWidth <= 767 ? 2 : 2.2;
 const throttledUpdateAll = throttle(updateAll, 100);
-let viewBoxWidth, viewBoxHeight;
-
-
-const layers = [
-	{ element: createLayer(), depth: 0.2 },
-	{ element: createLayer(), depth: 0.5 },
-	{ element: createLayer(), depth: 0.8 }
-];
-
-initLayers();
-const { viewBoxWidth: vw, viewBoxHeight: vh } = updateViewBox();
-viewBoxWidth = vw;
-viewBoxHeight = vh;
+const { viewBoxWidth, viewBoxHeight } = updateViewBox();
 
 let posX = 0, posY = 0;
 let targetX = 0, targetY = 0;
 
-// Function for creating SVG layers
-function createLayer() {
-	const layer = document.createElement('div');
-	layer.className = 'space__layer';
-	const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-	layer.appendChild(svg);
-	spaceContainer.appendChild(layer);
-	return svg;
-}
-
-// Function to initialize layers
-function initLayers() {
-	layers.forEach(layer => {
-		const stars = Math.floor(starsCount * (1 - layer.depth));
-		generateStars(layer.element, stars, layer.depth);
-	});
-}
-
-// Modified star generation
-function generateStars(svg, count, depth) {
-	for (let i = 0; i < count; i++) {
-		const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-
-		circle.setAttribute('cx', Math.random() * 1500);
-		circle.setAttribute('cy', Math.random() * 1500);
-		circle.setAttribute('r', baseRadius * (1 - depth) * 0.8);
-		circle.setAttribute('fill', `rgba(156, 146, 172, ${0.05 + depth * 0.1})`);
-
-		circle.style.opacity = 0.05 + depth * 0.1;
-		circle.style.animation = `twinkle ${3 + Math.random() * 4}s infinite`;
-
-		svg.appendChild(circle);
-	}
-}
-
+// !IMPORTANT-Function for setting the frequency of function calls( so as not to overload the CPU too much)
 function throttle(func, ms) {
 	let isThrottled = false;
 	let savedArgs;
@@ -365,118 +319,53 @@ function throttle(func, ms) {
 	return wrapper;
 }
 
+// Function throttled resize ( so as not to overload the CPU too much)
 function updateAll() {
-	const { viewBoxWidth: vw, viewBoxHeight: vh } = updateViewBox();
-	viewBoxWidth = vw;
-	viewBoxHeight = vh;
-
-	layers.forEach(layer => {
-		layer.element.setAttribute('viewBox', `0 0 ${viewBoxWidth} ${viewBoxHeight}`);
-	});
+	updateViewBox();
 }
-
 window.addEventListener('resize', throttledUpdateAll);
 
+// Function for save viewBox proportion relative to screen for svg background
 function updateViewBox() {
 	const screenWidth = window.innerWidth;
 	const viewBoxWidth = screenWidth <= 767 ? 900 : 1500;
 	const aspectRatio = screenWidth / window.innerHeight;
 	const viewBoxHeight = viewBoxWidth / aspectRatio;
 
-	layers.forEach(layer => {
-		layer.element.setAttribute('viewBox', `0 0 ${viewBoxWidth} ${viewBoxHeight}`);
-	});
-
+	svg.setAttribute('viewBox', `0 0 ${viewBoxWidth} ${viewBoxHeight}`);
 	return { viewBoxWidth, viewBoxHeight };
 }
 
+// Function of generation circles to background svg
+for (let i = 0; i < starsCount; i++) {
+	const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+
+	circle.setAttribute('cx', Math.random() * viewBoxWidth);
+	circle.setAttribute('cy', Math.random() * viewBoxHeight);
+	circle.setAttribute('r', baseRadius + Math.random() * 0.5);
+	circle.setAttribute('fill', '#9C92AC');
+	circle.style.opacity = 0.05;
+	circle.style.animation = `twinkle ${3 + Math.random() * 4}s infinite`;
+	circle.style.setProperty('--delay', Math.random() * 5);
+
+	svg.appendChild(circle);
+}
+
+// Function for mouse paralax effect
 function updateParallax() {
 	posX += (targetX - posX) * 0.05;
 	posY += (targetY - posY) * 0.05;
 
-	layers.forEach(layer => {
-		const moveX = posX * layer.depth;
-		const moveY = posY * layer.depth;
-		layer.element.style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
-	});
-
+	svg.style.transform = `translate3d(${posX}px, ${posY}px, 0)`;
 	requestAnimationFrame(updateParallax);
 }
 
-if (window.innerWidth > 767) {
-	document.addEventListener('mousemove', (e) => {
-		targetX = (e.clientX / window.innerWidth) * 150 - 20;
-		targetY = (e.clientY / window.innerHeight) * 150 - 20;
-	});
-} else {
-	const gyroButton = document.createElement('button');
-	gyroButton.textContent = '🎮 Активировать 3D-эффект';
-	gyroButton.style.position = 'fixed';
-	gyroButton.style.bottom = '20px';
-	gyroButton.style.left = '50%';
-	gyroButton.style.transform = 'translateX(-50%)';
-	gyroButton.style.padding = '10px 20px';
-	gyroButton.style.zIndex = '1000';
-	gyroButton.style.borderRadius = '20px';
-	gyroButton.style.background = 'rgba(255,255,255,0.2)';
-	gyroButton.style.backdropFilter = 'blur(5px)';
-
-	gyroButton.addEventListener('click', () => {
-		if (typeof DeviceOrientationEvent.requestPermission === 'function') {
-			DeviceOrientationEvent.requestPermission()
-				.then(response => {
-					if (response === 'granted') {
-						window.addEventListener('deviceorientation', handleOrientation);
-						gyroButton.remove();
-					}
-				});
-		} else {
-			window.addEventListener('deviceorientation', handleOrientation);
-			gyroButton.remove();
-		}
-	});
-
-	document.body.appendChild(gyroButton);
-}
-
-function handleOrientation(e) {
-	const sensitivity = 0.5;
-	targetX = (e.gamma || 0) * sensitivity;
-	targetY = (e.beta || 0) * sensitivity * 0.5;
-}
-
+// Function  tracks changes in the user's mouse position and sets the coordinates for parallax
+document.addEventListener('mousemove', (e) => {
+	targetX = (e.clientX / window.innerWidth) * 40 - 20;
+	targetY = (e.clientY / window.innerHeight) * 40 - 20;
+});
 updateParallax();
-
-const style = document.createElement('style');
-style.textContent = `
-  .space {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    overflow: hidden;
-  }
-  
-  .space__layer {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .space__layer svg {
-    width: 100%;
-    height: 100%;
-    transition: transform 0.05s linear;
-  }
-  
-  @keyframes twinkle {
-    0%, 100% { opacity: 0.05; }
-    50% { opacity: 0.2; }
-  }
-`;
-document.head.appendChild(style);
 
 
 

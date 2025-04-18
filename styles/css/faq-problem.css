@@ -524,6 +524,22 @@ a {
     opacity: 1;
   }
 }
+@-webkit-keyframes twinkle {
+  0%, 100% {
+    opacity: 0.03;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.03;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
 .button {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;

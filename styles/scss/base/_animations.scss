@@ -84,3 +84,13 @@
     opacity: 1;
   }
 }
+// For space background
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.03;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
