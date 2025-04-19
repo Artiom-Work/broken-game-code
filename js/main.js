@@ -14,9 +14,9 @@ const steamGuardCode = 'GDF34';
 const friendData = 'Данные из data-атрибута кнопки';
 // Variables for background animation
 const svg = document.querySelector('.space__layer');
-const starsCount = 400; //controll stars quantity
+const starsCount = 200; //controll stars quantity
 
-const baseRadius = window.innerWidth <= 767 ? 2.5 : 2.2; // controll stars size
+const baseRadius = window.innerWidth <= 767 ? 3.5 : 2.5; // controll stars size
 const throttledUpdateAll = throttle(updateAll, 100);
 const { viewBoxWidth, viewBoxHeight } = updateViewBox();
 
@@ -388,7 +388,7 @@ function updateParallax() {
 
 // Function  tracks changes in the user's mouse position and sets the coordinates for parallax
 document.addEventListener('mousemove', (e) => {
-	targetX = (e.clientX / window.innerWidth) * 40 - 20;
-	targetY = (e.clientY / window.innerHeight) * 40 - 20;
+	targetX = (e.clientX / window.innerWidth) * 30 - 20;
+	targetY = (e.clientY / window.innerHeight) * 30 - 20;
 });
 updateParallax();
