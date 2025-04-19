@@ -1,4 +1,5 @@
 .button {
+  @include reset-button;
   @include flex-center(true);
 
   height: var(--button-height);
@@ -6,7 +7,6 @@
   font-size: clamp(14px, 1.56vw, 20px);
   background-color: var(--color-green);
   border-radius: var(--border-radius-small);
-  border: none;
   color: var(--button-text-color);
   text-shadow: var(--text-shadow-dark);
   box-shadow: var(--box-shadow);
@@ -81,6 +81,7 @@
 }
 
 .night-mode-button {
+  @include reset-button;
   @include flex-space-between;
 
   flex-shrink: 0;
@@ -88,7 +89,6 @@
   z-index: 10;
   width: 92px;
   height: 46px;
-  border: none;
   border-radius: var(--border-radius-large);
   box-shadow: var(--box-shadow);
   background-color: var(--color-page-mode-bg);

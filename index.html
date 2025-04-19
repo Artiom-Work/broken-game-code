@@ -9,11 +9,11 @@
 	<link rel="icon" type="image/svg+xml" sizes="32x32" href="./images/icons/favicon.svg">
 	<link rel="icon" type="image/svg+xml" sizes="48x48" href="./images/icons/favicon.svg">
 	<link rel="apple-touch-icon" sizes="180x180" href="./images/icons/favicon.svg">
-	<!-- <meta name="description"
-		content="Add your page description ..."> -->
+	<meta name="description"
+		content="Онлайн-аренда игровых аккаунтов: активация кодом, управление сессиями и продление в реальном времени.">
 	<link rel="stylesheet" href="./libs/iziModal/iziModal.min.css">
 	<title>ohShitMyCodeBroken | Аренда</title>
-	<link rel="stylesheet" href="./styles/css/style.css">
+	<link rel="stylesheet" href="./styles/css/main.min.css">
 </head>
 
 <body>
@@ -79,15 +79,16 @@
 			</div>
 		</div>
 
-
 	</header>
 
 	<main>
 		<h1 class="visually-hidden">OhShitMyCodeBroken</h1>
 
 		<section class="empty container">
+			<h2 class="visually-hidden">Активные аренды</h2>
+
 			<div class="empty__image-wrapper">
-				<svg class="empty__image" viewBox="0 0 140 127" width="140" height="126">
+				<svg class="empty__image" viewBox="0 0 140 127" width="140" height="126" aria-hidden="true">
 					<use xlink:href="./images/icons/sprite-icons.svg#robot"></use>
 				</svg>
 			</div>
@@ -108,7 +109,51 @@
 		<section class="user-rents container section section--main-page delete-element">
 			<h2 class="user-rents__title section__title">Ваши аренды</h2>
 
-			<ul class="user-rents__list"></ul>
+			<ul class="user-rents__list">
+				<li class="rent-card">
+					<article>
+						<h3 class="visually-hidden">Аренда ${gameName}</h3>
+						<div class="rent-card__heading">
+							<h4 class="rent-card__name">${gameName}</h4>
+
+							<div class="rent-card__remain-time">
+								<span>Активна ещё ${endTime}</span>
+							</div>
+						</div>
+
+						<ul class="rent-card__body">
+							<li class="rent-card__parameter">
+								<span class="rent-card__parameter-name">Время завершения</span>
+								<span class="rent-card__parameter-value">${completionTime}</span>
+							</li>
+							<li class="rent-card__parameter">
+								<span class="rent-card__parameter-name">Логин:</span>
+								<span class="rent-card__parameter-value">${login}</span>
+							</li>
+							<li class="rent-card__parameter">
+								<span class="rent-card__parameter-name">Пароль:</span>
+								<span class="rent-card__parameter-value">${password}</span>
+							</li>
+							<li class="rent-card__parameter">
+								<span class="rent-card__parameter-name">Steam Guard Code:</span>
+								<span class="rent-card__parameter-value">${steamGuardCode}</span>
+							</li>
+							<li class="rent-card__parameter">
+								<span class="rent-card__parameter-name">Для&nbsp;добавления в&nbsp;друзья:</span>
+								<button class="rent-card__parameter-value rent-card__parameter-value--button" type="button"
+									data-copy-add-to-friends="${friendData}" aria-live="polite" title="Копировать">скопировать</button>
+							</li>
+						</ul>
+
+						<div class="rent-card__button-group">
+							<button class="rent-card__button button" type="button"
+								aria-label="Продлить аренду ${gameName}">Продлить</button>
+							<a class="rent-card__button button button--color-red rent-card__button--small-padding" href="problem.html"
+								aria-label="Проблема c аккаунтом">Проблема с&nbsp;акком</a>
+						</div>
+					</article>
+				</li>
+			</ul>
 		</section>
 
 	</main>
@@ -117,12 +162,12 @@
 		<h2 class="visually-hidden">Модальное окно для активации аренды</h2>
 		<div class="decor-block decor-block--top">
 			<svg class="decor-block__image decor-block__image--heart decor-block__image--heart-modal" viewBox="0 0 150 150"
-				width="150" height="150">
+				width="150" height="150" aria-hidden="true">
 				<use xlink:href="./images/icons/sprite-icons.svg#heart"></use>
 			</svg>
 
 			<svg class="decor-block__image decor-block__image--potion decor-block__image--potion-modal" viewBox="0 0 768 1024"
-				width="134" height="179">
+				width="134" height="179" aria-hidden="true">
 				<use xlink:href="./images/icons/sprite-icons.svg#potion"></use>
 			</svg>
 		</div>
@@ -147,12 +192,12 @@
 
 		<div class="decor-block decor-block--bottom">
 			<svg class="decor-block__image decor-block__image--sword decor-block__image--sword-modal" viewBox="0 0 170 316"
-				width="237" height="237">
+				width="237" height="237" aria-hidden="true">
 				<use xlink:href="./images/icons/sprite-icons.svg#sword"></use>
 			</svg>
 
 			<svg class="decor-block__image decor-block__image--robot decor-block__image--robot-modal" viewBox="0 0 140 127"
-				width="167" height="150">
+				width="167" height="150" aria-hidden="true">
 				<use xlink:href="./images/icons/sprite-icons.svg#robot"></use>
 			</svg>
 		</div>
@@ -163,6 +208,7 @@
 		<svg class="space__layer" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
 		</svg>
 	</div>
+
 	<script src="./libs/jquery/jquery-3.7.1.min.js"></script>
 	<script src="./libs/iziModal/iziModal.min.js"></script>
 	<script type="module" src="./js/main.js"></script>

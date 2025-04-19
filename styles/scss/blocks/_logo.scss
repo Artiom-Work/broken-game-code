@@ -5,7 +5,13 @@
   font-size: 48px;
 
   @media (max-width: 1750px) {
-    @include fluid-text(40, 22);
+    @include fluid-text(40, 20);
+  }
+  @include tablet-media {
+    @include fluid-text(28, 20);
+  }
+  @include mobile-media {
+    font-size: 24px;
   }
   &__link {
     text-shadow: var(--text-shadow);

@@ -3,6 +3,7 @@
 const menuSwitcher = document.getElementById('menu-switch');
 const mobileMenu = document.querySelector('.mobile-menu__wrapper');
 const darkModeBtn = document.querySelector('.night-mode-button');
+const decorBlodksOnPage = document.querySelectorAll('.decor-block--on-page');
 // Набор переменных для иммитации создания шаблона ( потом удалить )
 const gameName = 'GAME_NAME';
 const endTime = '2 часа';
@@ -11,32 +12,74 @@ const login = 'simple_login';
 const password = 'simple_passwd';
 const steamGuardCode = 'GDF34';
 const friendData = 'Данные из data-атрибута кнопки';
-//==================
+// Variables for background animation
+const svg = document.querySelector('.space__layer');
+const starsCount = 400; //controll stars quantity
+
+const baseRadius = window.innerWidth <= 767 ? 2.5 : 2.2; // controll stars size
+const throttledUpdateAll = throttle(updateAll, 100);
+const { viewBoxWidth, viewBoxHeight } = updateViewBox();
+
+let posX = 0, posY = 0;
+let targetX = 0, targetY = 0;
+//=============================================================
+//=============================================================
+
+// _________GENERAL addEventListener________
+document.addEventListener('DOMContentLoaded', function () {
+	// Сюда вы сможете  добавлять запуск функций при прогрузке html элементов на странице
+	const form = document.getElementById('new-rent-form');
+	const rentInput = document.getElementById('rent-number');
+	const userRentContainer = document.querySelector('.user-rents__list');
+	const accordion = document.getElementById('accordion');
+
+	if (accordion) {
+		initAccordion();
+	}
+	if (userRentContainer) {
+		userRentContainer.addEventListener('click', handleCopyText);
+	}
+
+	if (form) {
+		form.addEventListener('submit', handleFormSubmit);
+	}
+
+	if (rentInput) {
+		setupUuidValidation(rentInput);
+	}
+});
+//=============================================================
+//==================Functions==================================
+//=============================================================
 
 // -----====== For mobile menu ========----
 menuSwitcher.addEventListener('change', (e) => {
 	if (e.target.checked) {
-		// bodyLock();
 		menuSwitcher.labels[0].title = 'close';
 	} else if (!e.target.checked) {
-		// bodyUnlock();
 		menuSwitcher.labels[0].title = 'mobile menu';
 	}
 });
 mobileMenu.addEventListener('click', () => {
 	menuSwitcher.checked = false;
-	// bodyUnlock();
 });
 
-// function bodyLock() {
-// 	const lockPaddingValue = window.innerWidth - document.querySelector('body').offsetWidth + "px";
-// 	document.body.style.paddingRight = lockPaddingValue;
-// 	document.body.classList.add('lock-body');
-// }
-// function bodyUnlock() {
-// 	document.body.style.paddingRight = '0px';
-// 	document.body.classList.remove('lock-body');
-// }
+// -----====== Code for decor blocks (SVG animated images) ========----
+
+function hiddenDecorImages() {
+	if (decorBlodksOnPage) {
+		decorBlodksOnPage.forEach(element => {
+			element.classList.add('delete-element');
+		});
+	}
+}
+function showDecorImages() {
+	if (decorBlodksOnPage) {
+		decorBlodksOnPage.forEach(element => {
+			element.classList.remove('delete-element');
+		});
+	}
+}
 // -----====== Code for modal window ========----
 
 $("#new-rent").iziModal({
@@ -48,15 +91,19 @@ $("#new-rent").iziModal({
 	onOpening: function () {
 		document.querySelectorAll('body > :not(#new-rent)').forEach(el => el.classList.add('blurred'));
 		document.body.classList.add('lock-body-y');
+		hiddenDecorImages();
+
 	},
 	onClosed: function () {
 		document.body.classList.remove('lock-body-y');
 		document.querySelectorAll('body > :not(#new-rent)').forEach(el => el.classList.remove('blurred'));
+		showDecorImages();
+		document.activeElement && document.activeElement.blur();
 	}
 });
 // ----==== Code for block user-rents (user's reant cards) =====-----
 
-// copy data button function
+// Function for copy data button in user rent card 
 function handleCopyText(event) {
 	if (event.target.classList.contains('rent-card__parameter-value--button')) {
 		const button = event.target;
@@ -85,7 +132,7 @@ function handleCopyText(event) {
 	}
 }
 
-// Function for create template of user
+// Function for create template of user rent card
 function addRentCard(gameName, endTime, completionTime, login, password, steamGuardCode, friendData) {
 	// данные сдесь приходят из переменно , но скорее всего нужно как то отправлять запрос на сервер. если что , шаблон добавления наверно пусть остаётся , а логику работы с сервером я как бы не знаю как вам удобнее будет писать
 	const userRentContainer = document.querySelector('.user-rents__list');
@@ -93,7 +140,7 @@ function addRentCard(gameName, endTime, completionTime, login, password, steamGu
 		const rentCardHTML = `
 					<li class="rent-card">
 							<article>
-									<h3 class="visually-hidden">Аренда пользователя</h3>
+									<h3 class="visually-hidden">Аренда ${gameName}</h3>
 									<div class="rent-card__heading">
 											<h4 class="rent-card__name">${gameName}</h4>
 
@@ -104,30 +151,30 @@ function addRentCard(gameName, endTime, completionTime, login, password, steamGu
 
 									<ul class="rent-card__body">
 											<li class="rent-card__parameter">
-													<h4 class="rent-card__parameter-name">Время завершения</h4>
+													<span class="rent-card__parameter-name">Время завершения</span>
 													<span class="rent-card__parameter-value">${completionTime}</span>
 											</li>
 											<li class="rent-card__parameter">
-													<h4 class="rent-card__parameter-name">Логин:</h4>
+													<span class="rent-card__parameter-name">Логин:</span>
 													<span class="rent-card__parameter-value">${login}</span>
 											</li>
 											<li class="rent-card__parameter">
-													<h4 class="rent-card__parameter-name">Пароль:</h4>
+													<span class="rent-card__parameter-name">Пароль:</span>
 													<span class="rent-card__parameter-value">${password}</span>
 											</li>
 											<li class="rent-card__parameter">
-													<h4 class="rent-card__parameter-name">Steam Guard Code:</h4>
+													<span class="rent-card__parameter-name">Steam Guard Code:</span>
 													<span class="rent-card__parameter-value">${steamGuardCode}</span>
 											</li>
 											<li class="rent-card__parameter">
-													<h4 class="rent-card__parameter-name">Для&nbsp;добавления в&nbsp;друзья:</h4>
+													<span class="rent-card__parameter-name">Для&nbsp;добавления в&nbsp;друзья:</span>
 													<button class="rent-card__parameter-value rent-card__parameter-value--button" type="button"
-															data-copy-add-to-friends="${friendData}" title="Копировать">скопировать</button>
+															data-copy-add-to-friends="${friendData}" aria-live="polite" title="Копировать">скопировать</button>
 											</li>
 									</ul>
 
 									<div class="rent-card__button-group">
-											<button class="rent-card__button button" type="button">Продлить</button>
+											<button class="rent-card__button button" type="button" aria-label="Продлить аренду ${gameName}">Продлить</button>
 											<a class="rent-card__button button button--color-red rent-card__button--small-padding" href="problem.html"
 													aria-label="Проблема c аккаунтом">Проблема с&nbsp;акком</a>
 									</div>
@@ -141,29 +188,9 @@ function addRentCard(gameName, endTime, completionTime, login, password, steamGu
 		console.log('На этой странице нету блока с арендами.');
 	}
 }
-// ----==== Code for block user-rents (user's reant cards) =====-----
-// GENERAL addEventListener
-document.addEventListener('DOMContentLoaded', function () {
-	// Сюда вы сможете  добавлять запуск функций при прогрузке html элементов на странице
-	const form = document.getElementById('new-rent-form');
-	const rentInput = document.getElementById('rent-number');
-	const userRentContainer = document.querySelector('.user-rents__list');
+// ----==== Code for form in modal window ====----
 
-	if (userRentContainer) {
-		userRentContainer.addEventListener('click', handleCopyText);
-	}
-
-	if (form) {
-		form.addEventListener('submit', handleFormSubmit);
-	}
-
-	if (rentInput) {
-		setupUuidValidation(rentInput);
-	}
-
-});
-
-// ==Form submit function== 
+// Form submit function 
 function handleFormSubmit(event) {
 	event.preventDefault();
 	// Здесь можно добавить логику для отправки данных на сервер
@@ -206,7 +233,6 @@ function setupUuidValidation(input) {
 	input.addEventListener('input', () => validateUuidV4(input));
 	input.addEventListener('invalid', (e) => {
 		validateUuidV4(input);
-		input.reportValidity();
 	});
 }
 // Function of create UUID v4 mask
@@ -280,16 +306,16 @@ window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e)
 	}
 });
 
-//------===== For background space paralax animation =========--------
-const svg = document.querySelector('.space__layer');
-const starsCount = 400;
+// -----====== For accordions. Pages faq and problem ========----
+function initAccordion() {
+	$("#accordion").accordion({
+		active: 0,
+		collapsible: true,
+		header: "dt"
+	});
+}
 
-const baseRadius = window.innerWidth <= 767 ? 2.5 : 2.2;
-const throttledUpdateAll = throttle(updateAll, 100);
-const { viewBoxWidth, viewBoxHeight } = updateViewBox();
-
-let posX = 0, posY = 0;
-let targetX = 0, targetY = 0;
+// ----===== Code For background space paralax animation =====-----
 
 // !IMPORTANT-Function for setting the frequency of function calls( so as not to overload the CPU too much)
 function throttle(func, ms) {
@@ -366,104 +392,3 @@ document.addEventListener('mousemove', (e) => {
 	targetY = (e.clientY / window.innerHeight) * 40 - 20;
 });
 updateParallax();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// //------===== For background space paralax animation =========--------
-// const svg = document.querySelector('.space__layer');
-// const starsCount = 400;
-
-// const baseRadius = window.innerWidth <= 767 ? 2 : 2.2;
-// const throttledUpdateAll = throttle(updateAll, 100);
-// const { viewBoxWidth, viewBoxHeight } = updateViewBox();
-
-// let posX = 0, posY = 0;
-// let targetX = 0, targetY = 0;
-
-// // Function for setting the frequency of function calls( so as not to overload the CPU too much)
-// function throttle(func, ms) {
-// 	let isThrottled = false;
-// 	let savedArgs;
-// 	let savedThis;
-
-// 	function wrapper() {
-// 		if (isThrottled) {
-// 			savedArgs = arguments;
-// 			savedThis = this;
-// 			return;
-// 		}
-
-// 		func.apply(this, arguments);
-// 		isThrottled = true;
-
-// 		setTimeout(() => {
-// 			isThrottled = false;
-// 			if (savedArgs) {
-// 				wrapper.apply(savedThis, savedArgs);
-// 				savedArgs = savedThis = null;
-// 			}
-// 		}, ms);
-// 	}
-
-// 	return wrapper;
-// }
-
-// // Function throttled resize ( so as not to overload the CPU too much)
-// function updateAll() {
-// 	updateViewBox();
-// }
-// window.addEventListener('resize', throttledUpdateAll);
-
-// // Function for save viewBox proportion relative to screen for svg background
-// function updateViewBox() {
-// 	const screenWidth = window.innerWidth;
-// 	const viewBoxWidth = screenWidth <= 767 ? 900 : 1500;
-// 	const aspectRatio = screenWidth / window.innerHeight;
-// 	const viewBoxHeight = viewBoxWidth / aspectRatio;
-
-// 	svg.setAttribute('viewBox', `0 0 ${viewBoxWidth} ${viewBoxHeight}`);
-// 	return { viewBoxWidth, viewBoxHeight };
-// }
-
-// // Function of generation circles to background svg
-// for (let i = 0; i < starsCount; i++) {
-// 	const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-
-// 	circle.setAttribute('cx', Math.random() * viewBoxWidth);
-// 	circle.setAttribute('cy', Math.random() * viewBoxHeight);
-// 	circle.setAttribute('r', baseRadius + Math.random() * 0.5);
-// 	circle.setAttribute('fill', '#9C92AC');
-// 	circle.style.opacity = 0.05;
-// 	circle.style.animation = `twinkle ${3 + Math.random() * 4}s infinite`;
-// 	circle.style.setProperty('--delay', Math.random() * 5);
-
-// 	svg.appendChild(circle);
-// }
-
-// // Function for mouse paralax effect
-// function updateParallax() {
-// 	posX += (targetX - posX) * 0.05;
-// 	posY += (targetY - posY) * 0.05;
-
-// 	svg.style.transform = `translate3d(${posX}px, ${posY}px, 0)`;
-// 	requestAnimationFrame(updateParallax);
-// }
-
-// // Аunction  tracks changes in the user's mouse position and sets the coordinates for parallax
-// document.addEventListener('mousemove', (e) => {
-// 	targetX = (e.clientX / window.innerWidth) * 40 - 20;
-// 	targetY = (e.clientY / window.innerHeight) * 40 - 20;
-// });
-// updateParallax();
