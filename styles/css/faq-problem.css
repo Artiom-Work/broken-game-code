@@ -1502,24 +1502,8 @@ circle {
   font-size: clamp(14px, 2.5vw, 32px);
   max-width: 1000px;
   width: 100%;
-  min-height: 800px;
   margin-inline: auto;
   text-shadow: var(--text-shadow);
-}
-@media (max-width: 1023px) {
-  .accordion {
-    min-height: 600px;
-  }
-}
-@media (max-width: 767px) {
-  .accordion {
-    min-height: 500px;
-  }
-}
-@media (max-width: 480px) {
-  .accordion {
-    min-height: 320px;
-  }
 }
 .accordion__question {
   -webkit-box-shadow: var(--box-shadow);

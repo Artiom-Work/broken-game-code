@@ -2,19 +2,9 @@
   @include fluid-text(32, 14);
   max-width: 1000px;
   width: 100%;
-  min-height: 800px; // изменить если вопросов в аккордионе будет менее 5
   margin-inline: auto;
   text-shadow: var(--text-shadow);
 
-  @include tablet-media {
-    min-height: 600px; // изменить если вопросов в аккордионе будет менее 5
-  }
-  @include mobile-media {
-    min-height: 500px; // изменить если вопросов в аккордионе будет менее 5
-  }
-  @include mobile-s-media {
-    min-height: 320px; // изменить если вопросов в аккордионе будет менее 5
-  }
   &__question {
     box-shadow: var(--box-shadow);
     background-color: var(--accordion-question-color-bg);
