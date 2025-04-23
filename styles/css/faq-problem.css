@@ -765,11 +765,8 @@ circle {
 .night-mode-button--active::before {
   left: 53%;
 }
-.night-mode-button--active::before .night-mode-button__image--sunny {
-  fill: var(--color-light);
-}
 .night-mode-button--active .night-mode-button__image--sunny {
-  fill: var(--color-dark);
+  fill: var(--color-light);
 }
 .night-mode-button--active .night-mode-button__image--moon {
   fill: var(--color-dark);

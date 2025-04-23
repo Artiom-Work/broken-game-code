@@ -269,7 +269,7 @@ function validateUuidV4(input) {
 //Night theme toggle button behavior
 darkModeBtn.onclick = function () {
 	darkModeBtn.classList.toggle('night-mode-button--active');
-	const isDark = document.body.classList.toggle('dark');
+	const isDark = document.documentElement.classList.toggle('dark');
 
 	if (isDark) {
 		localStorage.setItem('darkMode', 'dark');
@@ -279,16 +279,16 @@ darkModeBtn.onclick = function () {
 }
 // Check user's theme settings and on correct mode
 if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-	darkModeBtn.classList.add("night-mode--button--active");
-	document.body.classList.add("dark");
+	darkModeBtn.classList.add("night-mode-button--active");
+	document.documentElement.classList.add("dark");
 }
 // Check night mode in  localStorage ( to jump to another page )
 if (localStorage.getItem('darkMode') === 'dark') {
 	darkModeBtn.classList.add('night-mode-button--active');
-	document.body.classList.add('dark');
+	document.documentElement.classList.add('dark');
 } else if (localStorage.getItem("darkMode") === "light") {
-	darkModeBtn.classList.remove("night-mode--button--active");
-	document.body.classList.remove("dark");
+	darkModeBtn.classList.remove("night-mode-button--active");
+	document.documentElement.classList.remove("dark");
 }
 
 // Theme change function reacting to time of day change ( work only if the user has an OS with automatic theme configuration)
@@ -297,11 +297,11 @@ window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e)
 
 	if (newColorShame === "dark") {
 		darkModeBtn.classList.add("night-mode--button--active");
-		document.body.classList.add("dark");
+		document.documentElement.classList.add("dark");
 		localStorage.setItem("darkMode", "dark");
 	} else {
 		darkModeBtn.classList.remove("night-mode--button--active");
-		document.body.classList.remove("dark");
+		document.documentElement.classList.remove("dark");
 		localStorage.setItem("darkMode", "light");
 	}
 });
@@ -388,7 +388,7 @@ function updateParallax() {
 
 // Function  tracks changes in the user's mouse position and sets the coordinates for parallax
 document.addEventListener('mousemove', (e) => {
-	targetX = (e.clientX / window.innerWidth) * 180 - 20;
-	targetY = (e.clientY / window.innerHeight) * 180 - 20;
+	targetX = (e.clientX / window.innerWidth) * 40 - 20;
+	targetY = (e.clientY / window.innerHeight) * 40 - 20;
 });
 updateParallax();
