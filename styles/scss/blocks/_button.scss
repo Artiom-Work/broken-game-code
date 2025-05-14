@@ -138,10 +138,14 @@
   }
   &--active::before {
     left: 53%;
+
+    & .night-mode-button__image--sunny {
+      fill: var(--color-light);
+    }
   }
   &--active {
     .night-mode-button__image--sunny {
-      fill: var(--color-light);
+      fill: var(--color-dark);
     }
     & .night-mode-button__image--moon {
       fill: var(--color-dark);
@@ -152,6 +156,7 @@
     z-index: 3;
     width: clamp(17px, 1.95vw, 25px);
     fill: currentColor;
+    pointer-events: none;
 
     &--moon {
       @include mobile-media {

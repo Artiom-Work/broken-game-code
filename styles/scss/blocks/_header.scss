@@ -10,6 +10,9 @@
     min-height: 30px;
   }
 
+  @include mobile-s-media {
+    padding-inline: 5px;
+  }
   &__logo {
     min-height: inherit;
   }

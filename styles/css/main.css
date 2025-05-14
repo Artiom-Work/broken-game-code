@@ -765,8 +765,11 @@ circle {
 .night-mode-button--active::before {
   left: 53%;
 }
-.night-mode-button--active .night-mode-button__image--sunny {
+.night-mode-button--active::before .night-mode-button__image--sunny {
   fill: var(--color-light);
+}
+.night-mode-button--active .night-mode-button__image--sunny {
+  fill: var(--color-dark);
 }
 .night-mode-button--active .night-mode-button__image--moon {
   fill: var(--color-dark);
@@ -776,6 +779,7 @@ circle {
   z-index: 3;
   width: clamp(17px, 1.95vw, 25px);
   fill: currentColor;
+  pointer-events: none;
 }
 @media (max-width: 767px) {
   .night-mode-button__image--moon {
@@ -1121,6 +1125,11 @@ circle {
     min-height: 30px;
   }
 }
+@media (max-width: 480px) {
+  .header {
+    padding-inline: 5px;
+  }
+}
 .header__logo {
   min-height: inherit;
 }
@@ -1333,7 +1342,7 @@ circle {
 
 .new-rent {
   padding: 40px 60px 65px;
-  height: 619px !important;
+  height: 419px !important;
   border: none;
   background-color: var(--color-modal-bg);
   max-width: clamp(800px, 55.9vw, 1074px);
@@ -1345,19 +1354,19 @@ circle {
 @media (max-width: 1280px) {
   .new-rent {
     max-width: clamp(300px, 78vw, 800px) !important;
-    height: 530px !important;
+    height: 330px !important;
   }
 }
 @media (max-width: 1023px) {
   .new-rent {
     padding: 20px 30px 35px;
-    height: 400px !important;
+    height: 250px !important;
   }
 }
 @media (max-width: 767px) {
   .new-rent {
     padding: 20px;
-    height: 370px !important;
+    height: 210px !important;
   }
 }
 .new-rent__header {
@@ -1419,16 +1428,16 @@ circle {
     padding: 10px;
   }
 }
-.new-rent__input:not(textarea) {
+.new-rent__input {
   margin-block: 0 63px;
 }
 @media (max-width: 1280px) {
-  .new-rent__input:not(textarea) {
+  .new-rent__input {
     margin-block: 0 43px;
   }
 }
 @media (max-width: 1023px) {
-  .new-rent__input:not(textarea) {
+  .new-rent__input {
     margin-block: 0 20px;
   }
 }
@@ -1451,7 +1460,7 @@ circle {
 .new-rent__input:focus::placeholder {
   color: transparent;
 }
-.new-rent__input:invalid {
+.new-rent__input:focus:invalid {
   outline: 3px solid var(--color-red);
 }
 .new-rent__input::-webkit-input-placeholder {
@@ -1510,27 +1519,6 @@ circle {
   caret-color: var(--color-current) !important;
   -webkit-transition: background-color 5000s ease-in-out 0s;
   transition: background-color 5000s ease-in-out 0s;
-}
-.new-rent__input--message {
-  font-size: clamp(16px, 1.875vw, 24px);
-  height: 195px;
-  margin-block: 0 47px;
-  resize: none;
-}
-@media (max-width: 1280px) {
-  .new-rent__input--message {
-    margin-block: 0 37px;
-  }
-}
-@media (max-width: 1023px) {
-  .new-rent__input--message {
-    margin-block: 0 20px;
-    height: 150px;
-  }
-}
-.new-rent__input--message::spelling-error {
-  -webkit-text-decoration: solid var(--color-red) underline;
-          text-decoration: solid var(--color-red) underline;
 }
 .new-rent__button {
   font-size: 32px;
