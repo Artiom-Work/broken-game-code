@@ -29,6 +29,7 @@
 	<link rel="stylesheet" href="./libs/iziModal/iziModal.min.css">
 	<title>ohShitMyCodeBroken | Аренда</title>
 	<link rel="stylesheet" href="./styles/css/main.min.css">
+	<link rel="stylesheet" href="./styles/css/index.min.css">
 </head>
 
 <body>
@@ -172,6 +173,73 @@
 	</dialog>
 
 
+	<div class="loader visually-hidden">
+
+		<span class="loader__item" style="--i:3;--x:3;--y:1"></span>
+		<span class="loader__item" style="--i:8;--x:8;--y:1"></span>
+
+		<span class="loader__item" style="--i:1;--x:1;--y:2"></span>
+		<span class="loader__item" style="--i:4;--x:4;--y:2"></span>
+		<span class="loader__item" style="--i:7;--x:7;--y:2"></span>
+		<span class="loader__item" style="--i:10;--x:10;--y:2"></span>
+
+		<span class="loader__item" style="--i:1;--x:1;--y:3"></span>
+		<span class="loader__item" style="--i:3;--x:3;--y:3"></span>
+		<span class="loader__item" style="--i:4;--x:4;--y:3"></span>
+		<span class="loader__item" style="--i:5;--x:5;--y:3"></span>
+		<span class="loader__item" style="--i:6;--x:6;--y:3"></span>
+		<span class="loader__item" style="--i:7;--x:7;--y:3"></span>
+		<span class="loader__item" style="--i:8;--x:8;--y:3"></span>
+		<span class="loader__item" style="--i:10;--x:10;--y:3"></span>
+
+		<span class="loader__item" style="--i:1;--x:1;--y:4"></span>
+		<span class="loader__item" style="--i:2;--x:2;--y:4"></span>
+		<span class="loader__item" style="--i:3;--x:3;--y:4"></span>
+		<span class="loader__item loader__item--red" style="--i:4;--x:4;--y:4" data-red></span>
+		<span class="loader__item" style="--i:5;--x:5;--y:4"></span>
+		<span class="loader__item" style="--i:6;--x:6;--y:4"></span>
+		<span class="loader__item" style="--i:8;--x:8;--y:4"></span>
+		<span class="loader__item" style="--i:9;--x:9;--y:4"></span>
+		<span class="loader__item" style="--i:10;--x:10;--y:4"></span>
+
+		<span class="loader__item" style="--i:1;--x:1;--y:5"></span>
+		<span class="loader__item" style="--i:2;--x:2;--y:5"></span>
+		<span class="loader__item" style="--i:3;--x:3;--y:5"></span>
+		<span class="loader__item" style="--i:4;--x:4;--y:5"></span>
+		<span class="loader__item" style="--i:5;--x:5;--y:5"></span>
+		<span class="loader__item" style="--i:6;--x:6;--y:5"></span>
+		<span class="loader__item" style="--i:7;--x:7;--y:5"></span>
+		<span class="loader__item" style="--i:8;--x:8;--y:5"></span>
+		<span class="loader__item" style="--i:9;--x:9;--y:5"></span>
+		<span class="loader__item" style="--i:10;--x:10;--y:5"></span>
+
+		<span class="loader__item" style="--i:2;--x:2;--y:6"></span>
+		<span class="loader__item" style="--i:3;--x:3;--y:6"></span>
+		<span class="loader__item" style="--i:4;--x:4;--y:6"></span>
+		<span class="loader__item" style="--i:5;--x:5;--y:6"></span>
+		<span class="loader__item" style="--i:6;--x:6;--y:6"></span>
+		<span class="loader__item" style="--i:7;--x:7;--y:6"></span>
+		<span class="loader__item" style="--i:8;--x:8;--y:6"></span>
+		<span class="loader__item" style="--i:9;--x:9;--y:6"></span>
+
+		<span class="loader__item" style="--i:3;--x:3;--y:7"></span>
+		<span class="loader__item" style="--i:4;--x:4;--y:7"></span>
+		<span class="loader__item" style="--i:5;--x:5;--y:7"></span>
+		<span class="loader__item" style="--i:6;--x:6;--y:7"></span>
+		<span class="loader__item" style="--i:7;--x:7;--y:7"></span>
+		<span class="loader__item" style="--i:8;--x:8;--y:7"></span>
+
+		<span class="loader__item" style="--i:2;--x:2;--y:8"></span>
+		<span class="loader__item" style="--i:3;--x:3;--y:8"></span>
+		<span class="loader__item" style="--i:8;--x:8;--y:8"></span>
+		<span class="loader__item" style="--i:9;--x:9;--y:8"></span>
+
+		<span class="loader__item" style="--i:1;--x:1;--y:9"></span>
+		<span class="loader__item" style="--i:2;--x:2;--y:9"></span>
+		<span class="loader__item" style="--i:9;--x:9;--y:9"></span>
+		<span class="loader__item" style="--i:10;--x:10;--y:9"></span>
+	</div>
+
 
 	<div class="space">
 		<svg class="space__layer" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -189,3 +257,116 @@
 </body>
 
 </html>
+
+
+
+
+<!-- my version of preloader  -->
+
+<!-- 
+<div class="loader-container">
+	<div class="loader">
+
+
+		<span class="loader__block loader__block--empty loader__block--1 loader__block--1_row-1"></span>
+		<span class="loader__block loader__block--empty loader__block--2 loader__block--2_row-1"></span>
+		<span class="loader__block loader__block--3 loader__block--3_row-1"></span>
+		<span class="loader__block loader__block--empty loader__block--4 loader__block--4_row-1"></span>
+		<span class="loader__block loader__block--empty loader__block--5 loader__block--5_row-1"></span>
+		<span class="loader__block loader__block--empty loader__block--6 loader__block--6_row-1"></span>
+		<span class="loader__block loader__block--empty loader__block--7 loader__block--7_row-1"></span>
+		<span class="loader__block loader__block--8 loader__block--8_row-1"></span>
+		<span class="loader__block loader__block--empty loader__block--9 loader__block--9_row-1"></span>
+		<span class="loader__block loader__block--empty loader__block--10 loader__block--10_row-1"></span>
+
+		<span class="loader__block loader__block--1 loader__block--1_row-2"></span>
+		<span class="loader__block loader__block--empty loader__block--2 loader__block--2_row-2"></span>
+		<span class="loader__block loader__block--empty loader__block--3 loader__block--3_row-2"></span>
+		<span class="loader__block loader__block--4 loader__block--4_row-2"></span>
+		<span class="loader__block loader__block--empty loader__block--5 loader__block--5_row-2"></span>
+		<span class="loader__block loader__block--empty loader__block--6 loader__block--6_row-2"></span>
+		<span class="loader__block loader__block--7 loader__block--7_row-2"></span>
+		<span class="loader__block loader__block--empty loader__block--8 loader__block--8_row-2"></span>
+		<span class="loader__block loader__block--empty loader__block--9 loader__block--9_row-2"></span>
+		<span class="loader__block loader__block--10 loader__block--10_row-2"></span>
+
+		<span class="loader__block loader__block--1 loader__block--1_row-3"></span>
+		<span class="loader__block loader__block--empty loader__block--2 loader__block--2_row-3"></span>
+		<span class="loader__block loader__block--3 loader__block--3_row-3"></span>
+		<span class="loader__block loader__block--4 loader__block--4_row-3"></span>
+		<span class="loader__block loader__block--5 loader__block--5_row-3"></span>
+		<span class="loader__block loader__block--6 loader__block--6_row-3"></span>
+		<span class="loader__block loader__block--7 loader__block--7_row-3"></span>
+		<span class="loader__block loader__block--8 loader__block--8_row-3"></span>
+		<span class="loader__block loader__block--empty loader__block--9 loader__block--9_row-3"></span>
+		<span class="loader__block loader__block--10 loader__block--10_row-3"></span>
+
+		<span class="loader__block loader__block--1 loader__block--1_row-4"></span>
+		<span class="loader__block loader__block--2 loader__block--2_row-4"></span>
+		<span class="loader__block loader__block--3 loader__block--3_row-4"></span>
+		<span class="loader__block loader__block--red loader__block--4 loader__block--4_row-4"></span>
+		<span class="loader__block loader__block--5 loader__block--5_row-4"></span>
+		<span class="loader__block loader__block--6 loader__block--6_row-4"></span>
+		<span class="loader__block loader__block--empty loader__block--7 loader__block--7_row-4"></span>
+		<span class="loader__block loader__block--8 loader__block--8_row-4"></span>
+		<span class="loader__block loader__block--9 loader__block--9_row-4"></span>
+		<span class="loader__block loader__block--10 loader__block--10_row-4"></span>
+
+		<span class="loader__block loader__block--1 loader__block--1_row-5"></span>
+		<span class="loader__block loader__block--2 loader__block--2_row-5"></span>
+		<span class="loader__block loader__block--3 loader__block--3_row-5"></span>
+		<span class="loader__block loader__block--4 loader__block--4_row-5"></span>
+		<span class="loader__block loader__block--5 loader__block--5_row-5"></span>
+		<span class="loader__block loader__block--6 loader__block--6_row-5"></span>
+		<span class="loader__block loader__block--7 loader__block--7_row-5"></span>
+		<span class="loader__block loader__block--8 loader__block--8_row-5"></span>
+		<span class="loader__block loader__block--9 loader__block--9_row-5"></span>
+		<span class="loader__block loader__block--10 loader__block--10_row-5"></span>
+
+		<span class="loader__block loader__block--empty loader__block--1 loader__block--1_row-6"></span>
+		<span class="loader__block loader__block--2 loader__block--2_row-6"></span>
+		<span class="loader__block loader__block--3 loader__block--3_row-6"></span>
+		<span class="loader__block loader__block--4 loader__block--4_row-6"></span>
+		<span class="loader__block loader__block--5 loader__block--5_row-6"></span>
+		<span class="loader__block loader__block--6 loader__block--6_row-6"></span>
+		<span class="loader__block loader__block--7 loader__block--7_row-6"></span>
+		<span class="loader__block loader__block--8 loader__block--8_row-6"></span>
+		<span class="loader__block loader__block--9 loader__block--9_row-6"></span>
+		<span class="loader__block loader__block--empty loader__block--10 loader__block--10_row-6"></span>
+
+		<span class="loader__block loader__block--empty loader__block--1 loader__block--1_row-7"></span>
+		<span class="loader__block loader__block--empty loader__block--2 loader__block--2_row-7"></span>
+		<span class="loader__block loader__block--3 loader__block--3_row-7"></span>
+		<span class="loader__block loader__block--4 loader__block--4_row-7"></span>
+		<span class="loader__block loader__block--5 loader__block--5_row-7"></span>
+		<span class="loader__block loader__block--6 loader__block--6_row-7"></span>
+		<span class="loader__block loader__block--7 loader__block--7_row-7"></span>
+		<span class="loader__block loader__block--8 loader__block--8_row-7"></span>
+		<span class="loader__block loader__block--empty loader__block--9 loader__block--9_row-7"></span>
+		<span class="loader__block loader__block--empty loader__block--10 loader__block--10_row-7"></span>
+
+		<span class="loader__block loader__block--empty loader__block--1 loader__block--1_row-8"></span>
+		<span class="loader__block loader__block--2 loader__block--2_row-8"></span>
+		<span class="loader__block loader__block--3 loader__block--3_row-8"></span>
+		<span class="loader__block loader__block--empty loader__block--4 loader__block--4_row-8"></span>
+		<span class="loader__block loader__block--empty loader__block--5 loader__block--5_row-8"></span>
+		<span class="loader__block loader__block--empty loader__block--6 loader__block--6_row-8"></span>
+		<span class="loader__block loader__block--empty loader__block--7 loader__block--7_row-8"></span>
+		<span class="loader__block loader__block--8 loader__block--8_row-8"></span>
+		<span class="loader__block loader__block--9 loader__block--9_row-8"></span>
+		<span class="loader__block loader__block--empty loader__block--10 loader__block--10_row-8"></span>
+
+		<span class="loader__block loader__block--1 loader__block--1_row-10"></span>
+		<span class="loader__block loader__block--2 loader__block--2_row-10"></span>
+		<span class="loader__block loader__block--empty loader__block--3 loader__block--3_row-10"></span>
+		<span class="loader__block loader__block--empty loader__block--4 loader__block--4_row-10"></span>
+		<span class="loader__block loader__block--empty loader__block--5 loader__block--5_row-10"></span>
+		<span class="loader__block loader__block--empty loader__block--6 loader__block--6_row-10"></span>
+		<span class="loader__block loader__block--empty loader__block--7 loader__block--7_row-10"></span>
+		<span class="loader__block loader__block--empty loader__block--8 loader__block--8_row-10"></span>
+		<span class="loader__block loader__block--9 loader__block--9_row-10"></span>
+		<span class="loader__block loader__block--10 loader__block--10_row-10"></span>
+	</div>
+</div>
+
+ -->

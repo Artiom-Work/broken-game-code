@@ -1,7 +1,28 @@
 'use strict';
 
-const BACK_END_URL = "http://85.192.56.120:8000/api/v1/rent/";
+const menuSwitcher = document.getElementById('menu-switch');
+const mobileMenu = document.querySelector('.mobile-menu__wrapper');
+// const darkModeBtn = document.querySelector('.night-mode-button');
 const decorBlodksOnPage = document.querySelectorAll('.decor-block--on-page');
+// Набор переменных для иммитации создания шаблона ( потом удалить )
+const gameName = 'GAME_NAME';
+const endTime = '2 часа';
+const completionTime = '12.12.2012 12:12:12';
+const login = 'simple_login';
+const password = 'simple_passwd';
+const steamGuardCode = 'GDF34';
+const friendData = 'Данные из data-атрибута кнопки';
+// Variables for background animation
+const svg = document.querySelector('.space__layer');
+const starsCount = 600; //controll stars quantity
+
+const baseRadius = window.innerWidth <= 767 ? 2.2 : 1.5; // controll stars size
+const throttledUpdateAll = throttle(updateAll, 100);
+const { viewBoxWidth, viewBoxHeight } = updateViewBox();
+
+let posX = 0, posY = 0;
+let targetX = 0, targetY = 0;
+//=============================================================
 //=============================================================
 
 // _________GENERAL addEventListener________
@@ -10,8 +31,11 @@ document.addEventListener('DOMContentLoaded', function () {
 	const form = document.getElementById('new-rent-form');
 	const rentInput = document.getElementById('rent-number');
 	const userRentContainer = document.querySelector('.user-rents__list');
+	const accordion = document.getElementById('accordion');
 
-
+	if (accordion) {
+		initAccordion();
+	}
 	if (userRentContainer) {
 		userRentContainer.addEventListener('click', handleCopyText);
 	}
@@ -28,7 +52,20 @@ document.addEventListener('DOMContentLoaded', function () {
 //==================Functions==================================
 //=============================================================
 
+// -----====== For mobile menu ========----
+menuSwitcher.addEventListener('change', (e) => {
+	if (e.target.checked) {
+		menuSwitcher.labels[0].title = 'close';
+	} else if (!e.target.checked) {
+		menuSwitcher.labels[0].title = 'mobile menu';
+	}
+});
+mobileMenu.addEventListener('click', () => {
+	menuSwitcher.checked = false;
+});
+
 // -----====== Code for decor blocks (SVG animated images) ========----
+
 function hiddenDecorImages() {
 	if (decorBlodksOnPage) {
 		decorBlodksOnPage.forEach(element => {
@@ -36,7 +73,6 @@ function hiddenDecorImages() {
 		});
 	}
 }
-
 function showDecorImages() {
 	if (decorBlodksOnPage) {
 		decorBlodksOnPage.forEach(element => {
@@ -44,9 +80,8 @@ function showDecorImages() {
 		});
 	}
 }
-//=============================================================
-
 // -----====== Code for modal window ========----
+
 $("#new-rent").iziModal({
 	width: 1074,
 	padding: 0,
@@ -67,7 +102,8 @@ $("#new-rent").iziModal({
 	}
 });
 // ----==== Code for block user-rents (user's reant cards) =====-----
-// Function for copy data button in user rent card
+
+// Function for copy data button in user rent card 
 function handleCopyText(event) {
 	if (event.target.classList.contains('rent-card__parameter-value--button')) {
 		const button = event.target;
@@ -109,7 +145,7 @@ function addRentCard(gameName, endTime, completionTime, login, password, steamGu
 											<h4 class="rent-card__name">${gameName}</h4>
 
 											<div class="rent-card__remain-time">
-													<span>${endTime}</span>
+													<span>Активна ещё ${endTime}</span>
 											</div>
 									</div>
 
@@ -152,179 +188,14 @@ function addRentCard(gameName, endTime, completionTime, login, password, steamGu
 		console.log('На этой странице нету блока с арендами.');
 	}
 }
-
 // ----==== Code for form in modal window ====----
-// Create Rent
-async function createRent(rentNumber) {
-	const data = {
-		code: rentNumber
-	};
 
-	const response = await fetch(BACK_END_URL + "create_rent", {
-		method: 'POST',
-		headers: {
-			'accept': 'application/json',
-			'Content-Type': 'application/json'
-		},
-		body: JSON.stringify(data)
-	});
-
-	if (!response.ok) {
-		throw new Error(`HTTP error! status: ${response.status}`);
-	}
-
-	return await response.json();
-}
-async function getRent(rentNumber) {
-	// Construct URL with query parameter
-	const url = new URL(BACK_END_URL + "rent");
-	url.searchParams.append('code', rentNumber);
-
-	const response = await fetch(url, {
-		method: 'GET',
-		headers: {
-			'accept': 'application/json'
-		}
-	});
-
-	if (!response.ok) {
-		throw new Error(`HTTP error! status: ${response.status}`);
-	}
-
-	return await response.json();
-}
-// 1. Функция для получения списка из localStorage по ключу
-function getListFromLocalStorage(key) {
-	// Получаем данные из localStorage по ключу
-	const data = localStorage.getItem(key);
-
-	// Если данные есть - парсим их из JSON и возвращаем
-	// Если нет - возвращаем пустой массив
-	return data ? JSON.parse(data) : [];
-}
-// 2. Функция для добавления значения в список по ключу (без дубликатов)
-function addItemToLocalStorageList(key, newItem) {
-	// Получаем текущий список
-	const currentList = getListFromLocalStorage(key);
-
-	// Проверяем, существует ли уже такой элемент в списке
-	if (!currentList.includes(newItem)) {
-		// Добавляем новый элемент в список, если его еще нет
-		currentList.push(newItem);
-
-		// Сохраняем обновленный список обратно в localStorage
-		localStorage.setItem(key, JSON.stringify(currentList));
-
-		return true;
-
-	} else {
-		return false;
-	}
-}
-// 3. Функция для удаления элемента из списка в localStorage по ключу
-function removeItemFromLocalStorageList(key, itemToRemove) {
-	// Получаем текущий список
-	const currentList = getListFromLocalStorage(key);
-
-	// Проверяем существование элемента в списке
-	const itemIndex = currentList.indexOf(itemToRemove);
-
-	if (itemIndex !== -1) {
-		// Удаляем элемент из списка
-		currentList.splice(itemIndex, 1);
-
-		// Сохраняем обновленный список обратно в localStorage
-		localStorage.setItem(key, JSON.stringify(currentList));
-		return true;
-	}
-
-	// Возвращаем false если элемент не был найден
-	return false;
-}
-// Инциализация аренды по коду
-async function init_rent(code) {
-	// Нужно сделать проверку есть ли уже такой элемент на странице
-	const rent_obj = await getRent(code);
-
-	// Так-как аренда истекла мы убираем её из localstorage
-	if (rent_obj.status == "EXPIRED") {
-		removeItemFromLocalStorageList('rents', rent_obj.code);
-	}
-
-	// Парсим дату с сервера как UTC, добавляя 'Z' при необходимости
-	const finishDateStr = rent_obj.finish_date.endsWith('Z')
-		? rent_obj.finish_date
-		: rent_obj.finish_date.replace(' ', 'T') + 'Z';
-	const finishDate = new Date(finishDateStr);
-
-	// Получаем текущее время в UTC
-	const now = new Date();
-
-	// Форматируем дату окончания в локальном времени
-	const formattedDate = finishDate.toLocaleString('ru-RU', {
-		month: 'long',
-		day: 'numeric',
-		hour: '2-digit',
-		minute: '2-digit'
-	});
-
-	// Вычисляем оставшееся время в формате "осталось X часов Y минут"
-	const timeLeft = finishDate - now;
-	const hoursLeft = Math.floor(timeLeft / (1000 * 60 * 60));
-	const minutesLeft = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-
-	let timeLeftString = '';
-	if (hoursLeft > 0) {
-		timeLeftString += `${hoursLeft} час${getHoursWord(hoursLeft)}`;
-		if (minutesLeft > 0) {
-			timeLeftString += ` ${minutesLeft} минут${getMinutesWord(minutesLeft)}`;
-		}
-	} else if (minutesLeft > 0) {
-		timeLeftString += `Осталось немного: ${minutesLeft} минут${getMinutesWord(minutesLeft)}`;
-	} else {
-		timeLeftString = 'время истекло';
-	}
-
-	// Вспомогательные функции для правильного склонения
-	function getHoursWord(hours) {
-		if (hours % 10 === 1 && hours % 100 !== 11) return '';
-		if ([2, 3, 4].includes(hours % 10) && ![12, 13, 14].includes(hours % 100)) return 'а';
-		return 'ов';
-	}
-
-	function getMinutesWord(minutes) {
-		if (minutes % 10 === 1 && minutes % 100 !== 11) return 'а';
-		if ([2, 3, 4].includes(minutes % 10) && ![12, 13, 14].includes(minutes % 100)) return 'ы';
-		return '';
-	}
-
-	// Размещаем контент на странице
-	addRentCard(
-		rent_obj.game_name,
-		timeLeftString, // Формат: "осталось X часов Y минут"
-		formattedDate,  // Формат: "месяц, день, часы:минуты"
-		rent_obj.login,
-		rent_obj.password,
-		rent_obj.steam_guard,
-		rent_obj.quick_invite
-	);
-
-	// Закрываем модалку
-	const emptySection = document.querySelector('.empty');
-	const rentsBlock = document.querySelector('.user-rents');
-	if (rentsBlock && emptySection) {
-		rentsBlock.classList.remove('delete-element');
-		emptySection.classList.add('delete-element');
-	}
-	document.activeElement.blur();
-	$('#new-rent').iziModal('close');
-
-
-}
-// Form submit function
-async function handleFormSubmit(event) {
+// Form submit function 
+function handleFormSubmit(event) {
 	event.preventDefault();
+	// Здесь можно добавить логику для отправки данных на сервер
 	const rentInput = document.getElementById('rent-number');
+	const userMessage = document.getElementById('user-message');
 
 	validateUuidV4(rentInput);
 
@@ -333,61 +204,26 @@ async function handleFormSubmit(event) {
 		return;
 	}
 
-	const rentNumber = document.getElementById('rent-number').value;
+	const emptySection = document.querySelector('.empty');
+	const rentsBlock = document.querySelector('.user-rents');
 
-	try {
-		// Добавляем await здесь, чтобы дождаться результата
-		const response = await createRent(rentNumber);
-		console.log(response);
+	// Если вдруг понадобится получить данные из формы
+	// const rentNumber = document.getElementById('rent-number').value;
+	// const userMessage = document.getElementById('user-message').value;
 
-		if (response.status == "NOT_FOUND") {
-			alert('Ключ для активации аренды не найден, проверьте его и попробуйте ещё раз!');
-			// модалку не убираем, ибо вдруг чел ошибься, меньше действий надо чтобы исправить =)
-
-		} else if (response.status == "STARTED") {
-			// Добавляем в localstorage и проверяем есть ли аренда на странице
-			let hevent_rent = addItemToLocalStorageList('rents', response.code);
-			if (hevent_rent == true) {
-				// Вызываем инит аренды
-				// Добавляем аренду
-				await init_rent(response.code);
-			} else {
-				alert('Ключ был уже использован.');
-				//:todo придумать по лучше
-			}
-		} else if (response.status == "EXPIRED") {
-			alert('Ключ был уже использован.');
-
-		} else if (response.status == "ACCOUNT_NOT_FOUND") {
-			alert('Нету доступного аккаунта');
-			// todo: Сделать систему брони\возврат
-
-		} else if (response.status == "ERROR") {
-			alert('Произошла ошибка при создании аренды.');
-		}
-
-	} catch (error) {
-		console.error('Ошибка при создании аренды:', error);
-		alert('Произошла ошибка при обработке запроса');
+	if (rentsBlock && emptySection) {
+		rentsBlock.classList.remove('delete-element');
+		emptySection.classList.add('delete-element');
 	}
+	document.activeElement.blur();
+	$('#new-rent').iziModal('close');
+
+	addRentCard(gameName, endTime, completionTime, login, password, steamGuardCode, friendData);
+
+	rentInput.value = '';
+	if (userMessage) userMessage.value = '';
+	rentInput.setCustomValidity('');
 }
-async function init_rents() {
-	const rents = getListFromLocalStorage('rents');
-	// todo: Придумать как отображать аренды сразу а не после ответа от сервера
-	if (rents.length === 0) {
-		const emptyContainer = document.getElementById('empty_container');
-		if (emptyContainer) {
-			emptyContainer.classList.remove('delete-element');
-		}
-		return;
-	}
-
-	for (const rent of rents) {
-		await init_rent(rent);
-	}
-}
-
-init_rents();
 
 //___________ Validation input functions ________
 // Handling the input field. ( Setting up validation )
@@ -399,7 +235,6 @@ function setupUuidValidation(input) {
 		validateUuidV4(input);
 	});
 }
-
 // Function of create UUID v4 mask
 function applyUuidV4Mask(input) {
 	input.addEventListener('input', () => {
@@ -416,8 +251,7 @@ function applyUuidV4Mask(input) {
 		input.value = value;
 	});
 }
-
-// Function of validate input ( UUID v4 )
+// Function of validate input ( UUID v4 ) 
 function validateUuidV4(input) {
 	const uuidV4Regex = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 	let errorMessage = '';
@@ -431,5 +265,89 @@ function validateUuidV4(input) {
 	input.setCustomValidity(errorMessage);
 }
 
+// -----====== For accordions. Pages faq and problem ========----
+function initAccordion() {
+	$("#accordion").accordion({
+		active: 0,
+		collapsible: true,
+		header: "dt"
+	});
+}
 
+// ----===== Code For background space paralax animation =====-----
 
+// !IMPORTANT-Function for setting the frequency of function calls( so as not to overload the CPU too much)
+function throttle(func, ms) {
+	let isThrottled = false;
+	let savedArgs;
+	let savedThis;
+
+	function wrapper() {
+		if (isThrottled) {
+			savedArgs = arguments;
+			savedThis = this;
+			return;
+		}
+
+		func.apply(this, arguments);
+		isThrottled = true;
+
+		setTimeout(() => {
+			isThrottled = false;
+			if (savedArgs) {
+				wrapper.apply(savedThis, savedArgs);
+				savedArgs = savedThis = null;
+			}
+		}, ms);
+	}
+
+	return wrapper;
+}
+
+// Function throttled resize ( so as not to overload the CPU too much)
+function updateAll() {
+	updateViewBox();
+}
+window.addEventListener('resize', throttledUpdateAll);
+
+// Function for save viewBox proportion relative to screen for svg background
+function updateViewBox() {
+	const screenWidth = window.innerWidth;
+	const viewBoxWidth = screenWidth <= 767 ? 900 : 1500;
+	const aspectRatio = screenWidth / window.innerHeight;
+	const viewBoxHeight = viewBoxWidth / aspectRatio;
+
+	svg.setAttribute('viewBox', `0 0 ${viewBoxWidth} ${viewBoxHeight}`);
+	return { viewBoxWidth, viewBoxHeight };
+}
+
+// Function of generation circles to background svg
+for (let i = 0; i < starsCount; i++) {
+	const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+
+	circle.setAttribute('cx', Math.random() * viewBoxWidth);
+	circle.setAttribute('cy', Math.random() * viewBoxHeight);
+	circle.setAttribute('r', baseRadius + Math.random() * 0.5);
+	circle.setAttribute('fill', '#9C92AC');
+	circle.style.opacity = 0.05;
+	circle.style.animation = `twinkle ${3 + Math.random() * 4}s infinite`;
+	circle.style.setProperty('--delay', Math.random() * 5);
+
+	svg.appendChild(circle);
+}
+
+// Function for mouse paralax effect
+function updateParallax() {
+	posX += (targetX - posX) * 0.05;
+	posY += (targetY - posY) * 0.05;
+
+	svg.style.transform = `translate3d(${posX}px, ${posY}px, 0)`;
+	requestAnimationFrame(updateParallax);
+}
+
+// Function  tracks changes in the user's mouse position and sets the coordinates for parallax
+document.addEventListener('mousemove', (e) => {
+	targetX = (e.clientX / window.innerWidth) * 40 - 20;
+	targetY = (e.clientY / window.innerHeight) * 40 - 20;
+});
+updateParallax();

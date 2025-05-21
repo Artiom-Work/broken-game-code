@@ -168,6 +168,7 @@ svg * {
   --color-modal-bg: var(--color-light);
   --color-input-bg: var(--color-gray-light);
   --accordion-question-color-bg: var(--color-light);
+  --preloader-color: var(--color-dark);
 }
 @media (max-width: 1280px) {
   :root {
@@ -193,6 +194,7 @@ svg * {
   --color-modal-bg: var(--color-dark-light);
   --color-input-bg: var(--color-dark);
   --accordion-question-color-bg: var(--color-dark-light);
+  --preloader-color: var(--color-light);
 }
 
 .container {
@@ -540,6 +542,59 @@ a {
     opacity: 0.2;
   }
 }
+@-webkit-keyframes showPreloader {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes showPreloader {
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes terminator {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes terminator {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  --s: 7px;
+  --t: 0.1s;
+  width: calc(10 * var(--s));
+  height: calc(9 * var(--s));
+  display: grid;
+  grid: repeat(9, var(--s))/repeat(10, var(--s));
+}
+.loader__item {
+  opacity: 0.1;
+  background: var(--c, var(--preloader-color));
+  -webkit-animation: showPreloader 1s infinite alternate;
+          animation: showPreloader 1s infinite alternate;
+  -webkit-animation-delay: calc(var(--i) * var(--t));
+          animation-delay: calc(var(--i) * var(--t));
+  grid-area: var(--y)/var(--x);
+}
+.loader__item--red {
+  --c: var(--color-red-bright);
+  -webkit-animation: terminator 1s infinite ease-in;
+          animation: terminator 1s infinite ease-in;
+}
+
 .space {
   position: fixed;
   top: 0;
@@ -886,8 +941,8 @@ circle {
 }
 .decor-block__image--heart-modal {
   fill: var(--color-current);
-  top: -50px;
-  left: -680px;
+  top: -190px;
+  left: -480px;
 }
 @media (max-width: 1750px) {
   .decor-block__image--heart-modal {
@@ -946,9 +1001,9 @@ circle {
 }
 .decor-block__image--potion-modal {
   fill: var(--color-current);
-  top: -67px;
-  right: -650px;
-  rotate: -6deg;
+  top: -197px;
+  right: -510px;
+  rotate: 14deg;
 }
 @media (max-width: 1750px) {
   .decor-block__image--potion-modal {
@@ -1004,8 +1059,8 @@ circle {
 }
 .decor-block__image--sword-modal {
   fill: var(--color-current);
-  bottom: -40px;
-  left: -686px;
+  bottom: -300px;
+  left: -546px;
 }
 @media (max-width: 1750px) {
   .decor-block__image--sword-modal {
@@ -1073,8 +1128,8 @@ circle {
 }
 .decor-block__image--robot-modal {
   fill: var(--color-current);
-  bottom: -93px;
-  right: -656px;
+  bottom: -203px;
+  right: -506px;
 }
 @media (max-width: 1750px) {
   .decor-block__image--robot-modal {
@@ -1287,59 +1342,6 @@ circle {
           transform: translateY(-100%);
 }
 
-.empty {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  text-align: center;
-  max-width: var(--container-width);
-  padding-block: clamp(188px, 23vw, 292px) 50px;
-}
-.empty__image {
-  -webkit-animation: moveTop 1s infinite alternate ease-in-out;
-          animation: moveTop 1s infinite alternate ease-in-out;
-  fill: var(--color-current);
-}
-@media (max-width: 767px) {
-  .empty__image {
-    width: 91px;
-    height: 82px;
-  }
-}
-.empty__image-wrapper {
-  margin-block: 0 24px;
-}
-.empty__title {
-  margin-block: 0 11px;
-  font-size: clamp(20px, 2.8125vw, 36px);
-}
-.empty__text {
-  font-size: clamp(16px, 2.5vw, 32px);
-  color: var(--color-gray);
-}
-.empty__text:not(:last-child) {
-  margin-block: 0 26px;
-}
-@media (max-width: 767px) {
-  .empty__text {
-    padding-inline: 10px;
-  }
-}
-.empty__button {
-  padding-inline: 27px;
-  font-size: clamp(20px, 1.875vw, 24px);
-}
-
 .new-rent {
   padding: 40px 60px 65px;
   height: 419px !important;
@@ -1534,29 +1536,6 @@ circle {
     padding-inline: clamp(50px, 5.3vw, 103px);
     height: clamp(var(--button-height), 3.14vw, 62px);
   }
-}
-
-.user-rents__title:not(:last-child) {
-  margin-block: 0 46px;
-}
-@media (max-width: 767px) {
-  .user-rents__title:not(:last-child) {
-    margin-block: 0 31px;
-  }
-}
-.user-rents__list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: start;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  gap: clamp(15px, 5.3vw, 69px);
 }
 
 .rent-card {

@@ -1,0 +1,417 @@
+.loader {
+  @include abs-center;
+
+  --s: 7px;
+  --t: 0.1s;
+  width: calc(10 * var(--s));
+  height: calc(9 * var(--s));
+  display: grid;
+  grid: repeat(9, var(--s)) / repeat(10, var(--s));
+
+  &__item {
+    opacity: 0.1;
+    background: var(--c, var(--preloader-color));
+    animation: showPreloader 1s infinite alternate;
+    animation-delay: calc(var(--i) * var(--t));
+    grid-area: var(--y) / var(--x);
+
+    &--red {
+      --c: var(--color-red-bright);
+      animation: terminator 1s infinite ease-in;
+    }
+  }
+}
+
+// ======== my-version ======== //
+// .loader-container {
+//   --width: 140px;
+//   --height: 126px;
+//   //======///
+//   --x-1: 14px;
+//   --x-2: 28px;
+//   --x-3: 42px;
+//   --x-4: 56px;
+//   --x-5: 70px;
+//   --x-6: 84px;
+//   --x-7: 98px;
+//   --x-8: 112px;
+//   --x-9: 126px;
+//   --x-10: 140px;
+//   //=====//
+//   --time-step-1: 0.1s;
+//   --time-step-2: 0.2s;
+//   --time-step-3: 0.3s;
+//   --time-step-4: 0.4s;
+//   --time-step-5: 0.5s;
+//   --time-step-6: 0.6s;
+//   --time-step-7: 0.7s;
+//   --time-step-8: 0.8s;
+//   --time-step-9: 0.9s;
+//   --time-step-10: 1s;
+//   --animation-time: 1s;
+//   //=====//
+//   --element: var(--preloader-color);
+//   --red-element: var(--color-red-bright);
+//   --bg: var(--color-main-bg);
+//   --border: 0px;
+//   --opacity: 0.1;
+//   //=====//
+//   // padding: 100px;
+//   // width: 100vw;
+//   // height: 100vh;
+//   // overflow: hidden;
+//   // position: relative;
+//   // background: var(--bg);
+// }
+
+// .loader {
+//   position: absolute;
+//   width: var(--width);
+//   height: var(--height);
+//   top: 20%; // onTime
+//   left: 50%;
+//   margin-left: -50px;
+//   margin-top: -50px;
+
+//   &__block {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     display: inline-block;
+//     opacity: var(--opacity);
+//     border: var(--border) solid var(--element);
+//     width: var(--x-1);
+//     height: var(--x-1);
+//     background: var(--element);
+//     animation: showPreloader var(--animation-time) infinite alternate;
+
+//     &--empty {
+//       opacity: 0 !important;
+//     }
+//     &--red {
+//       background: var(--red-element);
+//       opacity: 0.5;
+//       animation: terminator var(--animation-time) infinite ease-in;
+//     }
+//     &--1 {
+//       translate: 0 0;
+//       animation-delay: var(--time-step-1);
+
+//       &_row-2 {
+//         translate: 0 var(--x-1);
+//       }
+//       &_row-3 {
+//         translate: 0 var(--x-2);
+//       }
+//       &_row-4 {
+//         translate: 0 var(--x-3);
+//       }
+//       &_row-5 {
+//         translate: 0 var(--x-4);
+//       }
+//       &_row-6 {
+//         translate: 0 var(--x-5);
+//       }
+//       &_row-7 {
+//         translate: 0 var(--x-6);
+//       }
+//       &_row-8 {
+//         translate: 0 var(--x-7);
+//       }
+//       &_row-9 {
+//         translate: 0 var(--x-8);
+//       }
+//       &_row-10 {
+//         translate: 0 var(--x-8);
+//       }
+//     }
+//     &--2 {
+//       translate: var(--x-1) 0;
+//       animation-delay: var(--time-step-2);
+
+//       &_row-2 {
+//         translate: var(--x-1) var(--x-1);
+//       }
+//       &_row-3 {
+//         translate: var(--x-1) var(--x-2);
+//       }
+//       &_row-4 {
+//         translate: var(--x-1) var(--x-3);
+//       }
+//       &_row-5 {
+//         translate: var(--x-1) var(--x-4);
+//       }
+//       &_row-6 {
+//         translate: var(--x-1) var(--x-5);
+//       }
+//       &_row-7 {
+//         translate: var(--x-1) var(--x-6);
+//       }
+//       &_row-8 {
+//         translate: var(--x-1) var(--x-7);
+//       }
+//       &_row-9 {
+//         translate: var(--x-1) var(--x-8);
+//       }
+//       &_row-10 {
+//         translate: var(--x-1) var(--x-8);
+//       }
+//     }
+//     &--3 {
+//       translate: var(--x-2) 0;
+//       animation-delay: var(--time-step-3);
+
+//       &_row-2 {
+//         translate: var(--x-2) var(--x-1);
+//       }
+//       &_row-3 {
+//         translate: var(--x-2) var(--x-2);
+//       }
+//       &_row-4 {
+//         translate: var(--x-2) var(--x-3);
+//       }
+//       &_row-5 {
+//         translate: var(--x-2) var(--x-4);
+//       }
+//       &_row-6 {
+//         translate: var(--x-2) var(--x-5);
+//       }
+//       &_row-7 {
+//         translate: var(--x-2) var(--x-6);
+//       }
+//       &_row-8 {
+//         translate: var(--x-2) var(--x-7);
+//       }
+//       &_row-9 {
+//         translate: var(--x-2) var(--x-8);
+//       }
+//       &_row-10 {
+//         translate: var(--x-2) var(--x-8);
+//       }
+//     }
+//     &--4 {
+//       translate: var(--x-3) 0;
+//       animation-delay: var(--time-step-4);
+
+//       &_row-2 {
+//         translate: var(--x-3) var(--x-1);
+//       }
+//       &_row-3 {
+//         translate: var(--x-3) var(--x-2);
+//       }
+//       &_row-4 {
+//         translate: var(--x-3) var(--x-3);
+//       }
+//       &_row-5 {
+//         translate: var(--x-3) var(--x-4);
+//       }
+//       &_row-6 {
+//         translate: var(--x-3) var(--x-5);
+//       }
+//       &_row-7 {
+//         translate: var(--x-3) var(--x-6);
+//       }
+//       &_row-8 {
+//         translate: var(--x-3) var(--x-7);
+//       }
+//       &_row-9 {
+//         translate: var(--x-3) var(--x-8);
+//       }
+//       &_row-10 {
+//         translate: var(--x-3) var(--x-8);
+//       }
+//     }
+//     &--5 {
+//       translate: var(--x-4) 0;
+//       animation-delay: var(--time-step-5);
+
+//       &_row-2 {
+//         translate: var(--x-4) var(--x-1);
+//       }
+//       &_row-3 {
+//         translate: var(--x-4) var(--x-2);
+//       }
+//       &_row-4 {
+//         translate: var(--x-4) var(--x-3);
+//       }
+//       &_row-5 {
+//         translate: var(--x-4) var(--x-4);
+//       }
+//       &_row-6 {
+//         translate: var(--x-4) var(--x-5);
+//       }
+//       &_row-7 {
+//         translate: var(--x-4) var(--x-6);
+//       }
+//       &_row-8 {
+//         translate: var(--x-4) var(--x-7);
+//       }
+//       &_row-9 {
+//         translate: var(--x-4) var(--x-8);
+//       }
+//       &_row-10 {
+//         translate: var(--x-4) var(--x-8);
+//       }
+//     }
+//     &--6 {
+//       translate: var(--x-5) 0;
+//       animation-delay: var(--time-step-6);
+
+//       &_row-2 {
+//         translate: var(--x-5) var(--x-1);
+//       }
+//       &_row-3 {
+//         translate: var(--x-5) var(--x-2);
+//       }
+//       &_row-4 {
+//         translate: var(--x-5) var(--x-3);
+//       }
+//       &_row-5 {
+//         translate: var(--x-5) var(--x-4);
+//       }
+//       &_row-6 {
+//         translate: var(--x-5) var(--x-5);
+//       }
+//       &_row-7 {
+//         translate: var(--x-5) var(--x-6);
+//       }
+//       &_row-8 {
+//         translate: var(--x-5) var(--x-8);
+//       }
+//       &_row-9 {
+//         translate: var(--x-5) var(--x-8);
+//       }
+//       &_row-10 {
+//         translate: var(--x-5) var(--x-8);
+//       }
+//     }
+//     &--7 {
+//       translate: var(--x-6) 0;
+//       animation-delay: var(--time-step-7);
+
+//       &_row-2 {
+//         translate: var(--x-6) var(--x-1);
+//       }
+//       &_row-3 {
+//         translate: var(--x-6) var(--x-2);
+//       }
+//       &_row-4 {
+//         translate: var(--x-6) var(--x-3);
+//       }
+//       &_row-5 {
+//         translate: var(--x-6) var(--x-4);
+//       }
+//       &_row-6 {
+//         translate: var(--x-6) var(--x-5);
+//       }
+//       &_row-7 {
+//         translate: var(--x-6) var(--x-6);
+//       }
+//       &_row-8 {
+//         translate: var(--x-6) var(--x-7);
+//       }
+//       &_row-9 {
+//         translate: var(--x-6) var(--x-8);
+//       }
+//       &_row-10 {
+//         translate: var(--x-6) var(--x-8);
+//       }
+//     }
+//     &--8 {
+//       translate: var(--x-7) 0;
+//       animation-delay: var(--time-step-8);
+
+//       &_row-2 {
+//         translate: var(--x-7) var(--x-1);
+//       }
+//       &_row-3 {
+//         translate: var(--x-7) var(--x-2);
+//       }
+//       &_row-4 {
+//         translate: var(--x-7) var(--x-3);
+//       }
+//       &_row-5 {
+//         translate: var(--x-7) var(--x-4);
+//       }
+//       &_row-6 {
+//         translate: var(--x-7) var(--x-5);
+//       }
+//       &_row-7 {
+//         translate: var(--x-7) var(--x-6);
+//       }
+//       &_row-8 {
+//         translate: var(--x-7) var(--x-7);
+//       }
+//       &_row-9 {
+//         translate: var(--x-7) var(--x-8);
+//       }
+//       &_row-10 {
+//         translate: var(--x-7) var(--x-8);
+//       }
+//     }
+//     &--9 {
+//       translate: var(--x-8) 0;
+//       animation-delay: var(--time-step-9);
+
+//       &_row-2 {
+//         translate: var(--x-8) var(--x-1);
+//       }
+//       &_row-3 {
+//         translate: var(--x-8) var(--x-2);
+//       }
+//       &_row-4 {
+//         translate: var(--x-8) var(--x-3);
+//       }
+//       &_row-5 {
+//         translate: var(--x-8) var(--x-4);
+//       }
+//       &_row-6 {
+//         translate: var(--x-8) var(--x-5);
+//       }
+//       &_row-7 {
+//         translate: var(--x-8) var(--x-6);
+//       }
+//       &_row-8 {
+//         translate: var(--x-8) var(--x-7);
+//       }
+//       &_row-9 {
+//         translate: var(--x-8) var(--x-8);
+//       }
+//       &_row-10 {
+//         translate: var(--x-8) var(--x-8);
+//       }
+//     }
+//     &--10 {
+//       translate: var(--x-9) 0;
+//       animation-delay: var(--time-step-10);
+
+//       &_row-2 {
+//         translate: var(--x-9) var(--x-1);
+//       }
+//       &_row-3 {
+//         translate: var(--x-9) var(--x-2);
+//       }
+//       &_row-4 {
+//         translate: var(--x-9) var(--x-3);
+//       }
+//       &_row-5 {
+//         translate: var(--x-9) var(--x-4);
+//       }
+//       &_row-6 {
+//         translate: var(--x-9) var(--x-5);
+//       }
+//       &_row-7 {
+//         translate: var(--x-9) var(--x-6);
+//       }
+//       &_row-8 {
+//         translate: var(--x-9) var(--x-7);
+//       }
+//       &_row-9 {
+//         translate: var(--x-9) var(--x-8);
+//       }
+//       &_row-10 {
+//         translate: var(--x-9) var(--x-8);
+//       }
+//     }
+//   }
+// }

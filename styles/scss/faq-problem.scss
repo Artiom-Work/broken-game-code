@@ -1,19 +1,4 @@
-// connecting general scss files
-@import "./base/_normolize.scss";
-@import "./base/_fonts.scss";
 @import "./base/_mixins.scss";
 @import "./base/_media.scss";
-@import "./base/_variables.scss";
-@import "./base/_utils.scss";
-@import "./base/_globals.scss";
-@import "./base/_animations.scss";
-//blocks
-@import "./blocks/_space.scss";
-@import "./blocks/_button.scss";
-@import "./blocks/_logo.scss";
-@import "./blocks/_decor-block.scss";
-@import "./blocks/_header.scss";
-@import "./blocks/_menu.scss";
-@import "./blocks/_mobile-menu.scss";
-@import "./blocks/_new-rent.scss";
+//=================//
 @import "./blocks/_accordion.scss";

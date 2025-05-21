@@ -51,6 +51,7 @@
   --color-modal-bg: var(--color-light);
   --color-input-bg: var(--color-gray-light);
   --accordion-question-color-bg: var(--color-light);
+  --preloader-color: var(--color-dark);
   //===============================
 
   @include desktop-media {
@@ -73,4 +74,5 @@
   --color-modal-bg: var(--color-dark-light);
   --color-input-bg: var(--color-dark);
   --accordion-question-color-bg: var(--color-dark-light);
+  --preloader-color: var(--color-light);
 }
