@@ -64,6 +64,32 @@
           left: -20px;
         }
       }
+
+      &-modal-extend {
+        top: -190px;
+        left: -480px;
+
+        @media (max-width: 1750px) {
+          top: -140px;
+          left: -359px;
+        }
+        @include desktop-media {
+          top: -121px;
+          left: -320px;
+        }
+        @include tablet-media {
+          top: -118px;
+          left: -240px;
+        }
+        @include mobile-media {
+          top: -105px;
+          left: -80px;
+        }
+        @include mobile-s-media {
+          top: -115px;
+          left: -20px;
+        }
+      }
     }
 
     &--potion {
@@ -105,6 +131,27 @@
         }
         @include mobile-media {
           top: -141px;
+          right: 0;
+        }
+      }
+      &-modal-extend {
+        top: -197px;
+        right: -510px;
+        rotate: -14deg;
+        @media (max-width: 1750px) {
+          top: -185px;
+          right: -320px;
+          rotate: 0deg;
+        }
+        @include desktop-media {
+          top: -150px;
+          right: -270px;
+        }
+        @include tablet-media {
+          top: -131px;
+          right: -170px;
+        }
+        @include mobile-media {
           right: 0;
         }
       }
@@ -152,6 +199,26 @@
         @include mobile-s-media {
           bottom: -120px;
           left: -25px;
+        }
+      }
+      &-modal-extend {
+        @media (max-width: 1750px) {
+          bottom: -221px;
+          left: -403px;
+        }
+        @include desktop-media {
+          bottom: -161px;
+          left: -273px;
+        }
+        @include tablet-media {
+          left: -179px;
+          bottom: -121px;
+        }
+        @include mobile-media {
+          left: -61px;
+        }
+        @include mobile-s-media {
+          left: 5px;
         }
       }
     }
@@ -202,6 +269,21 @@
         @include mobile-s-media {
           right: 0;
           bottom: -120px;
+        }
+      }
+      &-modal-extend {
+        @media (max-width: 1750px) {
+          bottom: -168px;
+        }
+        @include tablet-media {
+          bottom: -128px;
+          right: -220px;
+        }
+        @include mobile-media {
+          right: -120px;
+        }
+        @include mobile-media {
+          right: 0px;
         }
       }
     }

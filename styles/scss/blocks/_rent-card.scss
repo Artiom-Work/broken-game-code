@@ -28,6 +28,7 @@
       margin-block: 0 11px;
     }
   }
+
   &__name {
     font-size: 24px;
 
@@ -39,9 +40,11 @@
       font-size: 13px;
     }
   }
+
   &__remain-time {
     @include flex-center(true);
 
+    position: relative;
     min-height: 36px;
     padding-inline: 8px;
     font-size: 16px;
@@ -50,11 +53,72 @@
     color: var(--color-green);
     text-shadow: var(--text-shadow-dark);
     box-shadow: var(--box-shadow);
+    white-space: nowrap;
+    text-align: center;
+    cursor: default;
+
     @include mobile-s-media {
       font-size: 10px;
       min-height: 23px;
     }
+
+    &:hover,
+    &:active {
+      &::before {
+        content: "У вас осталось времени";
+        position: absolute;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        height: 100%;
+        padding-inline: 7px;
+        background-color: var(--color-green-light);
+        text-shadow: var(--text-shadow-dark);
+        box-shadow: var(--box-shadow);
+        color: var(--color-green);
+        right: 10%;
+        top: -120%;
+        border-radius: inherit;
+        z-index: 2;
+        opacity: 0;
+        animation: showMessage 0.3s forwards;
+      }
+      &::after {
+        position: absolute;
+        content: "";
+        height: 50%;
+        aspect-ratio: 1;
+        background-color: var(--color-green-light);
+        z-index: 1;
+        right: 20%;
+        top: -50%;
+        rotate: 45deg;
+        opacity: 0;
+        animation: showMessage 0.5s forwards;
+      }
+    }
+    &--medium {
+      background-color: var(--color-orange-light);
+    }
+    &--low {
+      background-color: var(--color-red);
+      color: var(--color-current);
+
+      &:hover,
+      &:active {
+        &::before,
+        &::after {
+          background-color: inherit;
+          color: inherit;
+        }
+        &::before {
+          content: "Времени осталось совсем мало...";
+        }
+      }
+    }
   }
+
   &__body {
     margin-block: 0 33px;
 
@@ -62,6 +126,7 @@
       margin-block: 0 18px;
     }
   }
+
   &__parameter {
     @include flex-space-between;
     gap: 8px;
@@ -121,6 +186,7 @@
       gap: clamp(10px, 2.3vw, 30px);
     }
   }
+
   &__button {
     --rentCardButtonHeight: clamp(29.5px, 3.6vw, var(--button-height));
 
@@ -148,6 +214,10 @@
       @include mobile-media {
         padding-inline: 8px;
       }
+    }
+    &--low-time {
+      outline: 3px solid rgba(255, 0, 0, 0.3);
+      animation: flashing-red-border 2s infinite;
     }
   }
 }

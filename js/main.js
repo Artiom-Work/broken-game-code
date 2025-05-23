@@ -80,7 +80,7 @@ function showDecorImages() {
 		});
 	}
 }
-// -----====== Code for modal window ========----
+// -----====== Code for modal windows ========----
 
 $("#new-rent").iziModal({
 	width: 1074,
@@ -101,13 +101,33 @@ $("#new-rent").iziModal({
 		document.activeElement && document.activeElement.blur();
 	}
 });
+
+$("#rent-extend").iziModal({
+	width: 1074,
+	padding: 0,
+	focusInput: false,
+	overlayColor: 'rgba(49, 47, 47, 0.5)',
+	bodyOverflow: true,
+	onOpening: function () {
+		document.querySelectorAll('body > :not(#rent-extend)').forEach(el => el.classList.add('blurred'));
+		document.body.classList.add('lock-body-y');
+	},
+	onClosed: function () {
+		document.body.classList.remove('lock-body-y');
+		document.querySelectorAll('body > :not(#rent-extend)').forEach(el => el.classList.remove('blurred'));
+		document.activeElement && document.activeElement.blur();
+	}
+});
+
+
+
 // ----==== Code for block user-rents (user's reant cards) =====-----
 
 // Function for copy data button in user rent card 
 function handleCopyText(event) {
 	if (event.target.classList.contains('rent-card__parameter-value--button')) {
 		const button = event.target;
-		const textToCopy = button.dataset.copyAddToFriends;
+		const textToCopy = button.dataset.copy;
 
 		navigator.clipboard.writeText(textToCopy)
 			.then(() => {
@@ -145,36 +165,40 @@ function addRentCard(gameName, endTime, completionTime, login, password, steamGu
 											<h4 class="rent-card__name">${gameName}</h4>
 
 											<div class="rent-card__remain-time">
-													<span>Активна ещё ${endTime}</span>
+													<span>${endTime}</span>
 											</div>
 									</div>
 
 									<ul class="rent-card__body">
 											<li class="rent-card__parameter">
 													<span class="rent-card__parameter-name">Время завершения</span>
-													<span class="rent-card__parameter-value">${completionTime}</span>
+														<button class="rent-card__parameter-value rent-card__parameter-value--button" type="button"
+														data-copy="${completionTime}" aria-live="polite title="Копировать">${completionTime}</button>
 											</li>
 											<li class="rent-card__parameter">
 													<span class="rent-card__parameter-name">Логин:</span>
-													<span class="rent-card__parameter-value">${login}</span>
+													<button class="rent-card__parameter-value rent-card__parameter-value--button" type="button"
+														data-copy="${login}" aria-live="polite title="Копировать">${login}</button>
 											</li>
 											<li class="rent-card__parameter">
 													<span class="rent-card__parameter-name">Пароль:</span>
-													<span class="rent-card__parameter-value">${password}</span>
+												  <button class="rent-card__parameter-value rent-card__parameter-value--button" type="button"
+														data-copy="${password}" aria-live="polite title="Копировать">${password}</button>
 											</li>
 											<li class="rent-card__parameter">
 													<span class="rent-card__parameter-name">Steam Guard Code:</span>
-													<span class="rent-card__parameter-value">${steamGuardCode}</span>
+														<button class="rent-card__parameter-value rent-card__parameter-value--button" type="button"
+														data-copy="${steamGuardCode}" aria-live="polite" title="Копировать">${steamGuardCode}</button>
 											</li>
 											<li class="rent-card__parameter">
 													<span class="rent-card__parameter-name">Для&nbsp;добавления в&nbsp;друзья:</span>
 													<button class="rent-card__parameter-value rent-card__parameter-value--button" type="button"
-															data-copy-add-to-friends="${friendData}" aria-live="polite" title="Копировать">скопировать</button>
+													data-copy="${friendData}" aria-live="polite" title="Копировать">Скопировать</button>
 											</li>
 									</ul>
 
 									<div class="rent-card__button-group">
-											<button class="rent-card__button button" type="button" aria-label="Продлить аренду ${gameName}">Продлить</button>
+											<button class="rent-card__button button open-modal" type="button" aria-label="Продлить аренду ${gameName}">Продлить</button>
 											<a class="rent-card__button button button--color-red rent-card__button--small-padding" href="problem.html"
 													aria-label="Проблема c аккаунтом">Проблема с&nbsp;акком</a>
 									</div>
@@ -183,6 +207,22 @@ function addRentCard(gameName, endTime, completionTime, login, password, steamGu
 			`;
 
 		userRentContainer.insertAdjacentHTML('beforeend', rentCardHTML);
+
+		$(document).on('click', '.open-modal', function () {
+			const modalExtend = document.querySelector('.new-rent__header--extend');
+			if (modalExtend) {
+				const currentModalTitle = modalExtend.querySelector('.new-rent__title');
+				if (currentModalTitle) {
+					currentModalTitle.remove();
+				}
+				const extendModalHeading = `
+					<h3 class="new-rent__title">Продление ${gameName}&nbsp;/ ${login}</h3>
+					`;
+				modalExtend.insertAdjacentHTML('afterbegin', extendModalHeading);
+			}
+
+			$('#rent-extend').iziModal('open');
+		});
 	} else {
 
 		console.log('На этой странице нету блока с арендами.');
@@ -263,15 +303,6 @@ function validateUuidV4(input) {
 	}
 
 	input.setCustomValidity(errorMessage);
-}
-
-// -----====== For accordions. Pages faq and problem ========----
-function initAccordion() {
-	$("#accordion").accordion({
-		active: 0,
-		collapsible: true,
-		header: "dt"
-	});
 }
 
 // ----===== Code For background space paralax animation =====-----

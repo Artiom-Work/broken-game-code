@@ -1,3 +1,30 @@
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  --s: 7px;
+  --t: 0.1s;
+  width: calc(10 * var(--s));
+  height: calc(9 * var(--s));
+  display: grid;
+  grid: repeat(9, var(--s))/repeat(10, var(--s));
+}
+.loader__item {
+  opacity: 0.1;
+  background: var(--c, var(--preloader-color));
+  -webkit-animation: showPreloader 1s infinite alternate;
+          animation: showPreloader 1s infinite alternate;
+  -webkit-animation-delay: calc(var(--i) * var(--t));
+          animation-delay: calc(var(--i) * var(--t));
+  grid-area: var(--y)/var(--x);
+}
+.loader__item--red {
+  --c: var(--color-red-bright);
+  -webkit-animation: terminator 1s infinite ease-in;
+          animation: terminator 1s infinite ease-in;
+}
+
 .user-rents__title:not(:last-child) {
   margin-block: 0 46px;
 }

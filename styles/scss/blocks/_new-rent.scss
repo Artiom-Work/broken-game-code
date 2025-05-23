@@ -20,6 +20,24 @@
     padding: 20px;
     height: 210px !important;
   }
+
+  &--extend#rent-extend {
+    height: 560px !important;
+
+    @include desktop-media {
+      height: 530px !important;
+    }
+    @include tablet-media {
+      height: 400px !important;
+    }
+    @include mobile-media {
+      height: 375px !important;
+    }
+    @include mobile-s-media {
+      height: 400px !important;
+    }
+  }
+
   &__header {
     @include flex-space-between;
 
@@ -31,18 +49,61 @@
     @include tablet-media {
       margin-block: 0 20px;
     }
+
+    &--extend {
+      margin-block: 0 21px;
+
+      @include tablet-media {
+        margin-block: 0 10px;
+      }
+    }
   }
+
   &__body {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: start;
   }
+
+  &__ratios-wrapper {
+    @include flex-space-between;
+
+    gap: clamp(5px, 2.5vw, 48px);
+    width: 100%;
+    margin-block: 0 43px;
+
+    @include tablet-media {
+      margin-block: 0 20px;
+    }
+  }
+
   &__title {
     @include fluid-text(32, 20);
 
     font-weight: 400;
     color: var(--color-current);
+  }
+
+  &__text {
+    @include fluid-text(24, 16);
+
+    color: var(--color-gray);
+
+    &--extend {
+      margin-block: 33px;
+
+      p:not(:last-child) {
+        margin-bottom: 0;
+      }
+
+      @include tablet-media {
+        margin-block: 15px;
+      }
+    }
+    &--color {
+      color: var(--color-current);
+    }
   }
 
   &__input {
@@ -61,14 +122,19 @@
       padding: 10px;
     }
 
-    & {
+    &_mb,
+    &-extend {
       margin-block: 0 63px;
 
-      @include desktop-media {
-        margin-block: 0 43px;
-      }
       @include tablet-media {
-        margin-block: 0 20px;
+        margin-block: 0 30px;
+      }
+
+      &-extend {
+        margin-block: 0 43px;
+        @include mobile-media {
+          margin-block: 0 20px;
+        }
       }
     }
 
@@ -107,7 +173,12 @@
       caret-color: var(--color-current) !important;
       transition: background-color 5000s ease-in-out 0s;
     }
+
+    &-ratio:checked + label {
+      outline: 3px solid var(--color-red-bright);
+    }
   }
+
   &__button {
     font-size: 32px;
     padding-inline: 103px;
@@ -120,6 +191,19 @@
 
       padding-inline: clamp(50px, 5.3vw, 103px);
       height: clamp(var(--button-height), 3.14vw, 62px);
+    }
+
+    &--ratio {
+      @include fluid-text(32, 18);
+
+      flex-shrink: 0;
+      max-width: clamp(90px, 7.8vw, 150px);
+      width: 100%;
+      padding-inline: 10px;
+
+      @include mobile-media {
+        max-width: clamp(46px, 11.73vw, 90px);
+      }
     }
   }
 }

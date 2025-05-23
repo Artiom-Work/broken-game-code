@@ -84,6 +84,15 @@
     opacity: 1;
   }
 }
+@keyframes flashing-red-border {
+  0%,
+  100% {
+    outline-color: rgba(255, 0, 0, 0.3);
+  }
+  50% {
+    outline-color: rgba(255, 0, 0, 1);
+  }
+}
 // For space background
 @keyframes twinkle {
   0%,
@@ -94,6 +103,7 @@
     opacity: 0.2;
   }
 }
+
 // For preloader
 @keyframes showPreloader {
   to {
@@ -109,6 +119,7 @@
     opacity: 1;
   }
 }
+
 //==my-verstion==//
 // @keyframes showPreloader {
 //   from {

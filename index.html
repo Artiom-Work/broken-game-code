@@ -152,7 +152,7 @@
 
 		<form class="new-rent__body" id="new-rent-form">
 			<label class="visually-hidden" for="rent-number">Код пользователя</label>
-			<input class="new-rent__input" type="text" name="rent-number" id="rent-number" maxlength="40"
+			<input class="new-rent__input new-rent__input_mb" type="text" name="rent-number" id="rent-number" maxlength="40"
 				placeholder="введите код полученный на сайте" required>
 
 			<button class="new-rent__button button" type="submit" title="Активировать новую аренду">Новая аренда</button>
@@ -172,74 +172,82 @@
 
 	</dialog>
 
+	<dialog class="new-rent new-rent--extend" id="rent-extend" aria-label="Продление аренды">
+		<h2 class="visually-hidden">Модальное окно для продления аренды</h2>
+		<div class="decor-block decor-block--top">
+			<svg class="decor-block__image decor-block__image--heart decor-block__image--heart-modal-extend"
+				viewBox="0 0 150 150" width="150" height="150" aria-hidden="true">
+				<use xlink:href="./images/icons/sprite-icons.svg#heart"></use>
+			</svg>
 
-	<div class="loader visually-hidden">
+			<svg class="decor-block__image decor-block__image--potion decor-block__image--potion-modal-extend"
+				viewBox="0 0 768 1024" width="134" height="179" aria-hidden="true">
+				<use xlink:href="./images/icons/sprite-icons.svg#potion"></use>
+			</svg>
+		</div>
 
-		<span class="loader__item" style="--i:3;--x:3;--y:1"></span>
-		<span class="loader__item" style="--i:8;--x:8;--y:1"></span>
+		<header class="new-rent__header new-rent__header--extend">
 
-		<span class="loader__item" style="--i:1;--x:1;--y:2"></span>
-		<span class="loader__item" style="--i:4;--x:4;--y:2"></span>
-		<span class="loader__item" style="--i:7;--x:7;--y:2"></span>
-		<span class="loader__item" style="--i:10;--x:10;--y:2"></span>
+			<button class="new-rent__close-button close-button" data-izimodal-close="" title="Закрыть модальное окно">
+			</button>
+		</header>
 
-		<span class="loader__item" style="--i:1;--x:1;--y:3"></span>
-		<span class="loader__item" style="--i:3;--x:3;--y:3"></span>
-		<span class="loader__item" style="--i:4;--x:4;--y:3"></span>
-		<span class="loader__item" style="--i:5;--x:5;--y:3"></span>
-		<span class="loader__item" style="--i:6;--x:6;--y:3"></span>
-		<span class="loader__item" style="--i:7;--x:7;--y:3"></span>
-		<span class="loader__item" style="--i:8;--x:8;--y:3"></span>
-		<span class="loader__item" style="--i:10;--x:10;--y:3"></span>
+		<div class="new-rent__text new-rent__text--extend">
+			<p>
+				Вам нужен ещё один ключ такой-же игры
+				Купить его вы&nbsp;можете по&nbsp;кнопкам ниже
 
-		<span class="loader__item" style="--i:1;--x:1;--y:4"></span>
-		<span class="loader__item" style="--i:2;--x:2;--y:4"></span>
-		<span class="loader__item" style="--i:3;--x:3;--y:4"></span>
-		<span class="loader__item loader__item--red" style="--i:4;--x:4;--y:4" data-red></span>
-		<span class="loader__item" style="--i:5;--x:5;--y:4"></span>
-		<span class="loader__item" style="--i:6;--x:6;--y:4"></span>
-		<span class="loader__item" style="--i:8;--x:8;--y:4"></span>
-		<span class="loader__item" style="--i:9;--x:9;--y:4"></span>
-		<span class="loader__item" style="--i:10;--x:10;--y:4"></span>
+			</p>
+			<p class="new-rent__text new-rent__text--color">
+				Выберите время:
+			</p>
+		</div>
 
-		<span class="loader__item" style="--i:1;--x:1;--y:5"></span>
-		<span class="loader__item" style="--i:2;--x:2;--y:5"></span>
-		<span class="loader__item" style="--i:3;--x:3;--y:5"></span>
-		<span class="loader__item" style="--i:4;--x:4;--y:5"></span>
-		<span class="loader__item" style="--i:5;--x:5;--y:5"></span>
-		<span class="loader__item" style="--i:6;--x:6;--y:5"></span>
-		<span class="loader__item" style="--i:7;--x:7;--y:5"></span>
-		<span class="loader__item" style="--i:8;--x:8;--y:5"></span>
-		<span class="loader__item" style="--i:9;--x:9;--y:5"></span>
-		<span class="loader__item" style="--i:10;--x:10;--y:5"></span>
+		<form class="new-rent__body" id="rent-extend-form">
 
-		<span class="loader__item" style="--i:2;--x:2;--y:6"></span>
-		<span class="loader__item" style="--i:3;--x:3;--y:6"></span>
-		<span class="loader__item" style="--i:4;--x:4;--y:6"></span>
-		<span class="loader__item" style="--i:5;--x:5;--y:6"></span>
-		<span class="loader__item" style="--i:6;--x:6;--y:6"></span>
-		<span class="loader__item" style="--i:7;--x:7;--y:6"></span>
-		<span class="loader__item" style="--i:8;--x:8;--y:6"></span>
-		<span class="loader__item" style="--i:9;--x:9;--y:6"></span>
+			<div class="new-rent__ratios-wrapper">
+				<input class="new-rent__input-ratio visually-hidden" type="radio" id="1-hour" name="new-rent-time" value="1"
+					checked>
+				<label class="new-rent__button new-rent__button--ratio button" for="1-hour"
+					aria-label="Продление страницы на 1 час" title="Продлить аренду на 1 час">1</label>
 
-		<span class="loader__item" style="--i:3;--x:3;--y:7"></span>
-		<span class="loader__item" style="--i:4;--x:4;--y:7"></span>
-		<span class="loader__item" style="--i:5;--x:5;--y:7"></span>
-		<span class="loader__item" style="--i:6;--x:6;--y:7"></span>
-		<span class="loader__item" style="--i:7;--x:7;--y:7"></span>
-		<span class="loader__item" style="--i:8;--x:8;--y:7"></span>
+				<input class="new-rent__input-ratio visually-hidden" type="radio" id="3-hour" name="new-rent-time" value="3">
+				<label class="new-rent__button new-rent__button--ratio button" for="3-hour"
+					aria-label="Продление страницы на 3 часа" title="Продлить аренду на 3 часа">3</label>
 
-		<span class="loader__item" style="--i:2;--x:2;--y:8"></span>
-		<span class="loader__item" style="--i:3;--x:3;--y:8"></span>
-		<span class="loader__item" style="--i:8;--x:8;--y:8"></span>
-		<span class="loader__item" style="--i:9;--x:9;--y:8"></span>
+				<input class="new-rent__input-ratio visually-hidden" type="radio" id="6-hour" name="new-rent-time" value="6">
+				<label class="new-rent__button new-rent__button--ratio button" for="6-hour"
+					aria-label="Продление страницы на 6 часов" title="Продлить аренду на 6 часов">6</label>
 
-		<span class="loader__item" style="--i:1;--x:1;--y:9"></span>
-		<span class="loader__item" style="--i:2;--x:2;--y:9"></span>
-		<span class="loader__item" style="--i:9;--x:9;--y:9"></span>
-		<span class="loader__item" style="--i:10;--x:10;--y:9"></span>
-	</div>
+				<input class="new-rent__input-ratio visually-hidden" type="radio" id="12-hour" name="new-rent-time" value="12">
+				<label class="new-rent__button new-rent__button--ratio button" for="12-hour"
+					aria-label="Продление страницы на 12 часов" title="Продлить аренду на 12 часов">12</label>
 
+				<input class="new-rent__input-ratio visually-hidden" type="radio" id="24-hour" name="new-rent-time" value="24">
+				<label class="new-rent__button new-rent__button--ratio button" for="24-hour"
+					aria-label="Продление страницы на 24 часа" title="Продлить аренду на 24 часа">24</label>
+			</div>
+
+			<label class="visually-hidden" for="extend-rent-number">Код пользователя</label>
+			<input class="new-rent__input new-rent__input_mb-extend" type="text" name="rent-number" id="extend-rent-number"
+				maxlength="40" placeholder="введите код полученный на сайте" required>
+
+			<button class="new-rent__button button" type="submit" title="Продлить аренду">Продлить</button>
+		</form>
+
+		<div class="decor-block decor-block--bottom">
+			<svg class="decor-block__image decor-block__image--sword decor-block__image--sword-modal-extend"
+				viewBox="0 0 170 316" width="237" height="237" aria-hidden="true">
+				<use xlink:href="./images/icons/sprite-icons.svg#sword"></use>
+			</svg>
+
+			<svg class="decor-block__image decor-block__image--robot decor-block__image--robot-modal-extend"
+				viewBox="0 0 140 127" width="167" height="150" aria-hidden="true">
+				<use xlink:href="./images/icons/sprite-icons.svg#robot"></use>
+			</svg>
+		</div>
+
+	</dialog>
 
 	<div class="space">
 		<svg class="space__layer" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -258,8 +266,75 @@
 
 </html>
 
+<!-- 
+<div class="loader visually-hidden">
 
+	<span class="loader__item" style="--i:3;--x:3;--y:1"></span>
+	<span class="loader__item" style="--i:8;--x:8;--y:1"></span>
 
+	<span class="loader__item" style="--i:1;--x:1;--y:2"></span>
+	<span class="loader__item" style="--i:4;--x:4;--y:2"></span>
+	<span class="loader__item" style="--i:7;--x:7;--y:2"></span>
+	<span class="loader__item" style="--i:10;--x:10;--y:2"></span>
+
+	<span class="loader__item" style="--i:1;--x:1;--y:3"></span>
+	<span class="loader__item" style="--i:3;--x:3;--y:3"></span>
+	<span class="loader__item" style="--i:4;--x:4;--y:3"></span>
+	<span class="loader__item" style="--i:5;--x:5;--y:3"></span>
+	<span class="loader__item" style="--i:6;--x:6;--y:3"></span>
+	<span class="loader__item" style="--i:7;--x:7;--y:3"></span>
+	<span class="loader__item" style="--i:8;--x:8;--y:3"></span>
+	<span class="loader__item" style="--i:10;--x:10;--y:3"></span>
+
+	<span class="loader__item" style="--i:1;--x:1;--y:4"></span>
+	<span class="loader__item" style="--i:2;--x:2;--y:4"></span>
+	<span class="loader__item" style="--i:3;--x:3;--y:4"></span>
+	<span class="loader__item loader__item--red" style="--i:4;--x:4;--y:4" data-red></span>
+	<span class="loader__item" style="--i:5;--x:5;--y:4"></span>
+	<span class="loader__item" style="--i:6;--x:6;--y:4"></span>
+	<span class="loader__item" style="--i:8;--x:8;--y:4"></span>
+	<span class="loader__item" style="--i:9;--x:9;--y:4"></span>
+	<span class="loader__item" style="--i:10;--x:10;--y:4"></span>
+
+	<span class="loader__item" style="--i:1;--x:1;--y:5"></span>
+	<span class="loader__item" style="--i:2;--x:2;--y:5"></span>
+	<span class="loader__item" style="--i:3;--x:3;--y:5"></span>
+	<span class="loader__item" style="--i:4;--x:4;--y:5"></span>
+	<span class="loader__item" style="--i:5;--x:5;--y:5"></span>
+	<span class="loader__item" style="--i:6;--x:6;--y:5"></span>
+	<span class="loader__item" style="--i:7;--x:7;--y:5"></span>
+	<span class="loader__item" style="--i:8;--x:8;--y:5"></span>
+	<span class="loader__item" style="--i:9;--x:9;--y:5"></span>
+	<span class="loader__item" style="--i:10;--x:10;--y:5"></span>
+
+	<span class="loader__item" style="--i:2;--x:2;--y:6"></span>
+	<span class="loader__item" style="--i:3;--x:3;--y:6"></span>
+	<span class="loader__item" style="--i:4;--x:4;--y:6"></span>
+	<span class="loader__item" style="--i:5;--x:5;--y:6"></span>
+	<span class="loader__item" style="--i:6;--x:6;--y:6"></span>
+	<span class="loader__item" style="--i:7;--x:7;--y:6"></span>
+	<span class="loader__item" style="--i:8;--x:8;--y:6"></span>
+	<span class="loader__item" style="--i:9;--x:9;--y:6"></span>
+
+	<span class="loader__item" style="--i:3;--x:3;--y:7"></span>
+	<span class="loader__item" style="--i:4;--x:4;--y:7"></span>
+	<span class="loader__item" style="--i:5;--x:5;--y:7"></span>
+	<span class="loader__item" style="--i:6;--x:6;--y:7"></span>
+	<span class="loader__item" style="--i:7;--x:7;--y:7"></span>
+	<span class="loader__item" style="--i:8;--x:8;--y:7"></span>
+
+	<span class="loader__item" style="--i:2;--x:2;--y:8"></span>
+	<span class="loader__item" style="--i:3;--x:3;--y:8"></span>
+	<span class="loader__item" style="--i:8;--x:8;--y:8"></span>
+	<span class="loader__item" style="--i:9;--x:9;--y:8"></span>
+
+	<span class="loader__item" style="--i:1;--x:1;--y:9"></span>
+	<span class="loader__item" style="--i:2;--x:2;--y:9"></span>
+	<span class="loader__item" style="--i:9;--x:9;--y:9"></span>
+	<span class="loader__item" style="--i:10;--x:10;--y:9"></span>
+</div>
+
+ -->
 
 <!-- my version of preloader  -->
 
