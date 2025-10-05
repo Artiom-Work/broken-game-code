@@ -33,7 +33,7 @@
 </head>
 
 <body>
-	<header class="header container">
+	<header class="header container hide-content">
 		<div class="header__logo logo">
 			<a class="logo__link" href="index.html" aria-label="Логотип" title="Логотип">OhShitMyCodeBroken</a>
 		</div>
@@ -97,7 +97,7 @@
 
 	</header>
 
-	<main>
+	<main class="hide-content">
 		<h1 class="visually-hidden">OhShitMyCodeBroken</h1>
 
 		<section class="empty container" id="empty_container">
@@ -121,13 +121,11 @@
 				title="Создать новую аренда">Новая аренда</button>
 		</section>
 
-
 		<section class="user-rents container section section--main-page delete-element">
 			<h2 class="user-rents__title section__title">Ваши аренды</h2>
 
 			<ul class="user-rents__list"></ul>
 		</section>
-
 	</main>
 
 	<dialog class="new-rent" id="new-rent" aria-label="Активация аренды">
@@ -143,6 +141,7 @@
 				<use xlink:href="./images/icons/sprite-icons.svg#potion"></use>
 			</svg>
 		</div>
+
 		<header class="new-rent__header">
 			<h3 class="new-rent__title">Активация аренды</h3>
 
@@ -249,6 +248,73 @@
 
 	</dialog>
 
+	<div class="loader show-content">
+
+		<span class="loader__item" style="--i:3;--x:3;--y:1"></span>
+		<span class="loader__item" style="--i:8;--x:8;--y:1"></span>
+
+		<span class="loader__item" style="--i:1;--x:1;--y:2"></span>
+		<span class="loader__item" style="--i:4;--x:4;--y:2"></span>
+		<span class="loader__item" style="--i:7;--x:7;--y:2"></span>
+		<span class="loader__item" style="--i:10;--x:10;--y:2"></span>
+
+		<span class="loader__item" style="--i:1;--x:1;--y:3"></span>
+		<span class="loader__item" style="--i:3;--x:3;--y:3"></span>
+		<span class="loader__item" style="--i:4;--x:4;--y:3"></span>
+		<span class="loader__item" style="--i:5;--x:5;--y:3"></span>
+		<span class="loader__item" style="--i:6;--x:6;--y:3"></span>
+		<span class="loader__item" style="--i:7;--x:7;--y:3"></span>
+		<span class="loader__item" style="--i:8;--x:8;--y:3"></span>
+		<span class="loader__item" style="--i:10;--x:10;--y:3"></span>
+
+		<span class="loader__item" style="--i:1;--x:1;--y:4"></span>
+		<span class="loader__item" style="--i:2;--x:2;--y:4"></span>
+		<span class="loader__item" style="--i:3;--x:3;--y:4"></span>
+		<span class="loader__item loader__item--red" style="--i:4;--x:4;--y:4" data-red></span>
+		<span class="loader__item" style="--i:5;--x:5;--y:4"></span>
+		<span class="loader__item" style="--i:6;--x:6;--y:4"></span>
+		<span class="loader__item" style="--i:8;--x:8;--y:4"></span>
+		<span class="loader__item" style="--i:9;--x:9;--y:4"></span>
+		<span class="loader__item" style="--i:10;--x:10;--y:4"></span>
+
+		<span class="loader__item" style="--i:1;--x:1;--y:5"></span>
+		<span class="loader__item" style="--i:2;--x:2;--y:5"></span>
+		<span class="loader__item" style="--i:3;--x:3;--y:5"></span>
+		<span class="loader__item" style="--i:4;--x:4;--y:5"></span>
+		<span class="loader__item" style="--i:5;--x:5;--y:5"></span>
+		<span class="loader__item" style="--i:6;--x:6;--y:5"></span>
+		<span class="loader__item" style="--i:7;--x:7;--y:5"></span>
+		<span class="loader__item" style="--i:8;--x:8;--y:5"></span>
+		<span class="loader__item" style="--i:9;--x:9;--y:5"></span>
+		<span class="loader__item" style="--i:10;--x:10;--y:5"></span>
+
+		<span class="loader__item" style="--i:2;--x:2;--y:6"></span>
+		<span class="loader__item" style="--i:3;--x:3;--y:6"></span>
+		<span class="loader__item" style="--i:4;--x:4;--y:6"></span>
+		<span class="loader__item" style="--i:5;--x:5;--y:6"></span>
+		<span class="loader__item" style="--i:6;--x:6;--y:6"></span>
+		<span class="loader__item" style="--i:7;--x:7;--y:6"></span>
+		<span class="loader__item" style="--i:8;--x:8;--y:6"></span>
+		<span class="loader__item" style="--i:9;--x:9;--y:6"></span>
+
+		<span class="loader__item" style="--i:3;--x:3;--y:7"></span>
+		<span class="loader__item" style="--i:4;--x:4;--y:7"></span>
+		<span class="loader__item" style="--i:5;--x:5;--y:7"></span>
+		<span class="loader__item" style="--i:6;--x:6;--y:7"></span>
+		<span class="loader__item" style="--i:7;--x:7;--y:7"></span>
+		<span class="loader__item" style="--i:8;--x:8;--y:7"></span>
+
+		<span class="loader__item" style="--i:2;--x:2;--y:8"></span>
+		<span class="loader__item" style="--i:3;--x:3;--y:8"></span>
+		<span class="loader__item" style="--i:8;--x:8;--y:8"></span>
+		<span class="loader__item" style="--i:9;--x:9;--y:8"></span>
+
+		<span class="loader__item" style="--i:1;--x:1;--y:9"></span>
+		<span class="loader__item" style="--i:2;--x:2;--y:9"></span>
+		<span class="loader__item" style="--i:9;--x:9;--y:9"></span>
+		<span class="loader__item" style="--i:10;--x:10;--y:9"></span>
+	</div>
+
 	<div class="space">
 		<svg class="space__layer" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
 		</svg>
@@ -265,76 +331,6 @@
 </body>
 
 </html>
-
-<!-- 
-<div class="loader visually-hidden">
-
-	<span class="loader__item" style="--i:3;--x:3;--y:1"></span>
-	<span class="loader__item" style="--i:8;--x:8;--y:1"></span>
-
-	<span class="loader__item" style="--i:1;--x:1;--y:2"></span>
-	<span class="loader__item" style="--i:4;--x:4;--y:2"></span>
-	<span class="loader__item" style="--i:7;--x:7;--y:2"></span>
-	<span class="loader__item" style="--i:10;--x:10;--y:2"></span>
-
-	<span class="loader__item" style="--i:1;--x:1;--y:3"></span>
-	<span class="loader__item" style="--i:3;--x:3;--y:3"></span>
-	<span class="loader__item" style="--i:4;--x:4;--y:3"></span>
-	<span class="loader__item" style="--i:5;--x:5;--y:3"></span>
-	<span class="loader__item" style="--i:6;--x:6;--y:3"></span>
-	<span class="loader__item" style="--i:7;--x:7;--y:3"></span>
-	<span class="loader__item" style="--i:8;--x:8;--y:3"></span>
-	<span class="loader__item" style="--i:10;--x:10;--y:3"></span>
-
-	<span class="loader__item" style="--i:1;--x:1;--y:4"></span>
-	<span class="loader__item" style="--i:2;--x:2;--y:4"></span>
-	<span class="loader__item" style="--i:3;--x:3;--y:4"></span>
-	<span class="loader__item loader__item--red" style="--i:4;--x:4;--y:4" data-red></span>
-	<span class="loader__item" style="--i:5;--x:5;--y:4"></span>
-	<span class="loader__item" style="--i:6;--x:6;--y:4"></span>
-	<span class="loader__item" style="--i:8;--x:8;--y:4"></span>
-	<span class="loader__item" style="--i:9;--x:9;--y:4"></span>
-	<span class="loader__item" style="--i:10;--x:10;--y:4"></span>
-
-	<span class="loader__item" style="--i:1;--x:1;--y:5"></span>
-	<span class="loader__item" style="--i:2;--x:2;--y:5"></span>
-	<span class="loader__item" style="--i:3;--x:3;--y:5"></span>
-	<span class="loader__item" style="--i:4;--x:4;--y:5"></span>
-	<span class="loader__item" style="--i:5;--x:5;--y:5"></span>
-	<span class="loader__item" style="--i:6;--x:6;--y:5"></span>
-	<span class="loader__item" style="--i:7;--x:7;--y:5"></span>
-	<span class="loader__item" style="--i:8;--x:8;--y:5"></span>
-	<span class="loader__item" style="--i:9;--x:9;--y:5"></span>
-	<span class="loader__item" style="--i:10;--x:10;--y:5"></span>
-
-	<span class="loader__item" style="--i:2;--x:2;--y:6"></span>
-	<span class="loader__item" style="--i:3;--x:3;--y:6"></span>
-	<span class="loader__item" style="--i:4;--x:4;--y:6"></span>
-	<span class="loader__item" style="--i:5;--x:5;--y:6"></span>
-	<span class="loader__item" style="--i:6;--x:6;--y:6"></span>
-	<span class="loader__item" style="--i:7;--x:7;--y:6"></span>
-	<span class="loader__item" style="--i:8;--x:8;--y:6"></span>
-	<span class="loader__item" style="--i:9;--x:9;--y:6"></span>
-
-	<span class="loader__item" style="--i:3;--x:3;--y:7"></span>
-	<span class="loader__item" style="--i:4;--x:4;--y:7"></span>
-	<span class="loader__item" style="--i:5;--x:5;--y:7"></span>
-	<span class="loader__item" style="--i:6;--x:6;--y:7"></span>
-	<span class="loader__item" style="--i:7;--x:7;--y:7"></span>
-	<span class="loader__item" style="--i:8;--x:8;--y:7"></span>
-
-	<span class="loader__item" style="--i:2;--x:2;--y:8"></span>
-	<span class="loader__item" style="--i:3;--x:3;--y:8"></span>
-	<span class="loader__item" style="--i:8;--x:8;--y:8"></span>
-	<span class="loader__item" style="--i:9;--x:9;--y:8"></span>
-
-	<span class="loader__item" style="--i:1;--x:1;--y:9"></span>
-	<span class="loader__item" style="--i:2;--x:2;--y:9"></span>
-	<span class="loader__item" style="--i:9;--x:9;--y:9"></span>
-	<span class="loader__item" style="--i:10;--x:10;--y:9"></span>
-</div>
-
- -->
 
 <!-- my version of preloader  -->
 

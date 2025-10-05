@@ -3,7 +3,7 @@
   top: 50%;
   left: 50%;
   translate: -50% -50%;
-  --s: 7px;
+  --s: 24px;
   --t: 0.1s;
   width: calc(10 * var(--s));
   height: calc(9 * var(--s));

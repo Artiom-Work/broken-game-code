@@ -2,7 +2,6 @@
 
 const menuSwitcher = document.getElementById('menu-switch');
 const mobileMenu = document.querySelector('.mobile-menu__wrapper');
-// const darkModeBtn = document.querySelector('.night-mode-button');
 const decorBlodksOnPage = document.querySelectorAll('.decor-block--on-page');
 // Набор переменных для иммитации создания шаблона ( потом удалить )
 const gameName = 'GAME_NAME';
@@ -31,11 +30,13 @@ document.addEventListener('DOMContentLoaded', function () {
 	const form = document.getElementById('new-rent-form');
 	const rentInput = document.getElementById('rent-number');
 	const userRentContainer = document.querySelector('.user-rents__list');
-	const accordion = document.getElementById('accordion');
+	const pageHeader = document.querySelector('.header');
+	const pageContent = document.querySelector('main');
 
-	if (accordion) {
-		initAccordion();
+	if (pageHeader && pageContent) {
+		showContent(pageHeader, pageContent);
 	}
+
 	if (userRentContainer) {
 		userRentContainer.addEventListener('click', handleCopyText);
 	}
@@ -50,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 //=============================================================
 //==================Functions==================================
-//=============================================================
+//1=============================================================
 
 // -----====== For mobile menu ========----
 menuSwitcher.addEventListener('change', (e) => {
@@ -60,6 +61,7 @@ menuSwitcher.addEventListener('change', (e) => {
 		menuSwitcher.labels[0].title = 'mobile menu';
 	}
 });
+
 mobileMenu.addEventListener('click', () => {
 	menuSwitcher.checked = false;
 });
@@ -382,3 +384,24 @@ document.addEventListener('mousemove', (e) => {
 	targetY = (e.clientY / window.innerHeight) * 40 - 20;
 });
 updateParallax();
+
+// Function for preloader demonstration ( delete in real project)
+
+function showContent(header, main) {
+	const prreloader = document.querySelector('.loader');
+
+	setTimeout(() => {
+		header.classList.add('show-content');
+		main.classList.add('show-content');
+		header.classList.remove('hide-content');
+		main.classList.remove('hide-content');
+		prreloader.classList.remove('show-content');
+		prreloader.classList.add('hide-content');
+	}, 2000);
+
+	setTimeout(() => {
+		prreloader.classList.remove('hide-content');
+		prreloader.classList.add('visually-hidden');
+	}, 3000);
+}
+console.log(pageHeader, pageContent);

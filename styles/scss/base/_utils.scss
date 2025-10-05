@@ -26,6 +26,7 @@
 .delete-element {
   display: none !important;
 }
+
 .blurred {
   filter: blur(5px);
 }
@@ -62,4 +63,14 @@
     opacity: 0;
     animation: showMessage 0.5s forwards;
   }
+}
+
+.hide-content {
+  opacity: 0;
+  transition-duration: 1s;
+}
+
+.show-content {
+  opacity: 1;
+  transition-duration: 1s;
 }

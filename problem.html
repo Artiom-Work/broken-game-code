@@ -34,7 +34,7 @@
 
 <body>
 
-	<header class="header container">
+	<header class="header container  hide-content">
 		<div class="header__logo logo">
 			<a class="logo__link" href="index.html" aria-label="Логотип" title="Логотип">OhShitMyCodeBroken</a>
 		</div>
@@ -96,7 +96,7 @@
 		</div>
 	</header>
 
-	<main>
+	<main class="hide-content">
 		<h1 class="visually-hidden">OhShitMyCodeBroken , решение ваших проблем</h1>
 		<div class="decor-block decor-block--on-page decor-block--top">
 			<svg class="decor-block__image decor-block__image--heart" viewBox="0 0 150 150" width="150" height="150"
@@ -311,6 +311,73 @@
 		</div>
 
 	</dialog>
+
+	<div class="loader show-content">
+
+		<span class="loader__item" style="--i:3;--x:3;--y:1"></span>
+		<span class="loader__item" style="--i:8;--x:8;--y:1"></span>
+
+		<span class="loader__item" style="--i:1;--x:1;--y:2"></span>
+		<span class="loader__item" style="--i:4;--x:4;--y:2"></span>
+		<span class="loader__item" style="--i:7;--x:7;--y:2"></span>
+		<span class="loader__item" style="--i:10;--x:10;--y:2"></span>
+
+		<span class="loader__item" style="--i:1;--x:1;--y:3"></span>
+		<span class="loader__item" style="--i:3;--x:3;--y:3"></span>
+		<span class="loader__item" style="--i:4;--x:4;--y:3"></span>
+		<span class="loader__item" style="--i:5;--x:5;--y:3"></span>
+		<span class="loader__item" style="--i:6;--x:6;--y:3"></span>
+		<span class="loader__item" style="--i:7;--x:7;--y:3"></span>
+		<span class="loader__item" style="--i:8;--x:8;--y:3"></span>
+		<span class="loader__item" style="--i:10;--x:10;--y:3"></span>
+
+		<span class="loader__item" style="--i:1;--x:1;--y:4"></span>
+		<span class="loader__item" style="--i:2;--x:2;--y:4"></span>
+		<span class="loader__item" style="--i:3;--x:3;--y:4"></span>
+		<span class="loader__item loader__item--red" style="--i:4;--x:4;--y:4" data-red></span>
+		<span class="loader__item" style="--i:5;--x:5;--y:4"></span>
+		<span class="loader__item" style="--i:6;--x:6;--y:4"></span>
+		<span class="loader__item" style="--i:8;--x:8;--y:4"></span>
+		<span class="loader__item" style="--i:9;--x:9;--y:4"></span>
+		<span class="loader__item" style="--i:10;--x:10;--y:4"></span>
+
+		<span class="loader__item" style="--i:1;--x:1;--y:5"></span>
+		<span class="loader__item" style="--i:2;--x:2;--y:5"></span>
+		<span class="loader__item" style="--i:3;--x:3;--y:5"></span>
+		<span class="loader__item" style="--i:4;--x:4;--y:5"></span>
+		<span class="loader__item" style="--i:5;--x:5;--y:5"></span>
+		<span class="loader__item" style="--i:6;--x:6;--y:5"></span>
+		<span class="loader__item" style="--i:7;--x:7;--y:5"></span>
+		<span class="loader__item" style="--i:8;--x:8;--y:5"></span>
+		<span class="loader__item" style="--i:9;--x:9;--y:5"></span>
+		<span class="loader__item" style="--i:10;--x:10;--y:5"></span>
+
+		<span class="loader__item" style="--i:2;--x:2;--y:6"></span>
+		<span class="loader__item" style="--i:3;--x:3;--y:6"></span>
+		<span class="loader__item" style="--i:4;--x:4;--y:6"></span>
+		<span class="loader__item" style="--i:5;--x:5;--y:6"></span>
+		<span class="loader__item" style="--i:6;--x:6;--y:6"></span>
+		<span class="loader__item" style="--i:7;--x:7;--y:6"></span>
+		<span class="loader__item" style="--i:8;--x:8;--y:6"></span>
+		<span class="loader__item" style="--i:9;--x:9;--y:6"></span>
+
+		<span class="loader__item" style="--i:3;--x:3;--y:7"></span>
+		<span class="loader__item" style="--i:4;--x:4;--y:7"></span>
+		<span class="loader__item" style="--i:5;--x:5;--y:7"></span>
+		<span class="loader__item" style="--i:6;--x:6;--y:7"></span>
+		<span class="loader__item" style="--i:7;--x:7;--y:7"></span>
+		<span class="loader__item" style="--i:8;--x:8;--y:7"></span>
+
+		<span class="loader__item" style="--i:2;--x:2;--y:8"></span>
+		<span class="loader__item" style="--i:3;--x:3;--y:8"></span>
+		<span class="loader__item" style="--i:8;--x:8;--y:8"></span>
+		<span class="loader__item" style="--i:9;--x:9;--y:8"></span>
+
+		<span class="loader__item" style="--i:1;--x:1;--y:9"></span>
+		<span class="loader__item" style="--i:2;--x:2;--y:9"></span>
+		<span class="loader__item" style="--i:9;--x:9;--y:9"></span>
+		<span class="loader__item" style="--i:10;--x:10;--y:9"></span>
+	</div>
 
 	<div class="space">
 		<svg class="space__layer" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
